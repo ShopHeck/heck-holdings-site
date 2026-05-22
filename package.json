@@ -1,0 +1,22 @@
+{
+  "name": "heck-holdings-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "og": "node scripts/build-og.mjs",
+    "deploy": "wrangler pages deploy dist --project-name=heck-holdings"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.34.5",
+    "vite": "^5.4.10"
+  }
+}
