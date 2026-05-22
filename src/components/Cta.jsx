@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Logo } from './Nav.jsx';
 
-// Replace with your Cal.com handle, e.g. "heckholdings/audit"
-const CAL_LINK = 'heckholdings/audit';
+const CAL_LINK = 'shop-heck/heck-holdings-consult';
 
 export default function Cta() {
   const calRef = useRef(null);
