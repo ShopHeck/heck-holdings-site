@@ -11,6 +11,18 @@ export async function onRequestPost({ request, env }) {
       return json({ error: 'Server missing ANTHROPIC_API_KEY' }, 500);
     }
 
+    // Rate limit per client IP. Soft-fails open if RATE_LIMIT KV binding
+    // isn't configured — better to over-serve than block real users.
+    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+    const rl = await checkRateLimit(env, ip);
+    if (!rl.ok) {
+      return json(
+        { error: `Rate limit exceeded (per-${rl.reason} cap). Try again shortly.` },
+        429,
+        { 'retry-after': String(rl.retryAfter) },
+      );
+    }
+
     const body = await request.json().catch(() => ({}));
     const business = String(body.business || '').slice(0, 500).trim();
     const workflow = String(body.workflow || '').slice(0, 500).trim();
@@ -75,12 +87,52 @@ Be specific to the business and workflow described. No generic AI slop.`;
   }
 }
 
-function json(data, status) {
+function json(data, status, extraHeaders = {}) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
+      ...extraHeaders,
     },
   });
+}
+
+// Two-tier sliding-window rate limit backed by Cloudflare KV.
+// - 5 requests / minute / IP   (burst protection)
+// - 30 requests / hour / IP    (sustained-drip protection)
+//
+// If env.RATE_LIMIT (the KV namespace binding) is missing, we fail OPEN
+// rather than block real users; the binding is the one piece of config the
+// operator has to set in the CF Pages dashboard (see README).
+async function checkRateLimit(env, ip) {
+  if (!env.RATE_LIMIT || ip === 'unknown') return { ok: true };
+
+  const now = Date.now();
+  const minBucket = Math.floor(now / 60_000);
+  const hrBucket = Math.floor(now / 3_600_000);
+  const minKey = `rl:${ip}:m:${minBucket}`;
+  const hrKey = `rl:${ip}:h:${hrBucket}`;
+
+  try {
+    const [minStr, hrStr] = await Promise.all([
+      env.RATE_LIMIT.get(minKey),
+      env.RATE_LIMIT.get(hrKey),
+    ]);
+    const minCount = Number(minStr || 0);
+    const hrCount = Number(hrStr || 0);
+
+    if (minCount >= 5)  return { ok: false, retryAfter: 60,   reason: 'minute' };
+    if (hrCount >= 30) return { ok: false, retryAfter: 3600, reason: 'hour' };
+
+    // Best-effort writes; KV is eventually consistent and that's fine here.
+    await Promise.all([
+      env.RATE_LIMIT.put(minKey, String(minCount + 1), { expirationTtl: 70 }),
+      env.RATE_LIMIT.put(hrKey,  String(hrCount + 1),  { expirationTtl: 3700 }),
+    ]);
+    return { ok: true };
+  } catch (e) {
+    console.warn('Rate limit KV error, failing open', e);
+    return { ok: true };
+  }
 }

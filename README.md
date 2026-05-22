@@ -59,6 +59,34 @@ If you prefer no GitHub Actions: in the CF dashboard, *Pages → Create project 
 | `index.html` | `og:url` / canonical — change to your real domain once live |
 | `src/components/Cta.jsx` | LinkedIn URL in footer (currently a placeholder slug) |
 
+## Rate limiting the AgentBuilder
+
+[functions/api/agent-spec.js](functions/api/agent-spec.js) enforces a two-tier per-IP cap on Claude calls so a bad actor can't drain your Anthropic credits:
+
+- **5 requests / minute / IP** — burst protection
+- **30 requests / hour / IP** — sustained-drip protection
+
+Counters live in a Cloudflare KV namespace. The function **fails open** if the `RATE_LIMIT` binding is missing — so until you wire it up, every request goes through; once it's wired, the cap is enforced.
+
+### One-time KV setup (5 minutes)
+
+```bash
+# 1. Create a KV namespace (run from your laptop, one time only)
+npx wrangler kv namespace create RATE_LIMIT
+# → outputs an "id" — copy it
+```
+
+Then in the Cloudflare dashboard:
+
+1. **Workers & Pages → heck-holdings → Settings → Functions → KV namespace bindings → Add binding**
+2. Variable name: `RATE_LIMIT`
+3. KV namespace: select the one you just created
+4. Save → trigger a new deploy (push any commit, or *Deployments → ⋯ → Retry deployment*)
+
+That's it. Free tier: KV gives you 100k reads + 1k writes per day, which covers ~500 AgentBuilder submissions before you'd see throttling — well past anything a marketing site needs.
+
+If you ever want to **tune the limits**, edit the two integer caps near the top of `checkRateLimit()` in `functions/api/agent-spec.js`.
+
 ## AgentBuilder (the `#contact` section)
 
 A 3-step conversational wizard that asks the visitor about their business + a painful workflow, calls Claude server-side, and returns a custom agent spec (name, hours saved, ship time, revenue impact, day-1 action). The "Book the audit with this brief" button opens Cal.com in a new tab with the spec **prefilled into the booking notes** — so you walk into the call with the brief already in hand.

@@ -93,6 +93,13 @@ function AgentBuilder({ onBook }) {
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ business: biz, workflow: wf }),
       });
+      if (res.status === 429) {
+        const payload = await res.json().catch(() => ({}));
+        setSpec(fallback);
+        setErrMsg(payload.error || 'Slow down — you\'ve hit the rate limit. Try again in a minute.');
+        setStep('ready');
+        return;
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const parsed = await res.json();
       parsed.weekly_hours_saved = clamp(Number(parsed.weekly_hours_saved) || fallback.weekly_hours_saved, 6, 30);
