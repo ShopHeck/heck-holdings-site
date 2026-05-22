@@ -27,7 +27,7 @@ export default function App() {
       <Calculator />
       <Projects />
       <About />
-      <Cta onSubmit={scrollToContact} />
+      <Cta />
       <GlobalEffects />
     </>
   );

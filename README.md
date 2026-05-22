@@ -52,11 +52,20 @@ If you prefer no GitHub Actions: in the CF dashboard, *Pages → Create project 
 
 | Where | What |
 | --- | --- |
-| `src/components/Cta.jsx` | `CAL_LINK` — set to your real Cal.com handle (e.g. `heckholdings/audit`) |
+| Cloudflare Pages env vars | **`ANTHROPIC_API_KEY`** — required for the AgentBuilder spec generator. *Pages → heck-holdings → Settings → Environment variables → Production* |
+| `src/components/Cta.jsx` | `CAL_LINK` — your real Cal.com handle (already set to `shop-heck/heck-holdings-consult`) |
 | `index.html` | Cloudflare Analytics `data-cf-beacon` token (currently commented out) |
 | `scripts/og-source.svg` | Edit if you want to tweak the OG card, then `npm run og` |
 | `index.html` | `og:url` / canonical — change to your real domain once live |
 | `src/components/Cta.jsx` | LinkedIn URL in footer (currently a placeholder slug) |
+
+## AgentBuilder (the `#contact` section)
+
+A 3-step conversational wizard that asks the visitor about their business + a painful workflow, calls Claude server-side, and returns a custom agent spec (name, hours saved, ship time, revenue impact, day-1 action). The "Book the audit with this brief" button opens Cal.com in a new tab with the spec **prefilled into the booking notes** — so you walk into the call with the brief already in hand.
+
+- Frontend: [src/components/Cta.jsx](src/components/Cta.jsx)
+- Server-side Claude proxy: [functions/api/agent-spec.js](functions/api/agent-spec.js) — runs as a Cloudflare Pages Function on the same domain (no CORS, no extra hosting). Uses `ANTHROPIC_API_KEY` from the Pages env, never sent to the client.
+- If the API call fails (key missing, rate limit, parse error), the UI degrades to a sensible fallback spec so the demo still completes — with a small "showing a sample" notice.
 
 ## Structure
 
