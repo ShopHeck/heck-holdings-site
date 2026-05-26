@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="section">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow"><span className="dot"></span>06 — Heck Holdings</span>
+          <span className="eyebrow"><span className="dot"></span>07 — Heck Holdings</span>
           <h2>An AI consulting firm<br/><span style={{ color: 'var(--fg-3)' }}>that ships agents, not slide decks.</span></h2>
         </div>
 
@@ -123,9 +123,9 @@ function PullQuote() {
         will spend it <span style={{ color: 'var(--accent)' }}>catching up</span>.
       </blockquote>
       <figcaption>
-        <span className="qc-avatar" aria-hidden="true">CH</span>
+        <span className="qc-avatar" aria-hidden="true">MH</span>
         <span className="qc-meta">
-          <span className="qc-name">Cody Heck</span>
+          <span className="qc-name">Michael Heckert</span>
           <span className="qc-role">Founder, Heck Holdings</span>
         </span>
       </figcaption>

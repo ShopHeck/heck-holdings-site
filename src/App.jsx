@@ -9,7 +9,9 @@ import About from './components/About.jsx';
 import Cta from './components/Cta.jsx';
 import { GlobalEffects } from './components/effects.jsx';
 
-const HEADLINE = "The unfair advantage isn't AI.\nIt's deploying it before your competitors do.";
+// Trailing period on the last line is added by Hero.jsx as an accent — don't
+// include one here or you'll get "competitors do.."
+const HEADLINE = "The unfair advantage isn't AI.\nIt's deploying it before your competitors do";
 
 export default function App() {
   const scrollToContact = () => {

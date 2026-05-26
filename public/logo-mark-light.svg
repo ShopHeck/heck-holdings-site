@@ -1,0 +1,6 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Heck Holdings">
+  <title>Heck Holdings</title>
+  <rect x="15" y="12" width="7" height="40" rx="1.5" fill="#1B1F26"></rect>
+  <rect x="42" y="12" width="7" height="40" rx="1.5" fill="#1B1F26"></rect>
+  <circle cx="32" cy="32" r="4.5" fill="#4D9BFF"></circle>
+</svg>

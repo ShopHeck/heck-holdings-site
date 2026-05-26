@@ -9,7 +9,7 @@ const HECK_MILESTONES = [
   { day: 28, title: 'FrontDesk voice live',     delta: '−31 hrs / wk total' },
   { day: 45, title: 'Compounding',              delta: '+$14,200 / wk · bookings +12%' },
   { day: 70, title: 'Reconcile live + handoff', delta: 'Team trained, on-call rota' },
-  { day: 88, title: 'Status report',            delta: '3 agents, $XXX,XXX/yr reclaimed' },
+  { day: 88, title: 'Status report',            delta: '3 agents, $1.15M/yr run-rate reclaimed' },
 ];
 const TRAD_MILESTONES = [
   { day: 0,  title: 'Engagement signed',  delta: 'SOW v4 countersigned' },

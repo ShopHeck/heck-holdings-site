@@ -522,9 +522,12 @@ function Footer() {
           © 2026 Heck Holdings, LLC · St. Pete, FL · <a href="mailto:hello@heckholdings.com">hello@heckholdings.com</a>
         </div>
         <div className="flex gap-4 mono" style={{ color: 'var(--fg-3)', fontSize: 11.5 }}>
-          <a href="#" style={{ color: 'inherit' }}>Privacy</a>
-          <a href="#" style={{ color: 'inherit' }}>Terms</a>
-          <a href="https://linkedin.com/company/heck-holdings" target="_blank" rel="noreferrer" style={{ color: 'inherit' }}>LinkedIn</a>
+          <a
+            href="https://linkedin.com/in/michael-heckert"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: 'inherit' }}
+          >LinkedIn</a>
         </div>
       </div>
     </footer>
