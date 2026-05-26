@@ -68,9 +68,13 @@ function AgentBuilder({ onBook }) {
   const [errMsg, setErrMsg] = useState(null);
   const inputRef = useRef(null);
 
+  // Auto-focus the input on step changes. preventScroll stops the browser
+  // from yanking the page to the bottom on first load (the AgentBuilder is
+  // the last section). After the visitor advances past 'business', they're
+  // already at this section anyway, so the scroll-on-focus would be a no-op.
   useEffect(() => {
     if ((step === 'business' || step === 'workflow') && inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus({ preventScroll: true });
     }
   }, [step]);
 
