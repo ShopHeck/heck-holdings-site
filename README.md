@@ -61,31 +61,15 @@ If you prefer no GitHub Actions: in the CF dashboard, *Pages → Create project 
 
 ## Rate limiting the AgentBuilder
 
-[functions/api/agent-spec.js](functions/api/agent-spec.js) enforces a two-tier per-IP cap on Claude calls so a bad actor can't drain your Anthropic credits:
+[functions/api/agent-spec.js](functions/api/agent-spec.js) enforces a per-IP cap on Claude calls so a bad actor can't drain your Anthropic credits:
 
-- **5 requests / minute / IP** — burst protection
-- **30 requests / hour / IP** — sustained-drip protection
+- **5 requests / 60-second window / IP**
 
-Counters live in a Cloudflare KV namespace. The function **fails open** if the `RATE_LIMIT` binding is missing — so until you wire it up, every request goes through; once it's wired, the cap is enforced.
+Uses Cloudflare's native **Rate Limiting binding** (configured in [wrangler.toml](wrangler.toml)) — strongly consistent within a colo, atomic, no setup beyond the toml entry. Fails open if the binding is missing.
 
-### One-time KV setup (5 minutes)
+To tune: edit the `simple = { limit = X, period = Y }` line in `wrangler.toml` and push. (`period` must be `10` or `60` per the Cloudflare API.)
 
-```bash
-# 1. Create a KV namespace (run from your laptop, one time only)
-npx wrangler kv namespace create RATE_LIMIT
-# → outputs an "id" — copy it
-```
-
-Then in the Cloudflare dashboard:
-
-1. **Workers & Pages → heck-holdings → Settings → Functions → KV namespace bindings → Add binding**
-2. Variable name: `RATE_LIMIT`
-3. KV namespace: select the one you just created
-4. Save → trigger a new deploy (push any commit, or *Deployments → ⋯ → Retry deployment*)
-
-That's it. Free tier: KV gives you 100k reads + 1k writes per day, which covers ~500 AgentBuilder submissions before you'd see throttling — well past anything a marketing site needs.
-
-If you ever want to **tune the limits**, edit the two integer caps near the top of `checkRateLimit()` in `functions/api/agent-spec.js`.
+For a defense-in-depth daily spend ceiling, set a usage limit at https://console.anthropic.com/settings/limits.
 
 ## AgentBuilder (the `#contact` section)
 

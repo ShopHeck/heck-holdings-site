@@ -98,41 +98,21 @@ function json(data, status, extraHeaders = {}) {
   });
 }
 
-// Two-tier sliding-window rate limit backed by Cloudflare KV.
-// - 5 requests / minute / IP   (burst protection)
-// - 30 requests / hour / IP    (sustained-drip protection)
+// Cloudflare native Rate Limiting binding. Strongly consistent within a
+// colo, atomic increment, sub-millisecond. Configured in wrangler.toml as
+// 5 requests per 60-second window. To adjust the cap, edit the `simple`
+// block in wrangler.toml — no code change needed.
 //
-// If env.RATE_LIMIT (the KV namespace binding) is missing, we fail OPEN
-// rather than block real users; the binding is the one piece of config the
-// operator has to set in the CF Pages dashboard (see README).
+// Fails OPEN if the binding is missing (e.g. local dev) rather than
+// blocking real users.
 async function checkRateLimit(env, ip) {
   if (!env.RATE_LIMIT || ip === 'unknown') return { ok: true };
-
-  const now = Date.now();
-  const minBucket = Math.floor(now / 60_000);
-  const hrBucket = Math.floor(now / 3_600_000);
-  const minKey = `rl:${ip}:m:${minBucket}`;
-  const hrKey = `rl:${ip}:h:${hrBucket}`;
-
   try {
-    const [minStr, hrStr] = await Promise.all([
-      env.RATE_LIMIT.get(minKey),
-      env.RATE_LIMIT.get(hrKey),
-    ]);
-    const minCount = Number(minStr || 0);
-    const hrCount = Number(hrStr || 0);
-
-    if (minCount >= 5)  return { ok: false, retryAfter: 60,   reason: 'minute' };
-    if (hrCount >= 30) return { ok: false, retryAfter: 3600, reason: 'hour' };
-
-    // Best-effort writes; KV is eventually consistent and that's fine here.
-    await Promise.all([
-      env.RATE_LIMIT.put(minKey, String(minCount + 1), { expirationTtl: 70 }),
-      env.RATE_LIMIT.put(hrKey,  String(hrCount + 1),  { expirationTtl: 3700 }),
-    ]);
+    const { success } = await env.RATE_LIMIT.limit({ key: ip });
+    if (!success) return { ok: false, retryAfter: 60, reason: 'minute' };
     return { ok: true };
   } catch (e) {
-    console.warn('Rate limit KV error, failing open', e);
+    console.warn('Rate limit check failed, failing open', e);
     return { ok: true };
   }
 }
