@@ -179,12 +179,18 @@ function ScrubberStage() {
               {axisTicks.map(d => {
                 const isFirst = d === 0;
                 const isLast = d === DAYS_MAX;
+                const near = Math.abs(d - day) < 4 ? '1' : '0';
                 return (
-                  <div key={d} className="scrub-axis-tick" style={{
-                    left: `${dayToPct(d)}%`,
-                    transform: isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)',
-                    alignItems: isFirst ? 'flex-start' : isLast ? 'flex-end' : 'center',
-                  }}>
+                  <div
+                    key={d}
+                    className="scrub-axis-tick"
+                    data-near={near}
+                    style={{
+                      left: `${dayToPct(d)}%`,
+                      transform: isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)',
+                      alignItems: isFirst ? 'flex-start' : isLast ? 'flex-end' : 'center',
+                    }}
+                  >
                     <span>day {String(d).padStart(2, '0')}</span>
                     <i></i>
                   </div>
@@ -472,12 +478,25 @@ function DaysStyles() {
       }
       #days .scrub-thumb:hover { transform: translate(-50%, -50%) scale(1.1); }
       #days .scrub-thumb:active { cursor: grabbing; transform: translate(-50%, -50%) scale(1.05); }
+      /* Flag sits well above the axis ticks so the labels don't collide.
+         A 1px stem connects it back down to the thumb. */
       #days .scrub-thumb-flag {
-        position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
-        padding: 3px 8px; border-radius: 4px;
+        position: absolute; top: -56px; left: 50%; transform: translateX(-50%);
+        padding: 4px 9px; border-radius: 5px;
         background: var(--fg); color: var(--bg);
         font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; white-space: nowrap;
+        box-shadow: 0 6px 14px -6px oklch(0 0 0 / 0.6);
       }
+      #days .scrub-thumb-flag::after {
+        content: "";
+        position: absolute; left: 50%; top: 100%;
+        width: 1px; height: 18px;
+        background: linear-gradient(180deg, var(--fg), transparent);
+        transform: translateX(-50%);
+      }
+      /* Fade the axis tick the scrubber is currently sitting on, so the
+         flag's "DAY XX" doesn't overlap an identical tick label. */
+      #days .scrub-axis-tick[data-near="1"] { opacity: 0.18; }
       #days .receipt { position: relative; overflow: hidden; }
       #days .receipt::before {
         content: ""; position: absolute; inset: 0;
