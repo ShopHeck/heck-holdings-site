@@ -139,8 +139,10 @@ function ScrubberStage() {
 
   const dayInt = Math.round(day);
   const revenue = heckRevenueAt(day);
+  // Count only "live" milestones (i.e. agents in production). The audit
+  // delivery isn't an agent — it's the diagnostic that recommends them.
   const heckShipped = HECK_MILESTONES.filter(
-    m => m.day <= day && /live|delivered/i.test(m.title)
+    m => m.day <= day && /\blive\b/i.test(m.title)
   ).length;
 
   const axisTicks = [0, 15, 30, 45, 60, 75, 90];

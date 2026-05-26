@@ -11,6 +11,7 @@
     "deploy": "wrangler pages deploy dist --project-name=heck-holdings"
   },
   "dependencies": {
+    "posthog-js": "^1.376.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

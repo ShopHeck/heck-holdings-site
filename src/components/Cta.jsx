@@ -1,11 +1,22 @@
 import { useState, useRef, useEffect, forwardRef } from 'react';
 import Icon from './Icon.jsx';
 import { Logo } from './Nav.jsx';
+import { track } from '../analytics.js';
 
 const CAL_LINK = 'shop-heck/heck-holdings-consult';
 
 export default function Cta() {
-  const onBook = ({ business, workflow, spec }) => openCalWithBrief({ business, workflow, spec });
+  const onBook = ({ business, workflow, spec }) => {
+    track('audit_booked', {
+      agent_name: spec?.agent_name,
+      weekly_hours_saved: spec?.weekly_hours_saved,
+      ship_days: spec?.ship_days,
+      monthly_revenue_impact: spec?.monthly_revenue_impact,
+      business_length: business?.length,
+      workflow_length: workflow?.length,
+    });
+    openCalWithBrief({ business, workflow, spec });
+  };
 
   return (
     <section id="contact" style={{ padding: 'clamp(80px, 10vw, 140px) 0 0', position: 'relative' }}>
@@ -108,8 +119,17 @@ function AgentBuilder({ onBook }) {
       const parsed = await res.json();
       parsed.weekly_hours_saved = clamp(Number(parsed.weekly_hours_saved) || fallback.weekly_hours_saved, 6, 30);
       parsed.ship_days = clamp(Number(parsed.ship_days) || fallback.ship_days, 12, 35);
-      setSpec({ ...fallback, ...parsed });
+      const finalSpec = { ...fallback, ...parsed };
+      setSpec(finalSpec);
       setStep('ready');
+      track('spec_generated', {
+        agent_name: finalSpec.agent_name,
+        weekly_hours_saved: finalSpec.weekly_hours_saved,
+        ship_days: finalSpec.ship_days,
+        monthly_revenue_impact: finalSpec.monthly_revenue_impact,
+        business_length: biz.length,
+        workflow_length: wf.length,
+      });
     } catch (e) {
       console.warn('AgentBuilder: spec generation failed, using fallback', e);
       setSpec(fallback);

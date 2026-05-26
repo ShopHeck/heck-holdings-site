@@ -59,6 +59,39 @@ If you prefer no GitHub Actions: in the CF dashboard, *Pages → Create project 
 | `index.html` | `og:url` / canonical — change to your real domain once live |
 | `src/components/Cta.jsx` | LinkedIn URL in footer (currently a placeholder slug) |
 
+## Analytics (PostHog)
+
+The site auto-loads PostHog if `VITE_POSTHOG_KEY` is set at build time. If it isn't, every track call is a no-op — the site works the same, just unmeasured.
+
+### One-time setup
+
+1. Sign up at https://posthog.com (free up to 1M events/month)
+2. **Project Settings → Project API Key** — copy it (starts with `phc_...`)
+3. Set the env var in Cloudflare Pages: *heck-holdings → Settings → Environment variables → Production* → add:
+   - **Variable name**: `VITE_POSTHOG_KEY`
+   - **Value**: your project API key
+   - **Plaintext** (it's a public key, not a secret)
+4. If you're on PostHog EU cloud, also add `VITE_POSTHOG_HOST` = `https://eu.i.posthog.com`
+5. Trigger a new deploy (Vite reads env vars at build time): `npm run deploy` from your laptop, or push a commit.
+
+### What's tracked
+
+| Event | When | Properties |
+| --- | --- | --- |
+| `$pageview` (auto) | Every page load | URL, referrer, UTM tags |
+| `$pageleave` (auto) | When visitor leaves | Time on page |
+| `spec_generated` | AgentBuilder finishes | agent_name, weekly_hours_saved, ship_days, monthly_revenue_impact, business_length, workflow_length |
+| `audit_booked` | "Book the audit with this brief" clicked | Same as above |
+| Autocaptured clicks | Visitor clicks any button / link | element + path |
+
+The `business_length` / `workflow_length` capture the *length* of what the visitor typed, not the content — keeps the funnel data useful without exposing user input in your dashboards.
+
+### Funnel to build in PostHog
+
+> Pageview → `spec_generated` → `audit_booked`
+
+That gives you a 3-step conversion funnel from "landed on site" to "booked a call with a custom agent brief."
+
 ## Rate limiting the AgentBuilder
 
 [functions/api/agent-spec.js](functions/api/agent-spec.js) enforces a per-IP cap on Claude calls so a bad actor can't drain your Anthropic credits:
