@@ -1,3 +1,9 @@
 name = "heck-holdings"
 compatibility_date = "2026-01-01"
 pages_build_output_dir = "dist"
+
+# Rate-limit counter store for /api/agent-spec.
+# See functions/api/agent-spec.js → checkRateLimit().
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "91242a7f89434fd2953db33ab99abcd8"
