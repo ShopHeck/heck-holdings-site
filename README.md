@@ -65,11 +65,9 @@ If you prefer no GitHub Actions: in the CF dashboard, *Pages → Create project 
 
 - **5 requests / 60-second window / IP**
 
-Uses Cloudflare's native **Rate Limiting binding** (configured in [wrangler.toml](wrangler.toml)) — strongly consistent within a colo, atomic, no setup beyond the toml entry. Fails open if the binding is missing.
+Uses the runtime **Cache API** — no binding, no env var, no setup. Per-colo isolation; a sequential flood from one client trips reliably. For a determined attacker hitting multiple colos, set a hard spend ceiling at https://console.anthropic.com/settings/limits (e.g. $20/month).
 
-To tune: edit the `simple = { limit = X, period = Y }` line in `wrangler.toml` and push. (`period` must be `10` or `60` per the Cloudflare API.)
-
-For a defense-in-depth daily spend ceiling, set a usage limit at https://console.anthropic.com/settings/limits.
+To tune: edit `RATE_LIMIT_MAX` and `RATE_LIMIT_WINDOW_S` at the top of `checkRateLimit()` in `functions/api/agent-spec.js`.
 
 ## AgentBuilder (the `#contact` section)
 

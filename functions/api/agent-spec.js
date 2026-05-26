@@ -11,10 +11,9 @@ export async function onRequestPost({ request, env }) {
       return json({ error: 'Server missing ANTHROPIC_API_KEY' }, 500);
     }
 
-    // Rate limit per client IP. Soft-fails open if RATE_LIMIT KV binding
-    // isn't configured — better to over-serve than block real users.
+    // Rate limit per client IP. Per-colo, in-memory cache; no bindings needed.
     const ip = request.headers.get('cf-connecting-ip') || 'unknown';
-    const rl = await checkRateLimit(env, ip);
+    const rl = await checkRateLimit(ip);
     if (!rl.ok) {
       return json(
         { error: `Rate limit exceeded (per-${rl.reason} cap). Try again shortly.` },
@@ -98,18 +97,33 @@ function json(data, status, extraHeaders = {}) {
   });
 }
 
-// Cloudflare native Rate Limiting binding. Strongly consistent within a
-// colo, atomic increment, sub-millisecond. Configured in wrangler.toml as
-// 5 requests per 60-second window. To adjust the cap, edit the `simple`
-// block in wrangler.toml — no code change needed.
+// Per-colo rate limit using the runtime Cache API. Sequential requests
+// from the same client almost always land on the same colo, so the 5/60s
+// cap will trigger reliably for any single-source flood. A determined
+// attacker hitting multiple colos can get ~5× burst per colo — combine
+// with an Anthropic usage limit at the dashboard for a hard spend ceiling.
 //
-// Fails OPEN if the binding is missing (e.g. local dev) rather than
-// blocking real users.
-async function checkRateLimit(env, ip) {
-  if (!env.RATE_LIMIT || ip === 'unknown') return { ok: true };
+// Fails OPEN on any unexpected error so real users aren't blocked.
+const RATE_LIMIT_MAX = 5;        // requests per window
+const RATE_LIMIT_WINDOW_S = 60;  // window in seconds
+
+async function checkRateLimit(ip) {
+  if (ip === 'unknown') return { ok: true };
   try {
-    const { success } = await env.RATE_LIMIT.limit({ key: ip });
-    if (!success) return { ok: false, retryAfter: 60, reason: 'minute' };
+    const cache = caches.default;
+    const key = new Request(`https://heck-rl.internal/${encodeURIComponent(ip)}`);
+    const prev = await cache.match(key);
+    let count = 0;
+    if (prev) count = Number(await prev.text()) || 0;
+    if (count >= RATE_LIMIT_MAX) {
+      return { ok: false, retryAfter: RATE_LIMIT_WINDOW_S, reason: 'minute' };
+    }
+    await cache.put(
+      key,
+      new Response(String(count + 1), {
+        headers: { 'cache-control': `max-age=${RATE_LIMIT_WINDOW_S}` },
+      }),
+    );
     return { ok: true };
   } catch (e) {
     console.warn('Rate limit check failed, failing open', e);
