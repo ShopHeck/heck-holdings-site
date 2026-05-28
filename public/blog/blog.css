@@ -390,6 +390,112 @@ code {
 .source a { color: var(--fg-3); text-decoration: underline; }
 .source a:hover { color: var(--accent); }
 
+/* ── AUTHOR BIO (E-E-A-T) ── */
+.author-bio {
+  margin-top: 64px;
+  padding: 36px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+}
+.author-bio::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent) 40%, transparent));
+}
+.author-bio-inner {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.author-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line-soft);
+  flex-shrink: 0;
+}
+.author-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.author-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  line-height: 1.2;
+}
+.author-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+.author-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+.author-desc a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.author-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+.author-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--fg-3);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s, color 0.2s;
+}
+.author-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.author-link svg {
+  opacity: 0.7;
+}
+.author-link:hover svg {
+  opacity: 1;
+}
+
+@media (max-width: 540px) {
+  .author-bio-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .author-links {
+    justify-content: center;
+  }
+}
+
 /* CTA section */
 .article-cta {
   margin-top: 64px;
