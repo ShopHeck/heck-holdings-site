@@ -7,6 +7,7 @@ const LINKS = [
   { href: '#calculator', label: 'ROI' },
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
+  { href: '/blog/', label: 'Blog' },
 ];
 
 export default function Nav({ onCta }) {

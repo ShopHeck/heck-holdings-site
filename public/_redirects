@@ -1,1 +1,4 @@
-/*    /index.html   200
+# Blog pages are static HTML — served directly by Cloudflare Pages.
+# The SPA catch-all below only applies to non-blog routes.
+/blog/*  /blog/:splat  200
+/*       /index.html   200
