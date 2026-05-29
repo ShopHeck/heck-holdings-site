@@ -49,9 +49,9 @@ export default function Days() {
       <div className="wrap">
         <div className="section-head">
           <span className="eyebrow"><span className="dot"></span>03 — Days, not months</span>
-          <h2>Both paths cost the same.<br/><span style={{ color: 'var(--fg-3)' }}>Look what one of them did with 90 days.</span></h2>
+          <h2>Both paths cost the same.<br/><span style={{ color: 'var(--fg-3)' }}>Look what one of them could do with 90 days.</span></h2>
           <p className="lead">
-            Drag the scrubber. Two engagements, both starting Day&nbsp;0. The top lane is what we ship. The bottom is what the industry calls "moving fast." Revenue panel ticks live as you scrub.
+            Drag the scrubber. An illustrative side-by-side, both starting Day&nbsp;0. The top lane is how we work. The bottom is what the industry calls "moving fast." The numbers are a sample, not a client engagement.
           </p>
         </div>
         <ScrubberStage />
@@ -151,8 +151,8 @@ function ScrubberStage() {
     <div className="scrub-stage">
       <div className="scrub-hud">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
-          <span className="eyebrow"><span className="dot"></span>live prototype</span>
-          <span className="illustrative-pill">illustrative numbers</span>
+          <span className="eyebrow"><span className="dot"></span>illustrative scenario</span>
+          <span className="illustrative-pill">sample numbers · not a client</span>
         </div>
         <div className="mono" style={{ color: 'var(--fg-3)' }}>
           DAY <span style={{ color: 'var(--fg)', fontWeight: 600 }}>{String(dayInt).padStart(2, '0')}</span> / 90

@@ -82,6 +82,7 @@ The site auto-loads PostHog if `VITE_POSTHOG_KEY` is set at build time. If it is
 | `$pageleave` (auto) | When visitor leaves | Time on page |
 | `spec_generated` | AgentBuilder finishes | agent_name, weekly_hours_saved, ship_days, monthly_revenue_impact, business_length, workflow_length |
 | `audit_booked` | "Book the audit with this brief" clicked | Same as above |
+| `contact_submitted` | Direct contact form "Send & pick a time" clicked | name_length, email_domain, company_length, message_length |
 | Autocaptured clicks | Visitor clicks any button / link | element + path |
 
 The `business_length` / `workflow_length` capture the *length* of what the visitor typed, not the content — keeps the funnel data useful without exposing user input in your dashboards.
@@ -109,6 +110,10 @@ A 3-step conversational wizard that asks the visitor about their business + a pa
 - Frontend: [src/components/Cta.jsx](src/components/Cta.jsx)
 - Server-side Claude proxy: [functions/api/agent-spec.js](functions/api/agent-spec.js) — runs as a Cloudflare Pages Function on the same domain (no CORS, no extra hosting). Uses `ANTHROPIC_API_KEY` from the Pages env, never sent to the client.
 - If the API call fails (key missing, rate limit, parse error), the UI degrades to a sensible fallback spec so the demo still completes — with a small "showing a sample" notice.
+
+### Direct contact form
+
+Below the AgentBuilder is a plain contact form for visitors who don't want to use the wizard. It collects name, email, optional company, and a short message, then opens Cal.com (`CAL_LINK`) in a new tab with the **name, email, and message prefilled** into the booking — no backend or email provider required. There's a `mailto:hello@heckholdings.com` fallback link in the form footer. Fires a `contact_submitted` PostHog event on submit (lengths only, never the raw content).
 
 ## Structure
 

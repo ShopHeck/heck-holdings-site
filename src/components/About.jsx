@@ -17,7 +17,7 @@ export default function About() {
               <span className="drop-cap">H</span>eck Holdings is a small, senior team with one focus: autonomous AI agents for small and mid-sized businesses. We design them, build them, and operate them — under one roof, by the same people.
             </p>
             <p style={{ marginTop: 24, fontSize: 16, lineHeight: 1.65, color: 'var(--fg-2)' }}>
-              We don't sell software. We don't sell hours. We sell <em>agents that own a specific outcome</em>, then we stay on to make sure they keep owning it. Our work is measured the same way our clients measure theirs — in hours reclaimed, dollars saved, and revenue moved.
+              We don't sell software. We don't sell hours. We sell <em>agents that own a specific outcome</em>, then we stay on to make sure they keep owning it. We measure our work the way you measure yours — in hours reclaimed, dollars saved, and revenue moved.
             </p>
             <p style={{ marginTop: 20, fontSize: 16, lineHeight: 1.65, color: 'var(--fg-2)' }}>
               We start every engagement with a one-week audit so you know exactly what you're buying. And we invoice <em>after</em> the agent works — never before.
@@ -27,7 +27,7 @@ export default function About() {
               <Fact label="Based" value="St. Pete, FL" />
               <Fact label="Founded" value="2023" />
               <Fact label="Team" value="2 engineers + ops" />
-              <Fact label="Engagements" value="22 · retainer-mode" />
+              <Fact label="Availability" value="3 new clients" />
             </div>
           </div>
 

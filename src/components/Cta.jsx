@@ -47,6 +47,8 @@ export default function Cta() {
             </div>
 
             <AgentBuilder onBook={onBook} />
+
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -530,6 +532,166 @@ function openCalWithBrief({ business, workflow, spec }) {
   ];
   const notes = encodeURIComponent(lines.join('\n'));
   const url = `https://cal.com/${CAL_LINK}?notes=${notes}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+// ─── ContactForm ─────────────────────────────────────────────────────────
+// A direct alternative to the AgentBuilder for visitors who'd rather just
+// talk to a human. Collects a few details and opens Cal.com with the name,
+// email, and message prefilled into the booking — so the call starts warm.
+function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [message, setMessage] = useState('');
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const ready = name.trim().length >= 2 && emailOk && message.trim().length >= 4;
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!ready) return;
+    track('contact_submitted', {
+      name_length: name.trim().length,
+      email_domain: email.trim().split('@')[1] || '',
+      company_length: company.trim().length,
+      message_length: message.trim().length,
+    });
+    openCalWithContact({
+      name: name.trim(),
+      email: email.trim(),
+      company: company.trim(),
+      message: message.trim(),
+    });
+  };
+
+  return (
+    <div className="contact-form">
+      <div className="contact-divider">
+        <span>or</span>
+      </div>
+
+      <div className="contact-head">
+        <span className="eyebrow"><span className="dot"></span>Prefer to talk to a human?</span>
+        <h3>Skip the builder. Tell us what you need.</h3>
+        <p>
+          Two-engineer shop — you'll be talking to the people who actually build the agents.
+          Fill this in and we'll open our calendar with your details already attached.
+        </p>
+      </div>
+
+      <form className="cf-grid" onSubmit={submit}>
+        <label className="cf-field">
+          <span>Name</span>
+          <input
+            type="text" value={name} onChange={(e) => setName(e.target.value)}
+            placeholder="Your name" autoComplete="name" maxLength={80}
+          />
+        </label>
+        <label className="cf-field">
+          <span>Email</span>
+          <input
+            type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@company.com" autoComplete="email" maxLength={120}
+          />
+        </label>
+        <label className="cf-field cf-span">
+          <span>Company <span className="cf-opt">(optional)</span></span>
+          <input
+            type="text" value={company} onChange={(e) => setCompany(e.target.value)}
+            placeholder="What you do / company name" autoComplete="organization" maxLength={120}
+          />
+        </label>
+        <label className="cf-field cf-span">
+          <span>What do you need help with?</span>
+          <textarea
+            value={message} onChange={(e) => setMessage(e.target.value)}
+            placeholder="The workflow eating your week, what you've tried, anything else useful."
+            rows={4} maxLength={1000}
+          />
+        </label>
+        <div className="cf-actions cf-span">
+          <button type="submit" className="btn btn-primary" disabled={!ready}>
+            Send &amp; pick a time
+            <Icon name="arrow-right" size={16} />
+          </button>
+          <span className="mono cf-note">
+            Opens Cal.com with your details attached · or email{' '}
+            <a href="mailto:hello@heckholdings.com">hello@heckholdings.com</a>
+          </span>
+        </div>
+      </form>
+
+      <style>{`
+        .contact-form { margin-top: 56px; }
+        .contact-divider {
+          display: flex; align-items: center; gap: 18px;
+          margin-bottom: 44px; color: var(--fg-3);
+          font-family: var(--font-mono); font-size: 11px;
+          letter-spacing: 0.16em; text-transform: uppercase;
+        }
+        .contact-divider::before, .contact-divider::after {
+          content: ""; flex: 1; height: 1px; background: var(--line-soft);
+        }
+        .contact-head h3 {
+          margin-top: 18px;
+          font-size: clamp(26px, 3.2vw, 40px);
+          font-weight: 600; letter-spacing: -0.025em;
+        }
+        .contact-head p {
+          margin-top: 14px; max-width: 620px;
+          color: var(--fg-2); font-size: 15.5px; line-height: 1.55;
+        }
+        .cf-grid {
+          margin-top: 32px;
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 18px;
+        }
+        .cf-span { grid-column: 1 / -1; }
+        @media (max-width: 620px) { .cf-grid { grid-template-columns: 1fr; } }
+        .cf-field { display: flex; flex-direction: column; gap: 8px; }
+        .cf-field > span {
+          font-family: var(--font-mono); font-size: 10.5px;
+          letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3);
+        }
+        .cf-opt { text-transform: none; letter-spacing: 0; color: var(--fg-3); opacity: 0.7; }
+        .cf-field input, .cf-field textarea {
+          background: var(--bg); color: var(--fg);
+          border: 1px solid var(--line); border-radius: 12px;
+          padding: 13px 16px; font-family: var(--font-body);
+          font-size: 15px; outline: 0; width: 100%;
+          transition: border-color .2s, box-shadow .2s;
+          resize: vertical;
+        }
+        .cf-field input::placeholder, .cf-field textarea::placeholder { color: var(--fg-3); }
+        .cf-field input:focus, .cf-field textarea:focus {
+          border-color: var(--accent);
+          box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+        }
+        .cf-actions {
+          display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+          margin-top: 4px;
+        }
+        .cf-actions button:disabled { opacity: 0.4; cursor: not-allowed; }
+        .cf-note { color: var(--fg-3); font-size: 11.5px; letter-spacing: 0.02em; }
+        .cf-note a { color: var(--fg-2); }
+      `}</style>
+    </div>
+  );
+}
+
+// Opens Cal.com with the visitor's contact details prefilled, so the booking
+// arrives with their name, email, and message already in hand.
+function openCalWithContact({ name, email, company, message }) {
+  const noteLines = [];
+  if (company) noteLines.push(`Company: ${company}`);
+  noteLines.push(`What they need: ${message}`);
+  const params = new URLSearchParams({
+    name,
+    email,
+    notes: noteLines.join('\n'),
+  });
+  const url = `https://cal.com/${CAL_LINK}?${params.toString()}`;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
