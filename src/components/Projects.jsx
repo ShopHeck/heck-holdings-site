@@ -21,10 +21,10 @@ export default function Projects() {
     <section id="work" className="section">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow"><span className="dot"></span>06 — Selected work</span>
-          <h2>Agents we've built<br/><span style={{ color: 'var(--fg-3)' }}>and the businesses still running on them.</span></h2>
+          <span className="eyebrow"><span className="dot"></span>06 — What agents do</span>
+          <h2>Here's what agents like these do<br/><span style={{ color: 'var(--fg-3)' }}>for a business like yours.</span></h2>
           <p className="lead">
-            Every one of these is in production today. Click a card to open the case file with metrics, stack, and a live preview of what the agent actually does.
+            These are the kinds of agents we design and build — shown as capability demos, not client case studies. Click a card to see how each one works, the stack behind it, and the kind of outcome it's built to produce.
           </p>
         </div>
 
@@ -274,7 +274,12 @@ function ProjectModal({ project, onClose }) {
           <LiveDemo project={project} />
         </div>
 
-        <div style={{ padding: 48, borderBottom: '1px solid var(--line-soft)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+        <div style={{ padding: '48px 48px 0' }}>
+          <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+            What an agent like this is built to do
+          </div>
+        </div>
+        <div style={{ padding: '24px 48px 48px', borderBottom: '1px solid var(--line-soft)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
           {project.metrics.map((m, i) => (
             <div key={i}>
               <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase' }}>{m.l}</div>

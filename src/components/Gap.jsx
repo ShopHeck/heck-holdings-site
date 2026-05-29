@@ -58,10 +58,13 @@ export default function Gap({ animations = true }) {
     <section id="gap" className="section">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow"><span className="dot"></span>02 — The Gap</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <span className="eyebrow"><span className="dot"></span>02 — The Gap</span>
+            <span className="gap-illustrative-pill">illustrative example</span>
+          </div>
           <h2>One task. Two timelines.<br/><span style={{ color: 'var(--fg-3)' }}>The same refund request, handled two different ways.</span></h2>
           <p className="lead">
-            We pressed start at the same instant. Watch the human bar inch along. Watch the agent bar finish before you finish reading this sentence.
+            An illustrative side-by-side — not a measured client result. We press start at the same instant. Watch the human bar inch along. Watch the agent bar finish before you finish reading this sentence.
           </p>
         </div>
 
@@ -114,14 +117,22 @@ export default function Gap({ animations = true }) {
             <div style={{ color: 'var(--fg-2)' }}>cheaper, per ticket</div>
           </div>
           <div>
-            <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Quality delta</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 56, fontWeight: 600, letterSpacing: '-0.03em' }}>+18<span style={{ color: 'var(--accent)' }}>%</span></div>
-            <div style={{ color: 'var(--fg-2)' }}>CSAT vs. human baseline</div>
+            <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Consistency</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 56, fontWeight: 600, letterSpacing: '-0.03em' }}>100<span style={{ color: 'var(--accent)' }}>%</span></div>
+            <div style={{ color: 'var(--fg-2)' }}>logged & auditable, every ticket</div>
           </div>
         </div>
       </div>
 
       <style>{`
+        .gap-illustrative-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          font-family: var(--font-mono); font-size: 9.5px;
+          letter-spacing: 0.16em; text-transform: uppercase;
+          color: var(--warn); padding: 4px 9px; border-radius: 999px;
+          border: 1px dashed color-mix(in oklab, var(--warn) 60%, transparent);
+          background: color-mix(in oklab, var(--warn) 5%, transparent);
+        }
         .gap-controls { display: flex; gap: 12px; align-items: center; margin-bottom: 32px; }
         .gap-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .gap-summary {

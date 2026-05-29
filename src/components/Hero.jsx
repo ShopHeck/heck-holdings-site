@@ -33,7 +33,8 @@ export default function Hero({ headline, onCta }) {
               lineHeight: 1.55, color: 'var(--fg-2)',
             }}>
               We design, ship, and operate autonomous AI agents for small and mid-sized businesses.
-              Audits in a week. Production agents in a month. Most clients break even before their first invoice.
+              Audits in a week. Production agents in a month. Small, selective, and hands-on —
+              you work directly with the people who build your agents.
             </p>
 
             <div className="flex gap-3" style={{ marginTop: 32, flexWrap: 'wrap' }}>
@@ -42,14 +43,14 @@ export default function Hero({ headline, onCta }) {
                 <Icon name="arrow-right" size={16} />
               </button>
               <a href="#work" className="btn btn-ghost">
-                See live work
+                See what agents do
                 <Icon name="arrow-up-right" size={14} />
               </a>
             </div>
           </div>
 
           <div className="hero-right">
-            <RevenueClock />
+            <PositioningCard />
             <LiveTerminal />
           </div>
         </div>
@@ -78,35 +79,16 @@ function HeroBadge() {
     <div className="flex gap-3" style={{ alignItems: 'center' }}>
       <span className="chip" style={{ animation: 'pulse-dot 2s infinite' }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
-        12 agents in production
+        Taking on 3 new clients
       </span>
       <span className="mono" style={{ color: 'var(--fg-3)' }}>est. 2023 · St. Pete, FL</span>
     </div>
   );
 }
 
-function RevenueClock() {
-  const BASE = 1432847.00;
-  const RATE = 0.42;
-  const ANCHOR = useRef(Date.now());
-  const [n, setN] = useState(BASE);
-
-  useEffect(() => {
-    let raf;
-    const tick = () => {
-      const elapsed = (Date.now() - ANCHOR.current) / 1000;
-      setN(BASE + elapsed * RATE);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  const whole = Math.floor(n);
-  const cents = Math.floor((n - whole) * 100);
-
+function PositioningCard() {
   return (
-    <div className="card" style={{ padding: '22px 26px', position: 'relative', overflow: 'hidden' }}>
+    <div className="card" style={{ padding: '24px 26px', position: 'relative', overflow: 'hidden' }}>
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background: 'radial-gradient(420px 220px at 90% 0%, var(--accent-glow), transparent 65%)',
@@ -114,37 +96,26 @@ function RevenueClock() {
       }} />
 
       <div style={{ position: 'relative' }}>
-        <div className="flex between" style={{ alignItems: 'center', gap: 12 }}>
-          <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 10.5, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Client savings · YTD</span>
-          <span className="flex gap-2 mono" style={{ alignItems: 'center', color: 'var(--accent)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', animation: 'blink 1.4s infinite' }} />
-            live
-          </span>
-        </div>
+        <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 10.5, letterSpacing: '0.18em', textTransform: 'uppercase' }}>What we do</span>
         <div style={{
           fontFamily: 'var(--font-display)', fontWeight: 700,
-          fontSize: 'clamp(36px, 3.6vw, 52px)',
-          letterSpacing: '-0.04em', lineHeight: 0.95, marginTop: 12,
-          color: 'var(--accent)', textShadow: '0 0 48px var(--accent-glow)',
-          fontVariantNumeric: 'tabular-nums',
-          display: 'flex', alignItems: 'baseline', gap: 2,
+          fontSize: 'clamp(22px, 2.2vw, 30px)',
+          letterSpacing: '-0.025em', lineHeight: 1.15, marginTop: 14,
+          color: 'var(--fg)',
         }}>
-          <span>${whole.toLocaleString()}</span>
-          <span style={{ fontSize: '0.48em', opacity: 0.7, marginLeft: 4 }}>
-            .{String(cents).padStart(2, '0')}
-          </span>
+          We design, build &amp; operate <span style={{ color: 'var(--accent)' }}>AI agents</span> for small businesses.
         </div>
 
         <div style={{
-          marginTop: 18, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18,
-          paddingTop: 14, borderTop: '1px solid var(--line-soft)',
+          marginTop: 22, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18,
+          paddingTop: 16, borderTop: '1px solid var(--line-soft)',
         }}>
           {[
-            { v: '38k+', l: 'agent-hours / mo' },
-            { v: '4.2 wk', l: 'avg time to ship' },
+            { v: '1 wk', l: 'to your audit' },
+            { v: '~4 wk', l: 'to first agent live' },
           ].map((s, i) => (
             <div key={i}>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, letterSpacing: '-0.025em' }}>{s.v}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--accent)' }}>{s.v}</div>
               <div className="mono" style={{ color: 'var(--fg-3)', marginTop: 4, fontSize: 11 }}>{s.l}</div>
             </div>
           ))}
@@ -198,16 +169,16 @@ function LiveTerminal() {
           <span style={{ width: 11, height: 11, borderRadius: '50%', background: 'var(--accent)' }} />
         </div>
         <div className="mono" style={{ color: 'var(--fg-3)' }}>
-          heck-orchestrator <span style={{ color: 'var(--fg-2)' }}>·</span> us-central-1 <span style={{ color: 'var(--fg-2)' }}>·</span> live
+          heck-orchestrator <span style={{ color: 'var(--fg-2)' }}>·</span> sandbox <span style={{ color: 'var(--fg-2)' }}>·</span> demo
         </div>
-        <div className="mono flex gap-2" style={{ color: 'var(--accent)', alignItems: 'center' }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', animation: 'blink 1.4s infinite' }} />
-          REC
+        <div className="mono flex gap-2" style={{ color: 'var(--warn)', alignItems: 'center' }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--warn)', animation: 'blink 1.4s infinite' }} />
+          DEMO
         </div>
       </div>
 
       <div className="flex between mono" style={{ padding: '10px 18px', borderBottom: '1px solid var(--line-soft)', color: 'var(--fg-3)', fontSize: 11 }}>
-        <span>$ heck agents --tail</span>
+        <span>$ heck agents --tail <span style={{ color: 'var(--warn)' }}>(illustrative)</span></span>
         <span>{time} UTC</span>
       </div>
 
@@ -229,10 +200,8 @@ function LiveTerminal() {
       </div>
 
       <div className="flex between mono" style={{ padding: '12px 18px', borderTop: '1px solid var(--line-soft)', background: 'oklch(0.13 0.006 250)', color: 'var(--fg-3)', fontSize: 11 }}>
-        <span>5 agents · 1 orchestrator</span>
-        <span>{visible.length * 7 + 14} tasks/hr</span>
-        <span style={{ color: 'var(--accent)' }}>p95 1.4s</span>
-        <span>$0.04/run</span>
+        <span>sample agent run</span>
+        <span style={{ color: 'var(--warn)' }}>illustrative — not live data</span>
       </div>
 
       <div style={{
@@ -245,10 +214,10 @@ function LiveTerminal() {
 
 function Ticker() {
   const items = [
-    'agents shipped to production',
+    'production agents, not chatbots',
     '24/7 monitored',
-    'hours reclaimed per client',
-    'on-call humans, not chatbots',
+    'hours reclaimed, not headcount added',
+    'on-call humans, not ticket queues',
     'audits in 5 business days',
     'evals before every deploy',
     'invoiced after the agent works',
