@@ -76,7 +76,11 @@ export default function Gap({ animations = true }) {
           <button className="btn btn-ghost" onClick={reset} style={{ padding: '10px 16px' }}>Restart</button>
           <div className="flex gap-3" style={{ alignItems: 'center', marginLeft: 'auto' }}>
             <span className="mono" style={{ color: 'var(--fg-3)' }}>t =</span>
-            <span className="mono" style={{ color: 'var(--accent)', fontSize: 13 }}>{(t * 100).toFixed(1)}%</span>
+            <span className="mono" style={{
+              color: 'var(--accent)', fontSize: 13,
+              fontVariantNumeric: 'tabular-nums',
+              display: 'inline-block', minWidth: '4.5em', textAlign: 'right',
+            }}>{(t * 100).toFixed(1)}%</span>
           </div>
         </div>
 
@@ -169,6 +173,7 @@ function Track({ label, sublabel, steps, t, color, stat, done, verdict, tone }) 
             fontFamily: 'var(--font-display)', fontSize: 38, fontWeight: 600,
             letterSpacing: '-0.03em', lineHeight: 1,
             color: tone === 'good' ? 'var(--accent)' : 'var(--fg)',
+            fontVariantNumeric: 'tabular-nums',
           }}>{stat.v}</div>
           <div className="mono" style={{ color: 'var(--fg-3)', marginTop: 6 }}>{stat.l}</div>
         </div>
