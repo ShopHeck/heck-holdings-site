@@ -160,20 +160,20 @@ function Track({ label, sublabel, steps, t, color, stat, done, verdict, tone }) 
 
   return (
     <div className="card" style={{ padding: 28, position: 'relative' }}>
-      <div className="flex between" style={{ alignItems: 'flex-start', marginBottom: 22 }}>
-        <div>
+      <div className="flex between" style={{ alignItems: 'flex-start', marginBottom: 22, gap: 16 }}>
+        <div style={{ minWidth: 0 }}>
           <div className="flex gap-3" style={{ alignItems: 'center' }}>
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: color, boxShadow: `0 0 16px ${color}` }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: color, boxShadow: `0 0 16px ${color}`, flexShrink: 0 }} />
             <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>{label}</span>
           </div>
           <div className="mono" style={{ color: 'var(--fg-3)', marginTop: 6 }}>{sublabel}</div>
         </div>
-        <div style={{ textAlign: 'right' }}>
+        <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div style={{
             fontFamily: 'var(--font-display)', fontSize: 38, fontWeight: 600,
             letterSpacing: '-0.03em', lineHeight: 1,
             color: tone === 'good' ? 'var(--accent)' : 'var(--fg)',
-            fontVariantNumeric: 'tabular-nums',
+            fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap',
           }}>{stat.v}</div>
           <div className="mono" style={{ color: 'var(--fg-3)', marginTop: 6 }}>{stat.l}</div>
         </div>
