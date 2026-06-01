@@ -4,6 +4,7 @@ import Gap from './components/Gap.jsx';
 import Days from './components/Days.jsx';
 import Capabilities from './components/Capabilities.jsx';
 import Calculator from './components/Calculator.jsx';
+import Pricing from './components/Pricing.jsx';
 import Projects from './components/Projects.jsx';
 import About from './components/About.jsx';
 import Cta from './components/Cta.jsx';
@@ -27,6 +28,7 @@ export default function App() {
       <Days />
       <Capabilities />
       <Calculator />
+      <Pricing />
       <Projects />
       <About />
       <Cta />
