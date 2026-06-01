@@ -21,7 +21,7 @@ export default function Projects() {
     <section id="work" className="section">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow"><span className="dot"></span>06 — What agents do</span>
+          <span className="eyebrow"><span className="dot"></span>07 — What agents do</span>
           <h2>Here's what agents like these do<br/><span style={{ color: 'var(--fg-3)' }}>for a business like yours.</span></h2>
           <p className="lead">
             These are the kinds of agents we design and build — shown as capability demos, not client case studies. Click a card to see how each one works, the stack behind it, and the kind of outcome it's built to produce.

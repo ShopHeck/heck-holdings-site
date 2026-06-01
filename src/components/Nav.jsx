@@ -5,6 +5,7 @@ const LINKS = [
   { href: '#gap', label: 'The Gap' },
   { href: '#capabilities', label: 'Capabilities' },
   { href: '#calculator', label: 'ROI' },
+  { href: '#pricing', label: 'Pricing' },
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '/blog/', label: 'Blog' },

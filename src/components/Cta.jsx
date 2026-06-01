@@ -31,7 +31,7 @@ export default function Cta() {
 
           <div style={{ position: 'relative' }}>
             <div style={{ maxWidth: 880 }}>
-              <span className="eyebrow"><span className="dot"></span>08 — Start</span>
+              <span className="eyebrow"><span className="dot"></span>09 — Start</span>
               <h2 style={{
                 fontSize: 'clamp(40px, 5.6vw, 76px)',
                 fontWeight: 700, marginTop: 24,

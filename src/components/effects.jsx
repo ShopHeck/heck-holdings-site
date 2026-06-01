@@ -45,6 +45,9 @@ function RevealObserver() {
       '#calculator .calc-grid > *',
       '#gap .gap-grid > *',
       '#gap .gap-summary > *',
+      '#pricing .pricing-top > *',
+      '#pricing .pricing-deliv-card',
+      '#pricing .pricing-impl',
       '.svc-row',
       '.process-grid > *',
     ];
@@ -106,6 +109,7 @@ function SectionRail() {
     { id: 'days',         label: 'Days' },
     { id: 'capabilities', label: 'Capabilities' },
     { id: 'calculator',   label: 'ROI' },
+    { id: 'pricing',      label: 'Pricing' },
     { id: 'work',         label: 'Work' },
     { id: 'about',        label: 'About' },
     { id: 'contact',      label: 'Contact' },

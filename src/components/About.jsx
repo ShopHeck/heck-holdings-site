@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="section">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow"><span className="dot"></span>07 — Heck Holdings</span>
+          <span className="eyebrow"><span className="dot"></span>08 — Heck Holdings</span>
           <h2>An AI consulting firm<br/><span style={{ color: 'var(--fg-3)' }}>that ships agents, not slide decks.</span></h2>
         </div>
 

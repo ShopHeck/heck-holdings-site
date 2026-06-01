@@ -151,9 +151,9 @@ export const SERVICES = [
   {
     n: '01',
     name: 'Audit',
-    price: 'Fixed · 1 week',
+    price: '$2,500 · 5 business days',
     desc: 'We shadow your team for five days, map every workflow, and deliver a ranked list of automations with ROI math you can take to your board.',
-    deliverables: ['Workflow map', 'Agent opportunity scorecard', 'ROI projection', 'Risk register'],
+    deliverables: ['Workflow map', 'Agent opportunity scorecard', 'ROI projection', 'Implementation plan', 'Risk register', 'Integration architecture'],
   },
   {
     n: '02',
