@@ -34,4 +34,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://heckholdings.com/blog/multi-agent-ai-explained/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
