@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your First AI Agent Workflow in 90 Days: A Small Business Playbook With Real Numbers | Heck Holdings</title>
+<meta name="description" content="A practical, data-backed 90-day playbook for small business owners deploying their first AI agent workflow. Real case studies, real ROI figures, real pitfalls.">
+<meta name="keywords" content="AI agent workflow small business, how to deploy AI agent SMB, AI automation 90-day plan, agentic AI ROI for small business, first AI agent implementation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://heckholdings.com/blog/ai-agent-90-day-playbook/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Heck Holdings">
+<meta property="og:title" content="Your First AI Agent Workflow in 90 Days: A Small Business Playbook With Real Numbers">
+<meta property="og:description" content="A practical, data-backed 90-day playbook for small business owners deploying their first AI agent workflow. Real case studies, real ROI figures, real pitfalls.">
+<meta property="og:url" content="https://heckholdings.com/blog/ai-agent-90-day-playbook/">
+<meta property="og:image" content="https://heckholdings.com/blog/images/blog4_hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your First AI Agent Workflow in 90 Days: A Small Business Playbook With Real Numbers">
+<meta name="twitter:description" content="A practical, data-backed 90-day playbook for deploying your first AI agent workflow. Three phases, five starter workflows, real case studies.">
+<meta name="twitter:image" content="https://heckholdings.com/blog/images/blog4_hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Your First AI Agent Workflow in 90 Days: A Small Business Playbook With Real Numbers",
+  "description": "A practical, data-backed 90-day playbook for small business owners deploying their first AI agent workflow. Real case studies, real ROI figures, real pitfalls.",
+  "image": "https://heckholdings.com/blog/images/blog4_hero.webp",
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-06-09",
+  "author": {
+    "@type": "Person",
+    "name": "Michael Heckert",
+    "url": "https://www.linkedin.com/in/michael-heckert/",
+    "jobTitle": "Founder & Principal",
+    "worksFor": { "@type": "Organization", "name": "Heck Holdings", "url": "https://heckholdings.com" }
+  },
+  "publisher": { "@type": "Organization", "name": "Heck Holdings", "url": "https://heckholdings.com" },
+  "mainEntityOfPage": "https://heckholdings.com/blog/ai-agent-90-day-playbook/"
+}
+</script>
+<style>
+  :root {
+    --bg: #0B0B0F;
+    --surface: #13131A;
+    --surface2: #1A1A24;
+    --border: rgba(255,255,255,0.08);
+    --coral: #E88A6D;
+    --coral-dim: rgba(232, 138, 109, 0.15);
+    --coral-glow: rgba(232, 138, 109, 0.06);
+    --text: #F0EDE8;
+    --text-muted: #8B8A8E;
+    --text-dim: #5A5A62;
+    --teal: #5BC4B8;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--coral); }
+  .nav-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--coral-dim);
+    color: var(--coral);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(232,138,109,0.25);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 6rem;
+  }
+
+  /* ── META ── */
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .tag-coral {
+    background: var(--coral-dim);
+    color: var(--coral);
+    border-color: rgba(232,138,109,0.25);
+  }
+  .meta-date {
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── HERO ── */
+  h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--coral);
+  }
+
+  .hero-img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 2rem 0 2.5rem;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .img-caption {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: -1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── TL;DR BOX ── */
+  .tldr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--coral);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0 3rem;
+  }
+  .tldr h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--coral);
+    margin-bottom: 0.75rem;
+  }
+  .tldr ul {
+    list-style: none;
+    padding: 0;
+  }
+  .tldr li {
+    font-size: 0.95rem;
+    color: var(--text);
+    padding: 0.3rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .tldr li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+  }
+
+  /* ── BODY TEXT ── */
+  p {
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-size: 1.025rem;
+  }
+
+  a {
+    color: var(--coral);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232,138,109,0.3);
+    transition: border-color 0.15s;
+  }
+  a:hover { border-color: var(--coral); }
+
+  strong { color: var(--white); font-weight: 600; }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin: 3.5rem 0 1rem;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--coral);
+    margin: 2.5rem 0 0.75rem;
+    line-height: 1.3;
+  }
+  h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 2rem 0 0.5rem;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 3px solid var(--coral);
+    margin: 2.5rem 0;
+    padding: 0.25rem 0 0.25rem 1.75rem;
+  }
+  .pull-quote p {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--white);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+  }
+  .pull-quote cite {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── DATA BOX ── */
+  .data-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+  }
+  .data-box h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+  }
+  .data-stat {
+    text-align: center;
+    padding: 1rem;
+    background: var(--surface2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .data-stat .number {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--coral);
+    letter-spacing: -0.03em;
+    display: block;
+  }
+  .data-stat .label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.3;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  .data-stat .source {
+    font-size: 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-dim);
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* ── STEP BLOCKS ── */
+  .phase {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--coral), transparent);
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .phase-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: var(--coral-dim);
+    color: var(--coral);
+    border: 1px solid rgba(232,138,109,0.25);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    white-space: nowrap;
+  }
+  .phase-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+  .phase-days {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+  .phase ul {
+    list-style: none;
+    padding: 0;
+  }
+  .phase li {
+    font-size: 0.95rem;
+    color: var(--text);
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .phase li:last-child { border-bottom: none; }
+  .phase li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-size: 0.8rem;
+    top: 0.45rem;
+  }
+
+  /* ── CASE STUDY ── */
+  .case-study {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    margin: 2rem 0;
+  }
+  .case-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .case-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: -0.015em;
+  }
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .cs-stat {
+    text-align: center;
+    background: var(--surface);
+    border-radius: 6px;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid var(--border);
+  }
+  .cs-stat .n {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--coral);
+    display: block;
+    letter-spacing: -0.02em;
+  }
+  .cs-stat .l {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.15rem;
+    line-height: 1.25;
+  }
+  .case-study p {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* ── INLINE IMAGE ── */
+  .inline-img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 2.5rem 0 0.5rem;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  /* ── WARN BOX ── */
+  .warn-box {
+    background: rgba(91,196,184,0.06);
+    border: 1px solid rgba(91,196,184,0.2);
+    border-left: 3px solid var(--teal);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+  .warn-box h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .warn-box p { font-size: 0.92rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+  .warn-box p:last-child { margin-bottom: 0; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+  }
+  .checklist h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+  .checklist li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .checklist li::before {
+    content: '☐';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .article-footer p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+  }
+  .tags-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .tags-footer .tag {
+    font-size: 0.72rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  @media (max-width: 640px) {
+    main { padding: 2rem 1.25rem 4rem; }
+    .case-stats { grid-template-columns: repeat(2, 1fr); }
+    .checklist ul { grid-template-columns: 1fr; }
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://heckholdings.com" class="logo">Heck<span>Holdings</span></a>
+  <span class="nav-tag">AI Insights</span>
+</header>
+
+<main>
+
+  <div class="article-meta">
+    <span class="tag tag-coral">How-To Guide</span>
+    <span class="tag">AI Agents</span>
+    <span class="tag">Case Studies</span>
+    <span class="meta-date">May 28, 2026 · 11 min read</span>
+  </div>
+
+  <h1>Your First AI Agent Workflow in <em>90 Days</em>: A Small Business Playbook With Real Numbers</h1>
+
+  <p>Here's a number that should make you sit up: <strong>only 15% of small businesses have fully integrated agentic workflows into their operations</strong> — even though the businesses that have are seeing 20–40% reductions in operating costs in automated areas and 15–25% revenue lifts in sales, according to a <a href="https://distrya.com/blog/ai-agentic-workflows-for-smes-2026-report" target="_blank" rel="noopener">2026 survey of 500+ SMBs by Distrya</a>. (We broke down <a href="/blog/ai-adoption-gap-2026/">why the adoption gap is so wide</a> — and what the top performers are doing differently.)</p>
+
+  <p>The gap isn't technical. It's not even budget. It's that most small business owners don't have a clear, sequenced plan for getting from "I've heard AI agents are a thing" to "I have a working agent saving me 20 hours a week." So that's exactly what this article is: a 90-day implementation playbook, grounded in real deployments, real data, and the specific mistakes that trip up first-timers.</p>
+
+  <img src="/blog/images/blog4_hero.webp" alt="Abstract AI workflow pipeline visualization — glowing network of nodes on dark background with coral accents" class="hero-img">
+  <p class="img-caption">// AI agent workflow architecture — orchestrated, parallel, always-on</p>
+
+  <div class="tldr">
+    <h3>TL;DR — What You'll Get From This</h3>
+    <ul>
+      <li>A three-phase 90-day roadmap for your first AI agent deployment</li>
+      <li>Real data from companies that ran these exact workflows (Klarna, Synthesia, anonymized SMBs)</li>
+      <li>The five candidate workflows most likely to deliver fast ROI for a sub-50-person business</li>
+      <li>The most common mistake that kills first implementations (and how to avoid it)</li>
+      <li>A go/no-go checklist for choosing your first workflow</li>
+    </ul>
+  </div>
+
+  <h2>First: What Makes a Workflow "Agent-Ready"?</h2>
+
+  <p>Not every business process benefits from an AI agent. Before you pick your first use case, you need a filter. The businesses that get fast, measurable results share a consistent pattern: they started with workflows that were <strong>high-frequency, well-documented, low-stakes on failure, and currently eating significant human time.</strong></p>
+
+  <p>The <a href="https://www.involvedigital.com/insights/agentic-ai-business-workflows-2026" target="_blank" rel="noopener">2026 Agentic AI Business Workflows report from Involve Digital</a> breaks this down cleanly. The best first-agent candidates have four properties:</p>
+
+  <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+    <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; border-bottom: 1px solid var(--border);"><strong style="position:absolute;left:0;color:var(--coral);">1.</strong> <strong>High frequency:</strong> The workflow happens at least weekly, ideally daily. The more often it runs, the faster the ROI compounds.</li>
+    <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; border-bottom: 1px solid var(--border);"><strong style="position:absolute;left:0;color:var(--coral);">2.</strong> <strong>Defined trigger:</strong> There's a clear starting event — a form submission, a new record in the CRM, an inbound email, a calendar trigger. Ambiguous triggers make agent design miserable.</li>
+    <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; border-bottom: 1px solid var(--border);"><strong style="position:absolute;left:0;color:var(--coral);">3.</strong> <strong>Documented steps:</strong> A human can write out what happens after the trigger in 10 or fewer sequential steps. If your process is undocumented tribal knowledge, document it before you automate it — or you'll automate the chaos too.</li>
+    <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative;"><strong style="position:absolute;left:0;color:var(--coral);">4.</strong> <strong>Clean exception routing:</strong> Edge cases that can't be automated route to a human with enough context. This is the piece most first-timers skip — and it's the one that determines whether your agent delights customers or frustrates them.</li>
+  </ul>
+
+  <div class="data-box">
+    <h4>⟶ The State of SMB Agent Adoption — 2026</h4>
+    <div class="data-grid">
+      <div class="data-stat">
+        <span class="number">60%</span>
+        <span class="label">of small businesses experimenting with AI in some form</span>
+        <span class="source">Distrya 2026 Survey, n=500+</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">25%</span>
+        <span class="label">using AI daily as part of regular operations</span>
+        <span class="source">Distrya 2026 Survey</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">15%</span>
+        <span class="label">have fully integrated agentic workflows</span>
+        <span class="source">Distrya 2026 Survey</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">74%</span>
+        <span class="label">of executives achieving AI ROI within the first year</span>
+        <span class="source">Deloitte 2024 AI Survey</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>The Five Workflows Worth Starting With</h2>
+
+  <p>Based on deployment patterns from SMB-focused AI consultancies and the anonymized case studies published by <a href="https://swiftheadway.ai/blog/agentic-ai-examples-roi-for-smbs" target="_blank" rel="noopener">Swift Headway AI</a> and <a href="https://www.involvedigital.com/insights/agentic-ai-business-workflows-2026" target="_blank" rel="noopener">Involve Digital</a> in early 2026, here are the five workflows that consistently deliver measurable ROI within 90 days for businesses under 50 people. (For a broader list of candidates, see our rundown of <a href="/blog/7-processes-for-ai-agents/">7 processes you should hand to an AI agent</a>.)</p>
+
+  <h3>1. Inbound Lead Qualification + Outreach</h3>
+
+  <p>A regional home services operator with 80–120 inbound web leads per week was averaging a 4-hour response time and a 9% lead-to-meeting conversion rate. After deploying an agent that scored each lead, checked technician availability, and sent a personalized reply proposing two time slots — all within two minutes — the conversion rate moved from 9% to 16.5% on a rolling 30-day basis. That's an 83% lift in lead-to-meeting conversion with zero additional headcount.</p>
+
+  <p>The agent's job: read the form submission → score against ICP → check calendar → send a tailored reply with two time slots → book on acceptance → update CRM → route exceptions (out-of-area leads, custom work) to a human with a one-line summary. Seven steps. Always running.</p>
+
+  <h3>2. Renewal and Follow-Up Sequences</h3>
+
+  <p>An independent insurance agency managing 4,500 active policies with a 78% renewal retention rate. The agent monitored the policy system for 90-day renewal windows, drafted personalized outreach referencing each client's specific coverage and history, sent through the agency's email platform, tracked responses, escalated non-responses after seven days, and booked callbacks. Carrier-specific edge cases — pending claims, regulatory issues, complex multi-line accounts — routed to the dedicated account manager with full context attached. The target: move retention from 78% toward 84%+.</p>
+
+  <h3>3. Finance Close + Reconciliation</h3>
+
+  <p>A six-location services business was closing books in 11 business days each month, with the finance lead spending two full weeks on reconciliation, journal entries, and report assembly. The agent pulled bank feeds, matched transactions against the GL, flagged exceptions for human review, drafted recurring journal entries from prior-month templates, ran AR/AP reconciliation, and assembled the management report — presenting a review-ready close on day 4 instead of day 11. The finance lead's role shifted from doing the work to reviewing a finished draft.</p>
+
+  <h3>4. Customer Support Triage</h3>
+
+  <p>This one has the most enterprise proof behind it. <strong>Intercom's Fin AI Agent</strong> (powered by Anthropic Claude) delivers <strong>51% automated resolution</strong> across its customer base. <a href="https://www.involvedigital.com/insights/agentic-ai-business-workflows-2026" target="_blank" rel="noopener">Synthesia</a> saved over 1,300 support hours in six months, resolving 6,000+ conversations automatically. <a href="https://swiftheadway.ai/blog/agentic-ai-examples-roi-for-smbs" target="_blank" rel="noopener">A 12-person SaaS company</a> brought first-response time from 4–8 hours down to 4-minute median, and first-contact resolution from 65% to 81%.</p>
+
+  <p>The tier model that works: <strong>Tier 1 (fully autonomous)</strong> for simple informational queries; <strong>Tier 2 (agent drafts, human confirms)</strong> for moderate-complexity issues; <strong>Tier 3 (agent prepares context, human executes)</strong> for complex, sensitive, or high-stakes issues. Design for the exception routing first — that's what determines customer trust.</p>
+
+  <h3>5. Weekly Reporting + Data Compilation</h3>
+
+  <p>The underrated one. A company with 50 knowledge workers saved 200–300 working hours per quarter simply by automating internal reporting — weekly sales summaries, pipeline reports, monthly dashboards — with agents that pull from connected systems and format the output. No one manually exports a spreadsheet. No one builds a pivot table at 4pm on Friday. The report lands in inboxes at 8am Monday, compiled and formatted, ready for review.</p>
+
+  <div class="pull-quote">
+    <p>"The best first agent is one that is high-frequency, well-documented, low-risk, and currently consuming significant human time."</p>
+    <cite>— Involve Digital, Agentic AI for Business Workflows 2026</cite>
+  </div>
+
+  <h2>The 90-Day Playbook: Three Phases, No Heroics</h2>
+
+  <p>Here's the actual implementation sequence. This is designed for a small business owner or ops lead who isn't an AI engineer — it assumes you'll use an off-the-shelf agent platform (Lindy, Make, n8n, Relay.app) rather than build from scratch. (If you want to understand <a href="/blog/mcp-codex-agent-infrastructure-2026/">the infrastructure layer powering these platforms</a> — MCP, Codex, and the agent protocol wars — we covered that separately.)</p>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-number">PHASE 01</span>
+      <span class="phase-title">Audit, Select, and Map</span>
+      <span class="phase-days">Days 1–21</span>
+    </div>
+    <ul>
+      <li><strong>Document your top 10 workflows end-to-end.</strong> Write down every step, who does it, how long it takes, how often it happens, and what the output is. This is unglamorous work and it is also the entire foundation of everything that follows.</li>
+      <li><strong>Score each workflow against the four agent-readiness criteria:</strong> high frequency, defined trigger, documented steps, clean exception routing. Rank them.</li>
+      <li><strong>Pick ONE.</strong> Not two. Not a pilot program. One workflow. The one that is most frequent, most painful, and most clearly defined. You will learn more from one real deployment than from three half-built ones.</li>
+      <li><strong>Map the exception cases explicitly.</strong> For your chosen workflow: what are the 5–10 edge cases that can't be automated? Where do they route? Who gets the notification, and with what context? Draw this out before you touch any tool.</li>
+      <li><strong>Define your Day-90 success metric now.</strong> Not "the agent is running" — a specific, measurable outcome. Lead conversion from X% to Y%. Response time from X hours to Y minutes. Reconciliation from X days to Y days.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-number">PHASE 02</span>
+      <span class="phase-title">Build, Test, and Launch</span>
+      <span class="phase-days">Days 22–56</span>
+    </div>
+    <ul>
+      <li><strong>Choose your platform based on your trigger, not your feature wishlist.</strong> If the trigger is email, you want something with deep email integrations. If it's a form submission, you want something that plugs into your form tool and CRM natively. Platforms like <a href="https://www.lindy.ai" target="_blank" rel="noopener">Lindy</a>, <a href="https://relay.app" target="_blank" rel="noopener">Relay.app</a>, or <a href="https://make.com" target="_blank" rel="noopener">Make</a> cover most SMB use cases without custom code.</li>
+      <li><strong>Build the happy path first.</strong> The most common 80% of cases, end-to-end. Get that running and validated before you build exception handling.</li>
+      <li><strong>Run the agent in "supervised" mode for 2 weeks.</strong> It proposes actions; a human approves before execution. This surfaces errors and edge cases you didn't anticipate — and you will not anticipate all of them.</li>
+      <li><strong>Widen autonomy gradually.</strong> After supervised mode validates, move high-confidence categories to fully autonomous. Keep medium-confidence as one-click human approval. Keep low-confidence routed to the human queue with agent context attached.</li>
+      <li><strong>Set up measurement.</strong> You need a dashboard tracking: task completion rate, error rate (manual corrections needed), time-to-completion vs. baseline, exception rate, and customer/output quality signals. Without measurement, you can't improve and you can't prove ROI to yourself or anyone else.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-number">PHASE 03</span>
+      <span class="phase-title">Measure, Optimize, and Expand</span>
+      <span class="phase-days">Days 57–90</span>
+    </div>
+    <ul>
+      <li><strong>Review performance against your Day-90 metric.</strong> Are you hitting it? If yes, document why it worked and what you'd do differently. If not, diagnose whether the issue is the workflow design, the data quality, or the exception routing — those are the three failure modes.</li>
+      <li><strong>Run a cost-benefit calculation.</strong> How many hours has the agent saved? At what loaded cost? What did the platform and setup cost? Most SMBs see payback in 3–6 months on their first deployment, per <a href="https://kodexolabs.com/business-automation-with-ai-agents/" target="_blank" rel="noopener">Kodexo Labs research</a>. If you're not on track, check whether your first workflow was actually the right candidate.</li>
+      <li><strong>Document what you learned about your own operations.</strong> Forced documentation often reveals process problems that exist independent of AI — slow handoffs, unclear ownership, missing data. Fix those in parallel.</li>
+      <li><strong>Pick workflow #2.</strong> With one successful deployment proven out, you now have internal evidence of ROI and a team that understands how agents behave. Your second deployment will go faster and produce better results than your first.</li>
+    </ul>
+  </div>
+
+  <img src="/blog/images/blog4_inline1.webp" alt="Three illuminated blocks representing the 90-day phased implementation roadmap — dark background with coral and teal highlights" class="inline-img">
+  <p class="img-caption">// Three phases: Audit → Build → Measure. Expand only after the first cycle completes.</p>
+
+  <h2>Case Studies: What the Numbers Actually Look Like</h2>
+
+  <p>Vendor-commissioned ROI studies have a well-documented optimism bias — Salesforce's Agentforce TEI showing 396% ROI and Forrester's Microsoft Copilot study showing 314% are composite organizations selected for best-case outcomes, as <a href="https://www.digitalapplied.com/blog/ai-agent-roi-calculator-enterprise-business-case" target="_blank" rel="noopener">Digital Applied's 2026 ROI framework analysis</a> notes explicitly. Below are more grounded examples from named companies and anonymized SMB deployments.</p>
+
+  <div class="case-study">
+    <div class="case-label">Case Study · Customer Support</div>
+    <div class="case-title">Klarna — AI Customer Service Agent (First-Month Results)</div>
+    <div class="case-stats">
+      <div class="cs-stat">
+        <span class="n">2.3M</span>
+        <span class="l">Support conversations handled in month one</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">&lt;2 min</span>
+        <span class="l">Resolution time (down from 11 minutes)</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">$40M</span>
+        <span class="l">Estimated annual profit improvement</span>
+      </div>
+    </div>
+    <p>Klarna's AI agent handled roughly two-thirds of incoming support chats in its first month, equivalent to 700 full-time employees. The company also reported a 40% reduction in cost per transaction since Q1 2023. This is an enterprise deployment — but the architectural pattern (tier model, exception routing, autonomous + human-confirmed categories) is directly applicable at any scale. <a href="https://creolestudios.com/klarna-ai-case-study/" target="_blank" rel="noopener">Source: Creole Studios Case Studies</a>.</p>
+  </div>
+
+  <div class="case-study">
+    <div class="case-label">Case Study · SaaS Customer Support · 12-Person Team</div>
+    <div class="case-title">Anonymized SaaS — Support Triage Agent (Day-90 Outcome)</div>
+    <div class="case-stats">
+      <div class="cs-stat">
+        <span class="n">4 min</span>
+        <span class="l">Median first response (from 4–8 hours)</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">81%</span>
+        <span class="l">First-contact resolution (from 65%)</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">200–300</span>
+        <span class="l">Tickets/week processed autonomously</span>
+      </div>
+    </div>
+    <p>A 12-person SaaS company receiving 200–300 support tickets per week across email and chat. The agent classified each ticket, pulled account context, and drafted tailored responses. High-confidence categories sent directly; medium-confidence queued for one-click approval; low-confidence routed to the human queue with preliminary analysis attached. Day-90 measured 4-minute median first response and 81% first-contact resolution — up from 65%. <a href="https://swiftheadway.ai/blog/agentic-ai-examples-roi-for-smbs" target="_blank" rel="noopener">Source: Swift Headway AI</a>.</p>
+  </div>
+
+  <div class="case-study">
+    <div class="case-label">Case Study · Security Operations · Contraforce</div>
+    <div class="case-title">Contraforce — Multi-Agent Security Operations</div>
+    <div class="case-stats">
+      <div class="cs-stat">
+        <span class="n">30 sec</span>
+        <span class="l">Incident response (from 30 minutes)</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">&lt;$1</span>
+        <span class="l">Cost per incident (from $15)</span>
+      </div>
+      <div class="cs-stat">
+        <span class="n">90%</span>
+        <span class="l">Of incident investigations automated</span>
+      </div>
+    </div>
+    <p>Contraforce deployed a multi-agent security operations system that automates 90% of incident investigations and response tasks — functioning as an always-on security operations team. Incident response time dropped from 30 minutes to 30 seconds; cost per incident dropped from $15 to under $1. MSPs now scale services without scaling teams. <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/12/04/multi-agentic-ai-unlocking-the-next-wave-of-business-transformation/" target="_blank" rel="noopener">Source: Microsoft Cloud Blog, December 2025</a>.</p>
+  </div>
+
+  <h2>The Mistake That Kills Most First Implementations</h2>
+
+  <p>Every single first-timer who fails at this makes the same mistake: <strong>they skip the exception routing design.</strong></p>
+
+  <p>The happy path is easy to build. The 80% of cases that are routine, well-defined, and easy to classify — those build themselves in an afternoon on most modern platforms. What kills implementations is the 20% of edge cases that the agent doesn't know how to handle. If there's no clean routing for those exceptions, two things happen: the agent either fails silently (worst), or it handles them badly and creates downstream problems (also bad).</p>
+
+  <div class="warn-box">
+    <h4>⚠ Common Exception Routing Failures</h4>
+    <p><strong>No routing at all:</strong> The agent gets stuck on an edge case and either does nothing or does something wrong. Customer never gets a response. Contract never gets flagged. Lead falls through the crack.</p>
+    <p><strong>Routing with insufficient context:</strong> The exception routes to a human, but the human gets a raw ticket with no context about what the agent already did or why it escalated. They spend 10 minutes reconstructing what the agent already knew.</p>
+    <p><strong>Routing to the wrong person:</strong> The exception lands in a general inbox instead of the person with authority to resolve it. It sits there for days.</p>
+    <p>Fix: For every exception type, write: who gets it, what context they receive, what action they need to take, and what the SLA is. Then build that routing before you build anything else.</p>
+  </div>
+
+  <p>A <a href="https://www.involvedigital.com/insights/agentic-ai-business-workflows-2026" target="_blank" rel="noopener">2026 Involve Digital analysis</a> found that <strong>72% of consumers are open to using AI chatbots — but only if there is a clear way to escalate complex issues to a human agent.</strong> The same principle applies to internal workflows. People will trust the agent if failures are handled gracefully. They'll stop using it — and complain loudly — if they're not.</p>
+
+  <h2>What This Actually Costs to Build</h2>
+
+  <p>Let's be concrete. Platform costs for SMB-appropriate agent tooling start at free (Lindy's free tier covers 40 tasks/month) and scale up from there. <a href="https://relay.app" target="_blank" rel="noopener">Relay.app</a> starts at $11.25/month. Comprehensive automation suites run $500–$2,000/month depending on volume and complexity, per <a href="https://kodexolabs.com/business-automation-with-ai-agents/" target="_blank" rel="noopener">Kodexo Labs' 2025 SMB cost analysis</a>.</p>
+
+  <p>The real cost isn't the software — it's the setup time. Plan for 20–40 hours of internal time across the first 90 days: process documentation, workflow design, supervised testing, and measurement setup. If you're using an outside implementation partner, expect $2,000–$8,000 for a first deployment depending on complexity and integrations required.</p>
+
+  <p>Against that: at $60/hour loaded cost for the knowledge workers whose time you're freeing, saving 5 hours per week produces $15,600/year in recovered capacity. Most first SMB deployments save 3–8 hours weekly. The math on ROI is not complicated — the question is whether you execute cleanly enough to capture it.</p>
+
+  <div class="data-box">
+    <h4>⟶ SMB Agent Deployment — Benchmark Outcomes</h4>
+    <div class="data-grid">
+      <div class="data-stat">
+        <span class="number">20–40%</span>
+        <span class="label">Operating cost reduction in automated areas</span>
+        <span class="source">Distrya 2026, 500+ SMBs</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">6–12 mo</span>
+        <span class="label">Typical payback period for first deployment</span>
+        <span class="source">Kodexo Labs 2025</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">30–50%</span>
+        <span class="label">Process time reduction in automated workflows</span>
+        <span class="source">Kodexo Labs 2025</span>
+      </div>
+      <div class="data-stat">
+        <span class="number">90%+</span>
+        <span class="label">Accuracy in document processing and data extraction</span>
+        <span class="source">Involve Digital 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Before You Start: Your Go/No-Go Checklist</h2>
+
+  <p>Use this before you commit to a first deployment. If you can't check all six, fix the gaps first.</p>
+
+  <div class="checklist">
+    <h4>First Workflow Readiness Checklist</h4>
+    <ul>
+      <li>Workflow runs at least once per week</li>
+      <li>Clear, single trigger event defined</li>
+      <li>Every step documented in writing</li>
+      <li>Exception cases mapped with routing</li>
+      <li>Day-90 success metric defined (specific, measurable)</li>
+      <li>One owner accountable for the deployment</li>
+      <li>Platform selected and tested with sample data</li>
+      <li>Supervised mode plan (2+ weeks before full autonomy)</li>
+      <li>Measurement dashboard designed before launch</li>
+      <li>Internal stakeholders briefed on what changes</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <h2>The Bottom Line</h2>
+
+  <p>Ninety days is enough time to go from zero to a running agent workflow that measurably improves a real business process. The businesses doing this aren't larger or more technical than yours — they just picked one high-frequency workflow, documented it properly, designed their exception routing before they built anything, and ran the deployment in supervised mode long enough to surface the edge cases.</p>
+
+  <p>The 15% of small businesses that have fully integrated agentic workflows are not sitting on some secret technology. They just started. And they started with one workflow, not ten.</p>
+
+  <p>Pick the workflow. Document it. Build the exception routing. Measure day 90.</p>
+
+  <p>That's the whole playbook.</p>
+
+  <div class="article-footer">
+    <p>Published by <strong>Heck Holdings</strong> — AI strategy and implementation for small business operators.</p>
+    <p>Sources are linked inline throughout. Vendor-commissioned studies are noted as such. Independent benchmarks are distinguished from self-reported metrics.</p>
+    <div class="tags-footer">
+      <span class="tag">AI agent workflow small business</span>
+      <span class="tag">how to deploy AI agent SMB</span>
+      <span class="tag">AI automation 90-day plan</span>
+      <span class="tag">agentic AI ROI small business</span>
+      <span class="tag">first AI agent implementation</span>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
