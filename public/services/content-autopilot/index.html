@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Content Creation on Autopilot — AI-Powered Content Engine | Heck Holdings</title>
+<meta name="description" content="AI finds trends in your niche, plans and creates draft content for your approval, then autopublishes or schedules posts. Your content engine runs 24/7 while you focus on your business."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://heckholdings.com/services/content-autopilot/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Heck Holdings"/>
+<meta property="og:title" content="Content Creation on Autopilot — AI Finds Trends, Creates Drafts, You Approve | Heck Holdings"/>
+<meta property="og:description" content="Your AI content engine monitors trends in your niche, creates draft posts and articles, and waits for your approval. One tap to publish or schedule. Content marketing without the grind."/>
+<meta property="og:url" content="https://heckholdings.com/services/content-autopilot/"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/>
+<link rel="stylesheet" href="/services/services.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Content Creation on Autopilot",
+  "description": "AI-powered content engine that finds trends in your niche, plans and creates draft content for your approval, then autopublishes or schedules posts across platforms.",
+  "url": "https://heckholdings.com/services/content-autopilot/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Heck Holdings",
+    "url": "https://heckholdings.com"
+  },
+  "serviceType": "AI Content Automation",
+  "areaServed": "US",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Content Autopilot Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Social Autopilot",
+        "description": "AI-powered social media content creation and scheduling for up to 3 platforms.",
+        "priceCurrency": "USD",
+        "price": "1500"
+      },
+      {
+        "@type": "Offer",
+        "name": "Full Content Engine",
+        "description": "Complete content autopilot across social, blog, email, and video with trend monitoring.",
+        "priceCurrency": "USD",
+        "price": "4500"
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* ── Content Autopilot specific styles ── */
+.flow-visual {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-bottom: 48px;
+  position: relative;
+}
+.flow-step {
+  text-align: center;
+  padding: 28px 16px;
+  position: relative;
+}
+.flow-step::after {
+  content: '→';
+  position: absolute;
+  right: -8px;
+  top: 40px;
+  font-size: 20px;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.flow-step:last-child::after { display: none; }
+.flow-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.flow-step h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.flow-step p {
+  font-size: 13px;
+  color: var(--fg-2);
+  line-height: 1.45;
+}
+
+.autopilot-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.autopilot-stat {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  text-align: center;
+}
+.autopilot-stat .stat-val {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  text-shadow: 0 0 32px var(--accent-glow);
+  margin-bottom: 6px;
+}
+.autopilot-stat .stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Package cards */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.pkg-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(28px, 3vw, 44px);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.pkg-card:hover { border-color: var(--line); }
+.pkg-card.featured {
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+}
+.pkg-card.featured:hover { border-color: var(--accent); }
+.pkg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.pkg-badge .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pkg-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.pkg-subtitle {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  margin-bottom: 20px;
+}
+.pkg-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 56px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--accent);
+  text-shadow: 0 0 48px var(--accent-glow);
+  margin-bottom: 4px;
+}
+.pkg-price-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-bottom: 24px;
+}
+.pkg-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+}
+.pkg-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fg-2);
+  line-height: 1.45;
+}
+.pkg-includes li .check {
+  color: var(--accent);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Platform grid */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.platform-chip {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.25s;
+}
+.platform-chip:hover { border-color: var(--line); }
+.platform-chip .plat-icon { font-size: 28px; margin-bottom: 8px; }
+.platform-chip .plat-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.platform-chip .plat-type { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); }
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .flow-visual { grid-template-columns: repeat(3, 1fr); }
+  .flow-step:nth-child(3)::after { display: none; }
+  .pkg-grid { grid-template-columns: 1fr; }
+  .autopilot-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .platform-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 620px) {
+  .flow-visual { grid-template-columns: 1fr; }
+  .flow-step::after { display: none; }
+  .autopilot-stat-grid { grid-template-columns: 1fr; }
+  .platform-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- ── NAV ── -->
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <a href="https://heckholdings.com/" class="blog-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Heck Holdings">
+        <rect x="15" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <rect x="42" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <circle cx="32" cy="32" r="4.5" fill="var(--accent)"/>
+      </svg>
+      <span class="mark-text">HECK</span>
+      <span class="mark-sub">HOLDINGS</span>
+    </a>
+    <div class="blog-nav-links">
+      <a href="/services/" class="hide-mobile">Services</a>
+      <a href="/services/ai-integrations/" class="hide-mobile">Integrate</a>
+      <a href="/services/hermes-agent/" class="hide-mobile">Deploy</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://heckholdings.com/#contact" class="btn-primary">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="svc-hero">
+  <div class="eyebrow"><span class="dot"></span>Content on Autopilot</div>
+  <h1>Your content machine<br/><span class="muted">runs while you sleep</span><span class="accent">.</span></h1>
+  <p class="lead">
+    AI monitors trends in your niche, researches topics your audience cares about, creates polished draft content, and queues it for your approval. One tap to publish. One tap to schedule. Your brand stays active on every platform — without you writing a single word.
+  </p>
+  <div class="hero-actions">
+    <a href="https://heckholdings.com/#contact" class="btn-primary">Get your content engine →</a>
+    <span class="hero-meta">Setup in 1–2 weeks · you approve everything</span>
+  </div>
+</div>
+
+<div class="svc-content">
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: How It Works (visual flow)
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>The loop</div>
+      <h2>Five steps<span class="muted">, fully automated.</span></h2>
+      <p>Your content engine runs on a continuous cycle. AI does steps 1–4. You do step 5. That's it.</p>
+    </div>
+
+    <div class="flow-visual">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h4>Monitor</h4>
+        <p>AI scans your niche 24/7 — competitor content, trending topics, Reddit threads, industry news, Google Trends — and identifies what your audience is talking about right now.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h4>Plan</h4>
+        <p>Topics are scored by relevance, search volume, and competition. AI builds a content calendar with post types, formats, and publishing dates — aligned to your brand strategy.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h4>Create</h4>
+        <p>AI drafts full posts, articles, and captions in your brand voice. LinkedIn thought leadership, blog posts with images, Instagram captions, Twitter threads — ready for review.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <h4>Queue</h4>
+        <p>Drafts land in your inbox or Slack with one-tap approve/edit buttons. Everything organized by platform, date, and status. Your editorial dashboard.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <h4>Publish</h4>
+        <p>Approve → published immediately. Or approve → scheduled for the optimal posting time. Edits? Make changes and re-approve. You always have final say.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: What The Engine Creates
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Content types</div>
+      <h2>Everything your brand needs<span class="muted">, on repeat.</span></h2>
+      <p>The engine doesn't just create social posts. It builds a complete content ecosystem that drives traffic, engagement, and authority in your niche.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h4>LinkedIn thought leadership</h4>
+        <p>Industry hot takes, data-backed insights, personal stories, and engagement-optimized posts. AI learns your voice from existing content and drafts posts that sound like you — not like a robot.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h4>Blog articles &amp; SEO content</h4>
+        <p>Long-form articles with real research, linked sources, custom images, proper heading structure, and on-page SEO baked in. 1,500–3,000 word pieces that actually rank and drive organic traffic.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🐦</div>
+        <h4>Twitter/X threads &amp; posts</h4>
+        <p>Snappy single posts, multi-part threads that break down complex topics, quote-tweet commentary on trending news, and reply engagement suggestions. Formatted for maximum reach.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📸</div>
+        <h4>Instagram &amp; social media</h4>
+        <p>Carousel concepts, caption writing with hashtag research, story ideas, and Reels scripts. AI generates visual direction alongside the copy so your designer (or AI image tools) know exactly what to create.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📧</div>
+        <h4>Email newsletters</h4>
+        <p>Weekly or monthly newsletters compiled from your best content, industry news, and original commentary. Subject lines A/B tested with AI. Complete HTML emails ready to drop into your ESP.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <h4>Video scripts &amp; short-form</h4>
+        <p>YouTube video scripts with hooks, talking points, and CTAs. TikTok and Reel scripts under 60 seconds. AI identifies trending audio and formats in your niche and writes scripts that ride the wave.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Supported Platforms
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Where it publishes</div>
+      <h2>Every platform<span class="muted">, one approval flow.</span></h2>
+    </div>
+
+    <div class="platform-grid">
+      <div class="platform-chip">
+        <div class="plat-icon">💼</div>
+        <div class="plat-name">LinkedIn</div>
+        <div class="plat-type">Posts &amp; articles</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">🐦</div>
+        <div class="plat-name">Twitter / X</div>
+        <div class="plat-type">Posts &amp; threads</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">📸</div>
+        <div class="plat-name">Instagram</div>
+        <div class="plat-type">Posts &amp; Reels</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">📘</div>
+        <div class="plat-name">Facebook</div>
+        <div class="plat-type">Posts &amp; Stories</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">🌐</div>
+        <div class="plat-name">Blog / CMS</div>
+        <div class="plat-type">WordPress &amp; custom</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">📧</div>
+        <div class="plat-name">Email</div>
+        <div class="plat-type">Mailchimp &amp; more</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">📌</div>
+        <div class="plat-name">Pinterest</div>
+        <div class="plat-type">Pins &amp; boards</div>
+      </div>
+      <div class="platform-chip">
+        <div class="plat-icon">🎬</div>
+        <div class="plat-name">YouTube</div>
+        <div class="plat-type">Scripts &amp; descriptions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: The Trend Engine
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Intelligence layer</div>
+      <h2>AI doesn't guess<span class="muted"> what to write about.</span></h2>
+      <p>Your content engine continuously monitors these signals to identify what your audience cares about — before your competitors notice.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h4>Competitor content tracking</h4>
+        <p>AI monitors competitor blogs, social accounts, and newsletters. When they publish something that gains traction, your engine surfaces it with a recommendation to create a better version or a counter-perspective.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h4>Google Trends &amp; search data</h4>
+        <p>Rising search queries in your niche get flagged automatically. AI identifies topic gaps — things people are searching for that nobody's writing about well — and adds them to your content calendar.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h4>Reddit &amp; community signals</h4>
+        <p>AI scans relevant subreddits, forums, and community boards for recurring questions and pain points. The best content comes from real problems real people are discussing — not keyword tools.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📰</div>
+        <h4>Industry news &amp; events</h4>
+        <p>New regulation? Product launch? Industry scandal? AI catches it immediately and drafts a timely take. Being first with commentary builds thought leadership faster than anything else.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Pricing
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Pricing</div>
+      <h2>Two packages<span class="muted">. No content agency markup.</span></h2>
+      <p>Content agencies charge $3,000–$10,000/month and deliver 8–12 pieces. Your content engine produces more, faster, and gets smarter over time. One-time setup + low monthly AI costs.</p>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- Social Autopilot -->
+      <div class="pkg-card">
+        <div class="pkg-title">Social Autopilot</div>
+        <p class="pkg-subtitle">AI-powered social content on up to 3 platforms. Perfect for businesses that need consistent social presence without the grind.</p>
+        <div class="pkg-price">$1,500</div>
+        <p class="pkg-price-note">setup · one-time + ~$30–80/mo AI costs</p>
+        <ul class="pkg-includes">
+          <li><span class="check">◆</span>Up to 3 social platforms</li>
+          <li><span class="check">◆</span>Trend monitoring for your niche</li>
+          <li><span class="check">◆</span>12–20 draft posts per month (AI-generated)</li>
+          <li><span class="check">◆</span>Content calendar with suggested dates</li>
+          <li><span class="check">◆</span>One-tap approve/edit/schedule via Slack or email</li>
+          <li><span class="check">◆</span>Auto-publish or scheduled posting</li>
+          <li><span class="check">◆</span>Brand voice training</li>
+          <li><span class="check">◆</span>14 days post-launch tuning</li>
+        </ul>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block;background:transparent;border:1px solid var(--accent);color:var(--accent)">Get social autopilot →</a>
+      </div>
+
+      <!-- Full Content Engine -->
+      <div class="pkg-card featured">
+        <div style="position:absolute;inset:0;background:radial-gradient(500px circle at 100% 0%, var(--accent-glow), transparent 55%);opacity:0.4;pointer-events:none"></div>
+        <div style="position:relative">
+          <span class="pkg-badge"><span class="badge-dot"></span>Complete engine</span>
+          <div class="pkg-title">Full Content Engine</div>
+          <p class="pkg-subtitle">Complete content autopilot across social, blog, email, and video. For businesses that want to dominate their niche with consistent, authoritative content.</p>
+          <div class="pkg-price">$4,500</div>
+          <p class="pkg-price-note">setup · one-time + ~$80–200/mo AI costs</p>
+          <ul class="pkg-includes">
+            <li><span class="check">◆</span>Unlimited platforms</li>
+            <li><span class="check">◆</span>Advanced trend monitoring (competitors, Reddit, news)</li>
+            <li><span class="check">◆</span>30–50 draft pieces per month across all formats</li>
+            <li><span class="check">◆</span>Blog articles (2–4/month, SEO-optimized, with images)</li>
+            <li><span class="check">◆</span>Email newsletter drafts (weekly or monthly)</li>
+            <li><span class="check">◆</span>Video scripts &amp; short-form concepts</li>
+            <li><span class="check">◆</span>AI-generated images and graphics</li>
+            <li><span class="check">◆</span>Content performance tracking &amp; optimization</li>
+            <li><span class="check">◆</span>Approval dashboard (Slack, email, or web)</li>
+            <li><span class="check">◆</span>Auto-publish + optimal time scheduling</li>
+            <li><span class="check">◆</span>Brand voice + competitor voice analysis</li>
+            <li><span class="check">◆</span>30 days post-launch tuning</li>
+          </ul>
+          <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block">Get the full engine →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost comparison callout -->
+    <div class="autopilot-stat-grid">
+      <div class="autopilot-stat">
+        <div class="stat-val">$1,500</div>
+        <div class="stat-label">Content autopilot setup</div>
+      </div>
+      <div class="autopilot-stat">
+        <div class="stat-val">$5,000+</div>
+        <div class="stat-label">Avg. content agency / month</div>
+      </div>
+      <div class="autopilot-stat">
+        <div class="stat-val">30–50</div>
+        <div class="stat-label">Monthly content pieces</div>
+      </div>
+      <div class="autopilot-stat">
+        <div class="stat-val">5 min</div>
+        <div class="stat-label">Your daily time commitment</div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-1);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:24px 28px;display:flex;gap:16px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">🎯</span>
+      <div>
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--fg);margin-bottom:6px">You always have final say</div>
+        <p style="font-size:14px;line-height:1.55;color:var(--fg-2);margin:0">
+          Nothing publishes without your approval. Every piece of content lands in your inbox or Slack as a draft. You can approve with one tap, request edits, rewrite it yourself, or reject it entirely. The AI learns from every edit you make — your engine gets better the more you use it.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: vs. Content Agencies
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>The comparison</div>
+      <h2>Content Autopilot vs. agencies<span class="muted"> vs. doing it yourself.</span></h2>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="equip-table" style="min-width:700px">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>DIY (You write everything)</th>
+            <th>Content Agency</th>
+            <th>Content Autopilot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="component">Monthly cost</td>
+            <td>Your time (10–20 hrs/mo)</td>
+            <td>$3,000–$10,000/mo</td>
+            <td style="color:var(--accent);font-weight:600">$30–200/mo (AI costs only)</td>
+          </tr>
+          <tr>
+            <td class="component">Output volume</td>
+            <td>4–8 pieces/mo (realistically)</td>
+            <td>8–12 pieces/mo</td>
+            <td style="color:var(--accent);font-weight:600">30–50 pieces/mo</td>
+          </tr>
+          <tr>
+            <td class="component">Your time required</td>
+            <td>10–20 hours/month</td>
+            <td>2–4 hours/month (review)</td>
+            <td style="color:var(--accent);font-weight:600">~5 minutes/day (approve)</td>
+          </tr>
+          <tr>
+            <td class="component">Trend awareness</td>
+            <td>Whatever you notice</td>
+            <td>Monthly content calendar</td>
+            <td style="color:var(--accent);font-weight:600">Real-time 24/7 monitoring</td>
+          </tr>
+          <tr>
+            <td class="component">Speed to publish</td>
+            <td>When you find the time</td>
+            <td>1–2 week review cycles</td>
+            <td style="color:var(--accent);font-weight:600">Same day — approve and it's live</td>
+          </tr>
+          <tr>
+            <td class="component">Consistency</td>
+            <td>Sporadic (life happens)</td>
+            <td>Consistent (contract-bound)</td>
+            <td style="color:var(--accent);font-weight:600">Relentless (AI never skips a day)</td>
+          </tr>
+          <tr>
+            <td class="component">Learns your voice</td>
+            <td>Already your voice</td>
+            <td>Generic → slowly adapts</td>
+            <td style="color:var(--accent);font-weight:600">Trained on your content, improves with every edit</td>
+          </tr>
+          <tr>
+            <td class="component">Year 1 cost</td>
+            <td>Your opportunity cost</td>
+            <td>$36,000–$120,000</td>
+            <td style="color:var(--accent);font-weight:600">$1,860–$6,900 total</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: FAQ
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Common questions</div>
+      <h2>Before you go autopilot<span class="muted">.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Will the content sound like AI wrote it?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Not if we do our job right. During setup, we analyze your existing content — blog posts, social posts, emails, even Slack messages if you want — and train the AI on your specific voice, tone, vocabulary, and opinions. The first batch of drafts might need some editing. By week three, most clients approve 70–80% of drafts with zero changes. The AI gets better every time you make an edit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I don't like a draft?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Reject it. Or edit it and approve the edited version. The AI learns from both actions. Rejected topics get deprioritized. Edits teach the AI what you'd prefer. Over time, the approval rate climbs and the edits get smaller. You have full control — nothing publishes without your explicit approval.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the approval flow work?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>You choose your preferred channel: Slack DM, email, or a web dashboard. Drafts arrive with the full content, suggested posting time, and three buttons: <strong>Approve</strong> (publishes immediately or at scheduled time), <strong>Edit</strong> (opens the draft for changes), and <strong>Reject</strong> (removes it and notes the reason). Most clients do their daily approvals during their morning coffee — it takes about 5 minutes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can it post at the best time for engagement?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Yes. The engine analyzes your past post performance data (if available) or uses platform-specific engagement research to suggest optimal posting times for each platform. You can override the schedule, set specific posting windows (e.g., "only post between 8–10 AM ET"), or let the AI optimize automatically.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What about images and graphics?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>The Full Content Engine includes AI-generated images — custom graphics, blog header images, and social media visuals created with your brand colors and style. For businesses with strict brand guidelines, the AI generates detailed visual briefs and Canva templates instead, so your designer can produce the final asset quickly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is this different from Jasper, Copy.ai, or Buffer's AI features?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Those tools give you AI writing assistance — you still have to come up with topics, log into the tool, write prompts, review, and manually schedule. Content Autopilot is a complete system: trend monitoring, topic planning, content creation, approval routing, and publishing all happen automatically. You don't log into anything. Drafts come to you. You approve and move on.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: CTA
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-cta-banner">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="inner">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:18px"><span class="dot"></span>Start publishing</div>
+        <h2>Your competitors are already posting daily.</h2>
+        <p>Book a 30-minute call. We'll audit your current content output, identify the highest-impact platforms for your niche, and show you exactly what your content engine would produce. If consistent content isn't your bottleneck, we'll tell you what is instead.</p>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="font-size:16px;padding:14px 28px">Book your content strategy call →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-section" style="padding-bottom:0">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding-bottom:clamp(48px,6vh,80px)">
+      <a href="/services/ai-integrations/" class="btn-secondary" style="text-decoration:none">AI Tool Integration →</a>
+      <a href="/services/hermes-agent/" class="btn-secondary" style="text-decoration:none">Hermes Agent Setup →</a>
+      <a href="/services/" class="btn-secondary" style="text-decoration:none">← All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="blog-footer">
+  <span>© 2025 Heck Holdings LLC · St. Petersburg, FL</span>
+  <div style="display:flex;gap:24px">
+    <a href="https://heckholdings.com/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://heckholdings.com/#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

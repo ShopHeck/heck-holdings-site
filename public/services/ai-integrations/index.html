@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI Tool Integration — Connect ChatGPT, Claude &amp; Gemini to Your Business Tools | Heck Holdings</title>
+<meta name="description" content="We connect ChatGPT, Claude, and Gemini to your CRM, email, calendar, and business tools to automate workflows. No code required. Live in 1–3 weeks."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://heckholdings.com/services/ai-integrations/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Heck Holdings"/>
+<meta property="og:title" content="AI Tool Integration — ChatGPT, Claude &amp; Gemini + Your Business Tools | Heck Holdings"/>
+<meta property="og:description" content="Connect ChatGPT, Claude, and Gemini to your CRM, email, scheduling, and business tools. Automate workflows without replacing your stack."/>
+<meta property="og:url" content="https://heckholdings.com/services/ai-integrations/"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/>
+<link rel="stylesheet" href="/services/services.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Tool Integration",
+  "description": "We connect ChatGPT, Claude, and Gemini to your existing business tools — CRM, email, calendar, accounting — to automate real workflows without replacing your stack.",
+  "url": "https://heckholdings.com/services/ai-integrations/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Heck Holdings",
+    "url": "https://heckholdings.com"
+  },
+  "serviceType": "AI Integration Services",
+  "areaServed": "US",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Integration Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter Integration",
+        "description": "Connect one AI model to up to 3 business tools with 2 automated workflows.",
+        "priceCurrency": "USD",
+        "price": "2500"
+      },
+      {
+        "@type": "Offer",
+        "name": "Business Integration",
+        "description": "Multi-model AI connected to 5-10 tools with up to 8 automated workflows.",
+        "priceCurrency": "USD",
+        "price": "6500"
+      },
+      {
+        "@type": "Offer",
+        "name": "Enterprise Integration",
+        "description": "Full-stack AI integration across all business systems with unlimited workflows.",
+        "priceCurrency": "USD",
+        "price": "15000"
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* ── Integration-specific styles ── */
+.int-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.int-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.int-card:hover {
+  border-color: var(--line);
+  transform: translateY(-2px);
+}
+.int-card .int-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.int-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.int-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.int-card .int-tools {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.int-card .int-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  color: var(--fg-3);
+}
+
+/* Tier cards */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.tier-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(28px, 3vw, 40px);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.tier-card:hover { border-color: var(--line); }
+.tier-card.featured {
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+}
+.tier-card.featured:hover { border-color: var(--accent); }
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.tier-badge .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.tier-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.tier-subtitle {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  margin-bottom: 20px;
+}
+.tier-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--accent);
+  text-shadow: 0 0 48px var(--accent-glow);
+  margin-bottom: 4px;
+}
+.tier-price-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-bottom: 24px;
+}
+.tier-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+}
+.tier-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fg-2);
+  line-height: 1.45;
+}
+.tier-includes li .check {
+  color: var(--accent);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* AI model logos */
+.model-row {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+  margin-bottom: 48px;
+}
+.model-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.model-item .model-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  letter-spacing: 0.06em;
+}
+.model-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: 1px solid var(--line-soft);
+  background: var(--bg-1);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .int-grid { grid-template-columns: repeat(2, 1fr); }
+  .tier-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .int-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- ── NAV ── -->
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <a href="https://heckholdings.com/" class="blog-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Heck Holdings">
+        <rect x="15" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <rect x="42" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <circle cx="32" cy="32" r="4.5" fill="var(--accent)"/>
+      </svg>
+      <span class="mark-text">HECK</span>
+      <span class="mark-sub">HOLDINGS</span>
+    </a>
+    <div class="blog-nav-links">
+      <a href="/services/" class="hide-mobile">Services</a>
+      <a href="/services/ai-audit/" class="hide-mobile">Audit</a>
+      <a href="/services/hermes-agent/" class="hide-mobile">Deploy</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://heckholdings.com/#contact" class="btn-primary">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="svc-hero">
+  <div class="eyebrow"><span class="dot"></span>AI Tool Integration</div>
+  <h1>Plug AI into the tools<br/><span class="muted">you already use</span><span class="accent">.</span></h1>
+  <p class="lead">
+    You don't need to rip out your stack. We connect ChatGPT, Claude, and Gemini directly to your CRM, email, calendar, accounting, and project management tools — so AI does real work inside your existing workflows, not in a separate chat window.
+  </p>
+  <div class="hero-actions">
+    <a href="https://heckholdings.com/#contact" class="btn-primary">Get your integration plan →</a>
+    <span class="hero-meta">Most integrations live in 1–3 weeks</span>
+  </div>
+</div>
+
+<div class="svc-content">
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: AI Models We Connect
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="model-row">
+      <div class="model-item">
+        <div class="model-dot">🟢</div>
+        <span class="model-name">ChatGPT / GPT-5</span>
+      </div>
+      <div class="model-item">
+        <div class="model-dot">🟠</div>
+        <span class="model-name">Claude / Opus</span>
+      </div>
+      <div class="model-item">
+        <div class="model-dot">🔵</div>
+        <span class="model-name">Gemini 3.5</span>
+      </div>
+      <div class="model-item">
+        <div class="model-dot">⚫</div>
+        <span class="model-name">Llama / Open-Source</span>
+      </div>
+      <div class="model-item">
+        <div class="model-dot" style="font-size:16px">🔀</div>
+        <span class="model-name">Multi-Model</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: What We Integrate
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>What we connect</div>
+      <h2>Your tools<span class="muted">, supercharged with AI.</span></h2>
+      <p>We build the bridges between AI models and your business tools. Every integration is custom-configured for your specific workflows — not a generic template.</p>
+    </div>
+
+    <div class="int-grid">
+
+      <div class="int-card">
+        <div class="int-icon">📧</div>
+        <h4>Email &amp; Communication</h4>
+        <p>AI reads incoming emails, drafts replies in your voice, sorts by urgency, extracts action items, and sends follow-ups on a schedule. You review and hit send — or let it handle routine responses automatically.</p>
+        <div class="int-tools">
+          <span class="int-tag">Gmail</span>
+          <span class="int-tag">Outlook</span>
+          <span class="int-tag">Slack</span>
+          <span class="int-tag">Teams</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📊</div>
+        <h4>CRM &amp; Sales</h4>
+        <p>Automatically log calls, enrich leads with AI research, generate follow-up emails after meetings, score prospects, and update deal stages. AI works inside your CRM so your pipeline stays current without manual data entry.</p>
+        <div class="int-tools">
+          <span class="int-tag">HubSpot</span>
+          <span class="int-tag">Salesforce</span>
+          <span class="int-tag">GoHighLevel</span>
+          <span class="int-tag">Pipedrive</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📅</div>
+        <h4>Scheduling &amp; Calendar</h4>
+        <p>AI handles booking requests via email or chat, finds available slots, sends confirmation and reminders, reschedules conflicts, and prepares meeting briefs with attendee context pulled from your CRM.</p>
+        <div class="int-tools">
+          <span class="int-tag">Google Calendar</span>
+          <span class="int-tag">Calendly</span>
+          <span class="int-tag">Cal.com</span>
+          <span class="int-tag">Acuity</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">💰</div>
+        <h4>Accounting &amp; Invoicing</h4>
+        <p>AI categorizes expenses, matches invoices to POs, drafts collection emails for overdue accounts, generates financial summaries, and flags anomalies. Connect your books to intelligence that never misses a line item.</p>
+        <div class="int-tools">
+          <span class="int-tag">QuickBooks</span>
+          <span class="int-tag">Xero</span>
+          <span class="int-tag">FreshBooks</span>
+          <span class="int-tag">Stripe</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📋</div>
+        <h4>Project Management</h4>
+        <p>AI creates tasks from meeting notes, writes status updates, identifies blockers across projects, generates weekly reports, and assigns work based on team capacity. Your PM tool goes from tracking to doing.</p>
+        <div class="int-tools">
+          <span class="int-tag">Asana</span>
+          <span class="int-tag">Monday.com</span>
+          <span class="int-tag">Linear</span>
+          <span class="int-tag">Notion</span>
+          <span class="int-tag">ClickUp</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📄</div>
+        <h4>Documents &amp; Knowledge</h4>
+        <p>AI answers questions from your internal docs, generates reports from templates, summarizes long documents, creates proposals from brief inputs, and maintains a living knowledge base your whole team can query.</p>
+        <div class="int-tools">
+          <span class="int-tag">Google Docs</span>
+          <span class="int-tag">SharePoint</span>
+          <span class="int-tag">Notion</span>
+          <span class="int-tag">Confluence</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📞</div>
+        <h4>Phone &amp; Voice</h4>
+        <p>AI transcribes calls in real-time, extracts key decisions and action items, generates call summaries in your CRM, and handles after-hours inquiries with natural voice responses. Never miss another important detail from a call.</p>
+        <div class="int-tools">
+          <span class="int-tag">Twilio</span>
+          <span class="int-tag">RingCentral</span>
+          <span class="int-tag">Vonage</span>
+          <span class="int-tag">Google Voice</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">🛒</div>
+        <h4>E-commerce &amp; Payments</h4>
+        <p>AI writes product descriptions, generates personalized marketing emails from purchase data, handles refund requests, monitors inventory levels, and creates customer segments based on buying behavior.</p>
+        <div class="int-tools">
+          <span class="int-tag">Shopify</span>
+          <span class="int-tag">WooCommerce</span>
+          <span class="int-tag">Stripe</span>
+          <span class="int-tag">Square</span>
+        </div>
+      </div>
+
+      <div class="int-card">
+        <div class="int-icon">📈</div>
+        <h4>Marketing &amp; Social</h4>
+        <p>AI creates social posts from your content, generates ad copy variations, writes email sequences, analyzes campaign performance in plain English, and suggests optimization based on real data from your ad accounts.</p>
+        <div class="int-tools">
+          <span class="int-tag">Mailchimp</span>
+          <span class="int-tag">Meta Ads</span>
+          <span class="int-tag">Google Ads</span>
+          <span class="int-tag">Buffer</span>
+          <span class="int-tag">LinkedIn</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: How It Works
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>How it works</div>
+      <h2>Not a Zapier template<span class="muted">. Actual engineering.</span></h2>
+      <p>We don't hand you a list of Zaps and wish you luck. We architect proper integrations using APIs, webhooks, and middleware — with error handling, retry logic, and monitoring so things don't silently break at 2 AM.</p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-step-label">Week 1</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Workflow mapping &amp; tool audit</h4>
+          <p>We map every tool in your stack, identify which workflows eat the most time, and design the integration architecture. You get a visual diagram showing exactly how AI will flow through your existing tools — which data goes where, what triggers what, and where humans stay in the loop. Fixed scope, fixed price before we write a line of code.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Week 2</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Build &amp; connect</h4>
+          <p>We wire up the integrations using official APIs (not screen scraping), configure the AI models with your specific context and writing style, build the automation triggers, and set up error handling and logging. Every integration is tested against your real data — not demo accounts.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Week 3</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Test, train &amp; go live</h4>
+          <p>We run the integrations in shadow mode — AI processes real work but you review everything before it sends. Once you're confident, we flip to live. Your team gets a training walkthrough and a runbook. We stick around for 14 days to tune prompts and catch edge cases.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Pricing Tiers
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Pricing</div>
+      <h2>Three tiers<span class="muted">. Pick what fits.</span></h2>
+      <p>Every engagement is fixed-price. You know the total cost before we start. No hourly billing surprises, no scope creep invoices.</p>
+    </div>
+
+    <div class="tier-grid">
+
+      <!-- Starter -->
+      <div class="tier-card">
+        <div class="tier-title">Starter</div>
+        <p class="tier-subtitle">One AI model connected to your core tools. Perfect for testing the waters with a high-impact workflow.</p>
+        <div class="tier-price">$2,500</div>
+        <p class="tier-price-note">one-time · 1–2 weeks</p>
+        <ul class="tier-includes">
+          <li><span class="check">◆</span>1 AI model (ChatGPT, Claude, or Gemini)</li>
+          <li><span class="check">◆</span>Up to 3 tool connections</li>
+          <li><span class="check">◆</span>2 automated workflows</li>
+          <li><span class="check">◆</span>Error handling &amp; logging</li>
+          <li><span class="check">◆</span>Training walkthrough</li>
+          <li><span class="check">◆</span>14 days post-launch support</li>
+        </ul>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block;background:transparent;border:1px solid var(--accent);color:var(--accent)">Get started →</a>
+      </div>
+
+      <!-- Business (featured) -->
+      <div class="tier-card featured">
+        <div style="position:absolute;inset:0;background:radial-gradient(400px circle at 50% 0%, var(--accent-glow), transparent 55%);opacity:0.4;pointer-events:none"></div>
+        <div style="position:relative">
+          <span class="tier-badge"><span class="badge-dot"></span>Most popular</span>
+          <div class="tier-title">Business</div>
+          <p class="tier-subtitle">Multi-model AI wired across your entire workflow. The sweet spot for most small businesses.</p>
+          <div class="tier-price">$6,500</div>
+          <p class="tier-price-note">one-time · 2–3 weeks</p>
+          <ul class="tier-includes">
+            <li><span class="check">◆</span>Multi-model setup (best model per task)</li>
+            <li><span class="check">◆</span>5–10 tool connections</li>
+            <li><span class="check">◆</span>Up to 8 automated workflows</li>
+            <li><span class="check">◆</span>AI trained on your writing style &amp; brand voice</li>
+            <li><span class="check">◆</span>Monitoring dashboard</li>
+            <li><span class="check">◆</span>Error alerting &amp; auto-retry</li>
+            <li><span class="check">◆</span>Team training session</li>
+            <li><span class="check">◆</span>30 days post-launch support</li>
+          </ul>
+          <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block">Get business quote →</a>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="tier-card">
+        <div class="tier-title">Enterprise</div>
+        <p class="tier-subtitle">Full-stack AI integration across every system. For businesses that want AI embedded in everything they do.</p>
+        <div class="tier-price">$15,000</div>
+        <p class="tier-price-note">starting price · 3–5 weeks</p>
+        <ul class="tier-includes">
+          <li><span class="check">◆</span>All AI models with intelligent routing</li>
+          <li><span class="check">◆</span>Unlimited tool connections</li>
+          <li><span class="check">◆</span>Unlimited automated workflows</li>
+          <li><span class="check">◆</span>Custom API development (if needed)</li>
+          <li><span class="check">◆</span>RAG pipeline for internal documents</li>
+          <li><span class="check">◆</span>Advanced monitoring &amp; analytics</li>
+          <li><span class="check">◆</span>Priority support SLA</li>
+          <li><span class="check">◆</span>60 days post-launch support</li>
+        </ul>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block;background:transparent;border:1px solid var(--accent);color:var(--accent)">Get enterprise quote →</a>
+      </div>
+
+    </div>
+
+    <div style="background:var(--bg-1);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:24px 28px;display:flex;gap:16px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">💡</span>
+      <div>
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--fg);margin-bottom:6px">Ongoing costs are just the AI models</div>
+        <p style="font-size:14px;line-height:1.55;color:var(--fg-2);margin:0">
+          After setup, your only recurring cost is the AI provider's API usage — typically <span style="color:var(--accent);font-weight:600">$20–$150/month</span> depending on volume. No platform fees. No per-seat charges. No subscription to us. You own the integrations outright.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Example Workflows
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Real examples</div>
+      <h2>Workflows we build<span class="muted"> every week.</span></h2>
+      <p>These aren't hypothetical. They're integrations we've shipped for real businesses.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📨</div>
+        <h4>Inbound lead → CRM → first-touch email</h4>
+        <p>Lead fills out a form. AI researches their company, scores the lead, creates a CRM contact with enriched data, and drafts a personalized first-touch email for your review — all within 60 seconds of submission.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎤</div>
+        <h4>Call recording → summary → CRM update</h4>
+        <p>Call ends. AI transcribes it, extracts decisions and action items, generates a summary, updates the CRM deal record, and creates follow-up tasks — ready before you've finished your coffee.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📑</div>
+        <h4>Invoice received → categorized → booked</h4>
+        <p>Vendor invoice arrives by email. AI reads the PDF, extracts line items, matches to the right expense category, creates the entry in your accounting tool, and flags anything unusual for review.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h4>Meeting → notes → tasks → assignments</h4>
+        <p>Meeting ends. AI generates structured notes, creates tasks in your PM tool for each action item, assigns them to the right team members, and sends a summary to everyone who attended.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h4>Customer question → knowledge base → reply</h4>
+        <p>Customer sends an email or chat message. AI searches your internal knowledge base, drafts an accurate response using your brand voice, and either sends it automatically or queues it for approval based on confidence level.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h4>Weekly data → AI analysis → team report</h4>
+        <p>Every Monday morning, AI pulls data from your CRM, analytics, and project tools, identifies trends and anomalies, generates a plain-English report, and drops it in your Slack channel before you've logged in.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Why Not DIY
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>The honest comparison</div>
+      <h2>Why not just use Zapier<span class="muted">?</span></h2>
+      <p>You can. And for simple triggers, you should. But here's where generic automation tools hit a wall — and where custom AI integrations take over.</p>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="equip-table" style="min-width:600px">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Zapier / Make (DIY)</th>
+            <th>Heck Holdings Integration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="component">Intelligence</td>
+            <td>Basic AI steps (summarize, extract)</td>
+            <td style="color:var(--accent);font-weight:600">Multi-model AI with context, memory, and reasoning</td>
+          </tr>
+          <tr>
+            <td class="component">Setup time</td>
+            <td>Hours to days (per workflow)</td>
+            <td style="color:var(--accent);font-weight:600">Turnkey — we build it, you use it</td>
+          </tr>
+          <tr>
+            <td class="component">Error handling</td>
+            <td>Basic retry, manual monitoring</td>
+            <td style="color:var(--accent);font-weight:600">Custom error recovery, alerting, auto-retry</td>
+          </tr>
+          <tr>
+            <td class="component">Brand voice</td>
+            <td>Generic AI output</td>
+            <td style="color:var(--accent);font-weight:600">AI trained on your writing style</td>
+          </tr>
+          <tr>
+            <td class="component">Monthly cost</td>
+            <td>$49–$159/mo (Zapier) + AI steps extra</td>
+            <td style="color:var(--accent);font-weight:600">$0/mo to us — just your AI API costs ($20–$150)</td>
+          </tr>
+          <tr>
+            <td class="component">Complex logic</td>
+            <td>Limited branching, no memory</td>
+            <td style="color:var(--accent);font-weight:600">Multi-step reasoning with context from past interactions</td>
+          </tr>
+          <tr>
+            <td class="component">Vendor lock-in</td>
+            <td>High — workflows live on their platform</td>
+            <td style="color:var(--accent);font-weight:600">None — you own the code and integrations</td>
+          </tr>
+          <tr>
+            <td class="component">Support</td>
+            <td>Help docs and community forums</td>
+            <td style="color:var(--accent);font-weight:600">Direct access to the team that built it</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: FAQ
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Common questions</div>
+      <h2>Before you integrate<span class="muted">.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Do I need to switch any of my current tools?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>No. That's the entire point. We integrate AI into your existing tools. If you use HubSpot, we work with HubSpot. If you use QuickBooks, we work with QuickBooks. We don't ask you to adopt a new platform — we make your current stack smarter.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which AI model do you recommend?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>It depends on the task. We typically use Claude for writing and analysis (best at nuanced, professional content), GPT-5 for broad tool integration (largest API ecosystem), and Gemini for data-heavy tasks (best context window for large documents). The Business tier uses multi-model routing — each workflow gets the best model for that specific job.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What are the ongoing costs after setup?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Just the AI provider's API usage fees. For a typical small business processing 50–200 AI tasks per day, expect $20–$150/month in API costs depending on which models you use and how complex the tasks are. There are no recurring fees to us. You own the integrations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if one of my tools doesn't have an API?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Most modern business tools do. For the rare ones that don't, we have fallback options: browser automation (Hermes Agent can interact with any web-based tool), email-based integrations (many tools accept commands via email), or we build a lightweight middleware layer. We'll tell you upfront during the audit if any of your tools will be tricky.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is this different from your Hermes Agent service?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>The <a href="/services/hermes-agent/" style="color:var(--accent)">Hermes Agent</a> is a fully autonomous AI employee running on your own hardware — it thinks, plans, and acts independently. AI Tool Integration is more surgical: we connect specific AI capabilities to specific tools in your stack. Think of it as the difference between hiring a full-time employee and hiring a contractor for specific projects. Many businesses start with integrations and graduate to Hermes when they're ready for full autonomy.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I add more integrations later?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Absolutely. Most clients start with the Starter tier, see results, and come back for more. Additional integrations after initial setup are scoped and priced individually — typically $500–$1,500 per workflow depending on complexity. Or you can jump to a higher tier for the volume discount.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: CTA
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-cta-banner">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="inner">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:18px"><span class="dot"></span>Ready to connect</div>
+        <h2>Your tools are waiting for AI.</h2>
+        <p>Book a 30-minute call. We'll map your tools, identify the highest-ROI integrations, and give you a fixed quote. If AI doesn't make sense for your workflow, we'll tell you that too — and save you the money.</p>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="font-size:16px;padding:14px 28px">Book your integration call →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-section" style="padding-bottom:0">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding-bottom:clamp(48px,6vh,80px)">
+      <a href="/services/hermes-agent/" class="btn-secondary" style="text-decoration:none">Hermes Agent Setup →</a>
+      <a href="/services/ai-agents/" class="btn-secondary" style="text-decoration:none">Custom Agent Development →</a>
+      <a href="/services/" class="btn-secondary" style="text-decoration:none">← All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="blog-footer">
+  <span>© 2025 Heck Holdings LLC · St. Petersburg, FL</span>
+  <div style="display:flex;gap:24px">
+    <a href="https://heckholdings.com/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://heckholdings.com/#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
