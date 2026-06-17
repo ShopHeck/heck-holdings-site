@@ -613,12 +613,13 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1080px) {
-  .svc-cards { grid-template-columns: 1fr; }
+  .svc-cards { grid-template-columns: repeat(2, 1fr); }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .solution-grid { grid-template-columns: repeat(2, 1fr); }
   .two-col { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+  .svc-cards { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .solution-grid { grid-template-columns: 1fr; }
   .who-grid { grid-template-columns: 1fr; }
