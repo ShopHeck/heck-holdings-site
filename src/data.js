@@ -165,12 +165,26 @@ export const SERVICES = [
   {
     n: '03',
     name: 'Deploy',
-    price: 'From $4,500 · 2–4 weeks',
+    price: 'From $5,850 · 2–4 weeks',
     desc: 'We install Hermes Agent on your hardware — or buy the hardware for you. A fully autonomous AI employee running 24/7 on-premise.',
     deliverables: ['GPU workstation (optional)', 'Hermes Agent configured', 'Custom automations', 'Training & runbook'],
   },
   {
     n: '04',
+    name: 'Integrate',
+    price: 'From $2,500 · 1–3 weeks',
+    desc: 'We connect ChatGPT, Claude, and Gemini to your CRM, email, calendar, and business tools — AI does real work inside your existing workflows.',
+    deliverables: ['Multi-model AI setup', 'Up to 10 tool connections', 'Custom workflows', 'Error handling & monitoring'],
+  },
+  {
+    n: '05',
+    name: 'Automate Content',
+    price: 'From $1,500 · 1–2 weeks',
+    desc: 'AI finds trends in your niche, creates draft content in your voice, and queues it for approval. One tap to publish or schedule.',
+    deliverables: ['Trend monitoring', '30–50 drafts/mo', 'One-tap approve', 'Auto-publish to all platforms'],
+  },
+  {
+    n: '06',
     name: 'Operate',
     price: 'Monthly retainer',
     desc: 'We own uptime, evals, and continuous improvement. You get a monthly brief and a Slack channel that’s actually answered.',
