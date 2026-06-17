@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Full Hermes Agent Setup — On-Premise AI for Your Business | Heck Holdings</title>
+<meta name="description" content="We purchase all equipment, install Hermes Agent, and customize it for your business — or install on your existing hardware. Turnkey AI agent deployment for dental, HVAC, medspas, plumbing, and more."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://heckholdings.com/services/hermes-agent/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Heck Holdings"/>
+<meta property="og:title" content="Full Hermes Agent Setup — On-Premise AI Agent Deployment | Heck Holdings"/>
+<meta property="og:description" content="Turnkey Hermes Agent deployment: we buy the hardware, install the software, and customize AI agents for your specific industry. Two packages — full turnkey or BYO equipment."/>
+<meta property="og:url" content="https://heckholdings.com/services/hermes-agent/"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/blog.css"/>
+<link rel="stylesheet" href="/services/services.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Full Hermes Agent Setup",
+  "description": "Turnkey on-premise AI agent deployment. We purchase equipment, install Hermes Agent, and customize it for your specific business needs.",
+  "url": "https://heckholdings.com/services/hermes-agent/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Heck Holdings",
+    "url": "https://heckholdings.com"
+  },
+  "serviceType": "AI Agent Deployment",
+  "areaServed": "US",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Hermes Agent Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Full Turnkey Setup",
+        "description": "We purchase all equipment, build and configure your server, install Hermes Agent, and customize agents for your business.",
+        "priceCurrency": "USD",
+        "price": "8500"
+      },
+      {
+        "@type": "Offer",
+        "name": "Install & Configure",
+        "description": "You provide the hardware. We install Hermes Agent, configure everything, and build custom agents for your business.",
+        "priceCurrency": "USD",
+        "price": "4500"
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* ── Hermes-specific styles ── */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.pkg-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(32px, 3.5vw, 48px);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.pkg-card:hover { border-color: var(--line); }
+.pkg-card.featured {
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+}
+.pkg-card.featured:hover { border-color: var(--accent); }
+.pkg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.pkg-badge .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pkg-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.pkg-subtitle {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin-bottom: 24px;
+}
+.pkg-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(42px, 5vw, 64px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--accent);
+  text-shadow: 0 0 48px var(--accent-glow);
+  margin-bottom: 4px;
+}
+.pkg-price-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-bottom: 28px;
+}
+.pkg-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.pkg-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.45;
+}
+.pkg-includes li .check {
+  color: var(--accent);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Equipment table ── */
+.equip-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.equip-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.equip-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid color-mix(in oklab, var(--line-soft) 50%, transparent);
+  color: var(--fg-2);
+}
+.equip-table tr:last-child td {
+  border-bottom: none;
+}
+.equip-table .component { color: var(--fg); font-weight: 500; }
+.equip-table .spec { color: var(--fg-3); font-family: var(--font-mono); font-size: 12px; }
+.equip-table .price { color: var(--accent); font-family: var(--font-mono); font-weight: 600; text-align: right; }
+.equip-table .total-row td {
+  border-top: 2px solid var(--line-soft);
+  font-weight: 700;
+  padding-top: 14px;
+  color: var(--fg);
+}
+.equip-table .total-row .price { font-size: 16px; }
+
+.equip-wrapper {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.equip-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.equip-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.equip-header p {
+  font-size: 13px;
+  color: var(--fg-3);
+}
+.equip-body { padding: 0 8px; }
+.equip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Industry cards ── */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.industry-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.industry-card:hover {
+  border-color: var(--line);
+  transform: translateY(-2px);
+}
+.industry-card .ind-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.industry-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.industry-card .ind-for {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.industry-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin-bottom: 16px;
+}
+.industry-card .ind-savings {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  gap: 20px;
+}
+.ind-savings .ind-stat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+}
+.ind-savings .ind-stat strong {
+  color: var(--accent);
+  display: block;
+  font-size: 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+/* ── ROI highlight ── */
+.roi-banner {
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--bg-1) 92%, var(--accent) 8%) 0%,
+    var(--bg-1) 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(32px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.roi-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.roi-stat .roi-val {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  text-shadow: 0 0 32px var(--accent-glow);
+}
+.roi-stat .roi-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1080px) {
+  .pkg-grid { grid-template-columns: 1fr; }
+  .equip-grid { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .roi-banner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .industry-grid { grid-template-columns: 1fr; }
+  .roi-banner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- ── NAV ── -->
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <a href="https://heckholdings.com/" class="blog-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Heck Holdings">
+        <rect x="15" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <rect x="42" y="12" width="7" height="40" rx="1.5" fill="var(--fg)"/>
+        <circle cx="32" cy="32" r="4.5" fill="var(--accent)"/>
+      </svg>
+      <span class="mark-text">HECK</span>
+      <span class="mark-sub">HOLDINGS</span>
+    </a>
+    <div class="blog-nav-links">
+      <a href="/services/" class="hide-mobile">Services</a>
+      <a href="/services/ai-audit/" class="hide-mobile">Audit</a>
+      <a href="/services/ai-agents/" class="hide-mobile">Agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://heckholdings.com/#contact" class="btn-primary">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="svc-hero">
+  <div class="eyebrow"><span class="dot"></span>Hermes Agent Deployment</div>
+  <h1>Your own AI employee<span class="accent">.</span><br/><span class="muted">Running on your hardware, 24/7.</span></h1>
+  <p class="lead">
+    We deploy NousResearch's Hermes Agent — a fully autonomous AI that handles calls, email, scheduling, CRM, and operations — directly on hardware you own. No monthly AI platform fees. No data leaving your building. Just a tireless digital employee that works while you sleep.
+  </p>
+  <div class="hero-actions">
+    <a href="https://heckholdings.com/#contact" class="btn-primary">Get your setup quote →</a>
+    <span class="hero-meta">Equipment included or BYO · Live in 2–4 weeks</span>
+  </div>
+</div>
+
+<div class="svc-content">
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Two Packages
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Two ways to deploy</div>
+      <h2>Choose your path<span class="muted">. Same powerful result.</span></h2>
+      <p>Whether you want us to handle everything from hardware to handoff, or you already have equipment and just need the agent built — we've got a package for you.</p>
+    </div>
+
+    <div class="pkg-grid">
+      <!-- PACKAGE A: Full Turnkey -->
+      <div class="pkg-card featured">
+        <div style="position:absolute;inset:0;background:radial-gradient(500px circle at 100% 0%, var(--accent-glow), transparent 55%);opacity:0.4;pointer-events:none"></div>
+        <div style="position:relative">
+          <span class="pkg-badge"><span class="badge-dot"></span>Most popular</span>
+          <div class="pkg-title">Full Turnkey Setup</div>
+          <p class="pkg-subtitle">We purchase all equipment, build your server, install Hermes Agent, and customize it for your specific business. You plug it in and start working.</p>
+          <div class="pkg-price">$8,500</div>
+          <p class="pkg-price-note">starting price · standard tier · one-time</p>
+          <ul class="pkg-includes">
+            <li><span class="check">◆</span>All hardware purchased, assembled &amp; shipped to you</li>
+            <li><span class="check">◆</span>GPU-accelerated workstation (RTX 4090 24GB or RTX 5090 32GB)</li>
+            <li><span class="check">◆</span>Hermes Agent installed, configured &amp; hardened (Docker backend)</li>
+            <li><span class="check">◆</span>Custom agents built for your specific workflows</li>
+            <li><span class="check">◆</span>Multi-platform gateway (Telegram, Discord, Slack, or SMS)</li>
+            <li><span class="check">◆</span>Cron jobs &amp; automations configured for your business</li>
+            <li><span class="check">◆</span>LLM provider setup with failover (cloud + local fallback)</li>
+            <li><span class="check">◆</span>UPS battery backup included</li>
+            <li><span class="check">◆</span>90 days of API credits included</li>
+            <li><span class="check">◆</span>Full training session + operational runbook</li>
+            <li><span class="check">◆</span>30 days post-launch support</li>
+          </ul>
+          <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block">Get turnkey quote →</a>
+        </div>
+      </div>
+
+      <!-- PACKAGE B: Install & Configure -->
+      <div class="pkg-card">
+        <div class="pkg-title">Install &amp; Configure</div>
+        <p class="pkg-subtitle">You provide the hardware. We remote in (or come on-site), install Hermes Agent, build your custom agents, and get everything running.</p>
+        <div class="pkg-price">$4,500</div>
+        <p class="pkg-price-note">starting price · one-time</p>
+        <ul class="pkg-includes">
+          <li><span class="check">◆</span>Hardware assessment &amp; compatibility verification</li>
+          <li><span class="check">◆</span>Hermes Agent installed, configured &amp; hardened (Docker backend)</li>
+          <li><span class="check">◆</span>Custom agents built for your specific workflows</li>
+          <li><span class="check">◆</span>Multi-platform gateway (Telegram, Discord, Slack, or SMS)</li>
+          <li><span class="check">◆</span>Cron jobs &amp; automations configured for your business</li>
+          <li><span class="check">◆</span>LLM provider setup with failover (cloud + local)</li>
+          <li><span class="check">◆</span>60 days of API credits included</li>
+          <li><span class="check">◆</span>Full training session + operational runbook</li>
+          <li><span class="check">◆</span>14 days post-launch support</li>
+        </ul>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="width:100%;text-align:center;display:block;background:transparent;border:1px solid var(--accent);color:var(--accent)">Get install quote →</a>
+      </div>
+    </div>
+
+    <!-- Tier upgrade note -->
+    <div style="background:var(--bg-1);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:24px 28px;display:flex;gap:16px;align-items:flex-start;margin-bottom:0">
+      <span style="font-size:20px;flex-shrink:0">⚡</span>
+      <div>
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--fg);margin-bottom:6px">Need more horsepower?</div>
+        <p style="font-size:14px;line-height:1.55;color:var(--fg-2);margin:0">
+          <strong style="color:var(--fg)">Professional tier</strong> starts at <span style="color:var(--accent);font-weight:600">$12,500</span> (turnkey) or <span style="color:var(--accent);font-weight:600">$7,000</span> (install-only) — includes RTX 5090 32GB GPU, 128GB RAM, multi-user concurrency, and up to 5 custom agent workflows. Perfect for teams of 5–15 running 30B–70B parameter models locally.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Equipment Breakdown
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>What's in the box</div>
+      <h2>Equipment breakdown<span class="muted">, fully transparent.</span></h2>
+      <p>We spec, source, and assemble purpose-built AI workstations. Every component is selected for reliability, performance, and quiet operation in an office environment. All prices include our 25% procurement &amp; assembly fee.</p>
+    </div>
+
+    <div class="equip-grid">
+      <!-- Standard Build -->
+      <div class="equip-wrapper">
+        <div class="equip-header">
+          <h4>Standard Build</h4>
+          <p>1–5 users · 7B–30B parameter models · handles 90% of small business use cases</p>
+        </div>
+        <div class="equip-body">
+          <table class="equip-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Spec</th>
+                <th style="text-align:right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="component">GPU</td>
+                <td class="spec">NVIDIA RTX 4090 · 24GB GDDR6X</td>
+                <td class="price">$2,125</td>
+              </tr>
+              <tr>
+                <td class="component">CPU</td>
+                <td class="spec">AMD Ryzen 9 7900X · 12C/24T</td>
+                <td class="price">$475</td>
+              </tr>
+              <tr>
+                <td class="component">Memory</td>
+                <td class="spec">64GB DDR5-5600</td>
+                <td class="price">$213</td>
+              </tr>
+              <tr>
+                <td class="component">Motherboard</td>
+                <td class="spec">B650E chipset · PCIe 5.0</td>
+                <td class="price">$275</td>
+              </tr>
+              <tr>
+                <td class="component">Storage</td>
+                <td class="spec">2TB NVMe Gen4 SSD</td>
+                <td class="price">$163</td>
+              </tr>
+              <tr>
+                <td class="component">Power Supply</td>
+                <td class="spec">850W 80+ Gold · fully modular</td>
+                <td class="price">$163</td>
+              </tr>
+              <tr>
+                <td class="component">Case</td>
+                <td class="spec">Quiet mid-tower · airflow optimized</td>
+                <td class="price">$150</td>
+              </tr>
+              <tr>
+                <td class="component">Cooling</td>
+                <td class="spec">240mm AIO liquid cooler</td>
+                <td class="price">$113</td>
+              </tr>
+              <tr>
+                <td class="component">UPS</td>
+                <td class="spec">1500VA battery backup</td>
+                <td class="price">$225</td>
+              </tr>
+              <tr class="total-row">
+                <td class="component" colspan="2">Hardware Total</td>
+                <td class="price">$3,900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Professional Build -->
+      <div class="equip-wrapper">
+        <div class="equip-header" style="border-bottom-color:color-mix(in oklab, var(--accent) 30%, var(--line-soft))">
+          <h4>Professional Build</h4>
+          <p>5–15 users · 30B–70B parameter models · multi-agent concurrency</p>
+        </div>
+        <div class="equip-body">
+          <table class="equip-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Spec</th>
+                <th style="text-align:right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="component">GPU</td>
+                <td class="spec">NVIDIA RTX 5090 · 32GB GDDR7</td>
+                <td class="price">$2,625</td>
+              </tr>
+              <tr>
+                <td class="component">CPU</td>
+                <td class="spec">AMD Ryzen 9 9900X · 12C/24T</td>
+                <td class="price">$563</td>
+              </tr>
+              <tr>
+                <td class="component">Memory</td>
+                <td class="spec">128GB DDR5-6000</td>
+                <td class="price">$425</td>
+              </tr>
+              <tr>
+                <td class="component">Motherboard</td>
+                <td class="spec">X670E chipset · PCIe 5.0</td>
+                <td class="price">$375</td>
+              </tr>
+              <tr>
+                <td class="component">Storage</td>
+                <td class="spec">4TB NVMe Gen4 SSD</td>
+                <td class="price">$313</td>
+              </tr>
+              <tr>
+                <td class="component">Power Supply</td>
+                <td class="spec">1000W 80+ Platinum · fully modular</td>
+                <td class="price">$250</td>
+              </tr>
+              <tr>
+                <td class="component">Case</td>
+                <td class="spec">Server tower · hot-swap bays</td>
+                <td class="price">$250</td>
+              </tr>
+              <tr>
+                <td class="component">Cooling</td>
+                <td class="spec">360mm AIO liquid cooler</td>
+                <td class="price">$150</td>
+              </tr>
+              <tr>
+                <td class="component">UPS</td>
+                <td class="spec">2200VA battery backup</td>
+                <td class="price">$350</td>
+              </tr>
+              <tr class="total-row">
+                <td class="component" colspan="2">Hardware Total</td>
+                <td class="price">$5,300</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:20px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)">
+      All prices include 25% procurement &amp; assembly fee. Component prices reflect June 2026 market rates and may adjust at time of quote.
+    </p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: What Hermes Actually Does
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>What you're getting</div>
+      <h2>Not a chatbot<span class="muted">. An autonomous operator.</span></h2>
+      <p>Hermes Agent isn't another AI chat widget. It's a self-learning autonomous agent that executes real business tasks — 24 hours a day, 7 days a week, on hardware you own.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h4>Persistent memory</h4>
+        <p>Hermes remembers your clients, your preferences, your processes, and everything it learns. It gets smarter every day — and it never forgets a conversation, a client name, or a follow-up.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h4>Works where you work</h4>
+        <p>Talk to your agent on Telegram, Discord, Slack, or SMS. It's always on, always reachable — from your phone, your desktop, anywhere. Message it like you'd message an employee.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h4>Automated task scheduling</h4>
+        <p>Set recurring tasks in plain English: "Every Monday at 7am, pull this week's appointments and text me a summary." Hermes runs cron jobs automatically — no code required.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h4>Browser &amp; web automation</h4>
+        <p>Hermes can browse the web, fill forms, scrape data, and interact with any web-based tool — even ones without APIs. If a human can click it, Hermes can automate it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h4>Voice conversations</h4>
+        <p>Full voice mode — talk to your agent with your microphone and hear spoken replies. Use it as a hands-free assistant, a dictation tool, or a voice-powered intake system.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h4>Your data stays yours</h4>
+        <p>Running on your own hardware means your client data, business operations, and conversations never leave your building. HIPAA-friendly, NDA-friendly, paranoia-friendly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: Implementation Timeline
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Implementation timeline</div>
+      <h2>From call to live agent<span class="muted"> — here's the plan.</span></h2>
+      <p>Most standard deployments are live within 2–3 weeks. Professional builds with complex integrations take 3–4 weeks. Here's exactly what happens at each stage.</p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-step-label">Day 1–2</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Discovery &amp; scoping call</h4>
+          <p>We learn your business inside and out. What tools you use, what tasks eat your time, which workflows are broken. We map your current stack, identify the highest-impact automations, and spec the exact hardware and agent configuration you need. You leave this call with a written scope document and a fixed price — no surprises.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Day 3–7</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Hardware procurement &amp; build</h4>
+          <p>We source every component, assemble the workstation, stress-test it for 48 hours, install Ubuntu Server + Docker, and configure the networking. For BYO equipment clients, we run a remote hardware assessment and OS preparation during this phase instead. Your machine ships (or is ready for remote access) by end of week one.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Day 8–14</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Agent installation &amp; customization</h4>
+          <p>Hermes Agent goes in. We install via Docker (sandboxed, secure), configure your LLM providers with automatic failover (cloud primary + local Ollama backup), set up your messaging gateways, and build your custom agent workflows. Every cron job, every skill, every integration — configured and tested against your real data.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Day 14–18</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+          <div class="process-step-connector"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Testing, training &amp; go-live</h4>
+          <p>We run your agent through real-world scenarios — actual client inquiries, real scheduling requests, live data. You and your team get a full training session: how to talk to the agent, how to add tasks, how to check on it. We hand over the operational runbook and flip the switch. Your agent is live.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-label">Day 18–48</div>
+        <div class="process-step-line">
+          <div class="process-step-dot"></div>
+        </div>
+        <div class="process-step-content">
+          <h4>Post-launch monitoring &amp; tuning</h4>
+          <p>We monitor performance, review agent logs, tune prompts, and add skills as needed. Your agent gets smarter in real-time as it learns your business. Turnkey clients get 30 days of active support; install-only clients get 14 days. After that, optional <a href="/services/managed-ops/" style="color:var(--accent)">Managed Operations</a> keeps us in the loop indefinitely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: ROI Metrics
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>The math</div>
+      <h2>What businesses save<span class="muted"> once Hermes is running.</span></h2>
+      <p>These estimates are based on typical small business workflows in the industries we serve. Your numbers will vary — we'll give you a custom projection during the discovery call.</p>
+    </div>
+
+    <div class="roi-banner">
+      <div class="roi-stat">
+        <span class="roi-val">$4,200</span>
+        <span class="roi-label">avg. monthly savings</span>
+      </div>
+      <div class="roi-stat">
+        <span class="roi-val">60–80</span>
+        <span class="roi-label">hours saved / month</span>
+      </div>
+      <div class="roi-stat">
+        <span class="roi-val">2–3×</span>
+        <span class="roi-label">ROI within 90 days</span>
+      </div>
+      <div class="roi-stat">
+        <span class="roi-val">$25/mo</span>
+        <span class="roi-label">ongoing cost (electricity)</span>
+      </div>
+    </div>
+
+    <!-- Industry breakdown -->
+    <div class="industry-grid">
+
+      <!-- Dental -->
+      <div class="industry-card">
+        <div class="ind-icon">🦷</div>
+        <h4>Dental Practices</h4>
+        <div class="ind-for">High volume · appointment-driven</div>
+        <p>Hermes answers after-hours calls, books appointments, sends confirmations &amp; reminders, handles insurance pre-verification, manages recall lists, and responds to patient inquiries — all in your practice's voice.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$3,800</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>35%</strong>fewer no-shows</div>
+        </div>
+      </div>
+
+      <!-- HVAC -->
+      <div class="industry-card">
+        <div class="ind-icon">❄️</div>
+        <h4>HVAC Companies</h4>
+        <div class="ind-for">Seasonal surges · dispatch-heavy</div>
+        <p>24/7 lead capture and qualification, emergency dispatch coordination, automated estimate generation from job details, invoice processing, review solicitation after every completed job, and seasonal maintenance reminders to your customer base.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$5,100</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>40%</strong>faster dispatch</div>
+        </div>
+      </div>
+
+      <!-- Medical Spas -->
+      <div class="industry-card">
+        <div class="ind-icon">✨</div>
+        <h4>Medical Spas</h4>
+        <div class="ind-for">High-margin · consultation-driven</div>
+        <p>Appointment booking with intelligent upselling, patient consultation pre-screening, treatment follow-up sequences, Google &amp; Yelp review management, social media content scheduling, and membership renewal automation.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$4,500</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>22%</strong>higher booking rate</div>
+        </div>
+      </div>
+
+      <!-- Plumbing -->
+      <div class="industry-card">
+        <div class="ind-icon">🔧</div>
+        <h4>Plumbing Companies</h4>
+        <div class="ind-for">Emergency calls · field service</div>
+        <p>24/7 emergency call routing and triage, customer qualification (homeowner vs. tenant, warranty status), estimate generation, job scheduling, follow-up and review solicitation, and accounts receivable follow-up on outstanding invoices.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$4,200</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>3×</strong>after-hours capture</div>
+        </div>
+      </div>
+
+      <!-- Roofing (recommended) -->
+      <div class="industry-card">
+        <div class="ind-icon">🏠</div>
+        <h4>Roofing Contractors</h4>
+        <div class="ind-for">Recommended · high ticket · low competition</div>
+        <p>Storm-damage lead capture and qualification, insurance claim documentation assistance, proposal generation from drone/site photos, project status updates to homeowners, and automated follow-up on unsigned estimates. High average ticket ($8K–$15K+) means massive ROI per converted lead.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$6,200</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>28%</strong>higher close rate</div>
+        </div>
+      </div>
+
+      <!-- Property Management (recommended) -->
+      <div class="industry-card">
+        <div class="ind-icon">🏢</div>
+        <h4>Property Management</h4>
+        <div class="ind-for">Recommended · recurring · ops-heavy</div>
+        <p>Tenant inquiry handling, maintenance request triage and vendor dispatch, lease renewal automation, rent collection follow-up, vacancy listing management, and showing scheduling. Scales beautifully — one agent handles 50+ units.</p>
+        <div class="ind-savings">
+          <div class="ind-stat"><strong>$5,500</strong>est. monthly savings</div>
+          <div class="ind-stat"><strong>70+</strong>hrs saved / month</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--fg-3);line-height:1.5;max-width:640px;margin-left:auto;margin-right:auto">
+      Savings estimates based on replacing 1–1.5 FTE of administrative labor ($18–22/hr), reduced missed calls/leads, and lower no-show rates. Actual results depend on current volume and workflow complexity. We provide a custom projection with every quote.
+    </p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: How It Compares
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Why on-premise</div>
+      <h2>Own it outright<span class="muted"> vs. rent forever.</span></h2>
+      <p>Most AI platforms charge $300–$2,000/month and hold your data on their servers. With Hermes on your hardware, you pay once and it's yours.</p>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="equip-table" style="min-width:600px">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Hermes Agent (On-Premise)</th>
+            <th>Typical AI SaaS Platform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="component">Upfront cost</td>
+            <td>$4,500–$12,500 (one-time)</td>
+            <td>$0–$500 setup</td>
+          </tr>
+          <tr>
+            <td class="component">Monthly cost</td>
+            <td style="color:var(--accent);font-weight:600">~$25 electricity + $20–50 API credits</td>
+            <td>$300–$2,000/mo platform fee + usage</td>
+          </tr>
+          <tr>
+            <td class="component">Year 1 total cost</td>
+            <td style="color:var(--accent);font-weight:600">$5,400–$13,900</td>
+            <td>$3,600–$24,000</td>
+          </tr>
+          <tr>
+            <td class="component">Year 2+ annual cost</td>
+            <td style="color:var(--accent);font-weight:600">~$540–$900</td>
+            <td>$3,600–$24,000 (same forever)</td>
+          </tr>
+          <tr>
+            <td class="component">Data ownership</td>
+            <td style="color:var(--accent);font-weight:600">100% on your hardware</td>
+            <td>Stored on vendor servers</td>
+          </tr>
+          <tr>
+            <td class="component">Customization</td>
+            <td style="color:var(--accent);font-weight:600">Unlimited — full code access</td>
+            <td>Limited to platform features</td>
+          </tr>
+          <tr>
+            <td class="component">Vendor lock-in</td>
+            <td style="color:var(--accent);font-weight:600">None — open source</td>
+            <td>High — data + workflow migration</td>
+          </tr>
+          <tr>
+            <td class="component">Offline capability</td>
+            <td style="color:var(--accent);font-weight:600">Yes — local model fallback</td>
+            <td>No — requires internet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: FAQ
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-section-head">
+      <div class="eyebrow"><span class="dot"></span>Common questions</div>
+      <h2>Before you deploy<span class="muted">.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">What exactly is Hermes Agent?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Hermes Agent is an open-source autonomous AI agent built by NousResearch. Think of it as a digital employee that can read emails, browse the web, execute code, manage files, schedule tasks, and communicate via Telegram, Discord, Slack, or SMS — all running on hardware you own. It has persistent memory (it remembers everything about your business), a skills system (it can learn new capabilities), and supports both cloud AI models (Claude, GPT-4) and local models via Ollama for fully offline operation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need technical knowledge to use it?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Zero. That's the whole point of hiring us. We handle all the technical setup — hardware, software, networking, security, integrations. Once it's running, you interact with your agent by messaging it on Telegram, Slack, or whatever platform you choose. It's like texting a really capable assistant. If you can send a text message, you can use Hermes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens if my internet goes down?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>We configure every deployment with a dual-model setup: a cloud LLM (like Claude or GPT-4) as the primary, and a local model running via Ollama as the fallback. If your internet drops, Hermes automatically switches to the local model. It's slower and less capable, but it keeps running. Your cron jobs, local file processing, and any tasks that don't require external APIs continue uninterrupted.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this HIPAA compliant?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Running on your own hardware is a massive advantage for compliance. Patient data never leaves your premises when using local models. For cloud LLM calls, we configure the agent to strip PHI before sending prompts. We can also set up a fully air-gapped deployment that uses only local models — no cloud calls at all. That said, we're not compliance attorneys. We build the technical infrastructure to <em>support</em> HIPAA compliance, and we recommend consulting your compliance officer for the final sign-off.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much does it cost to run after setup?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Electricity runs about $25–$50/month depending on how hard the GPU works. If you use cloud LLM providers (OpenRouter, OpenAI, Anthropic), API costs are typically $20–$100/month for a small business depending on volume. If you run everything on local models, the ongoing cost is just electricity. Compare that to $300–$2,000/month for most AI SaaS platforms — the math is obvious.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I add more agents or workflows later?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Absolutely. Hermes supports unlimited skills and cron jobs on a single installation. You can add new workflows yourself (just message the agent and tell it what you want), or hire us to build more complex integrations. The hardware handles it — the Standard build comfortably runs 10+ concurrent automations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I already have a decent computer?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>If you have a machine with at least 16GB of GPU VRAM, 32GB RAM, and a modern CPU — the Install &amp; Configure package is perfect for you. We'll assess your hardware before we start and tell you honestly if it's up to the job. If you're borderline, we might recommend a GPU upgrade rather than a full new build.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the difference between this and your custom agent development service?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Our <a href="/services/ai-agents/" style="color:var(--accent)">custom agent development</a> service builds bespoke agents on cloud infrastructure — typically for businesses that want agents integrated deeply into specific SaaS tools (Salesforce, HubSpot, etc.) with complex multi-step workflows. Hermes Agent Setup is for businesses that want an all-in-one autonomous AI employee running on their own hardware — simpler to start, lower ongoing costs, and full data ownership. For many small businesses, Hermes is the better starting point.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION: CTA
+       ═══════════════════════════════════════════════ -->
+  <div class="svc-section">
+    <div class="svc-cta-banner">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="inner">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:18px"><span class="dot"></span>Ready to deploy</div>
+        <h2>Your AI employee is two weeks away.</h2>
+        <p>Book a 30-minute discovery call. We'll map your workflows, recommend the right package, and give you a fixed quote before you commit to anything. If Hermes isn't the right fit, we'll tell you that too.</p>
+        <a href="https://heckholdings.com/#contact" class="btn-primary" style="font-size:16px;padding:14px 28px">Book your discovery call →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-section" style="padding-bottom:0">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding-bottom:clamp(48px,6vh,80px)">
+      <a href="/services/ai-agents/" class="btn-secondary" style="text-decoration:none">Custom Agent Development →</a>
+      <a href="/services/ai-audit/" class="btn-secondary" style="text-decoration:none">AI Workflow Audit →</a>
+      <a href="/services/" class="btn-secondary" style="text-decoration:none">← All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="blog-footer">
+  <span>© 2025 Heck Holdings LLC · St. Petersburg, FL</span>
+  <div style="display:flex;gap:24px">
+    <a href="https://heckholdings.com/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://heckholdings.com/#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

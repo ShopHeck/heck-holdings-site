@@ -164,6 +164,13 @@ export const SERVICES = [
   },
   {
     n: '03',
+    name: 'Deploy',
+    price: 'From $4,500 · 2–4 weeks',
+    desc: 'We install Hermes Agent on your hardware — or buy the hardware for you. A fully autonomous AI employee running 24/7 on-premise.',
+    deliverables: ['GPU workstation (optional)', 'Hermes Agent configured', 'Custom automations', 'Training & runbook'],
+  },
+  {
+    n: '04',
     name: 'Operate',
     price: 'Monthly retainer',
     desc: 'We own uptime, evals, and continuous improvement. You get a monthly brief and a Slack channel that’s actually answered.',
