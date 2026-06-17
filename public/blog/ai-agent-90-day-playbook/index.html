@@ -79,6 +79,31 @@
     align-items: center;
     gap: 1rem;
   }
+  .header-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-left: auto;
+  }
+  .header-links a {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .header-links a:hover { color: var(--white); }
+  .header-links .hl-cta {
+    color: var(--dark);
+    background: var(--coral);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .header-links .hl-cta:hover { opacity: 0.9; }
+  @media (max-width: 640px) {
+    .header-links a:not(.hl-cta) { display: none; }
+  }
   .logo {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 800;
@@ -561,6 +586,12 @@
 <header>
   <a href="https://heckholdings.com" class="logo">Heck<span>Holdings</span></a>
   <span class="nav-tag">AI Insights</span>
+  <div class="header-links">
+    <a href="/services/">Services</a>
+    <a href="/industries/">Industries</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://heckholdings.com/#contact" class="hl-cta">Book audit</a>
+  </div>
 </header>
 
 <main>
