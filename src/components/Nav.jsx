@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Icon from './Icon.jsx';
 
 const LINKS = [
@@ -9,8 +9,44 @@ const LINKS = [
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '/services/', label: 'Services' },
+  { href: '/industries/', label: 'Industries', dropdown: [
+    { href: '/industries/hvac/', label: 'HVAC', icon: '🔥' },
+    { href: '/industries/plumbing/', label: 'Plumbing', icon: '🔧' },
+    { href: '/industries/electrical/', label: 'Electrical', icon: '⚡' },
+    { href: '/industries/dental/', label: 'Dental', icon: '🦷' },
+    { href: '/industries/', label: 'All industries →', icon: null },
+  ]},
   { href: '/blog/', label: 'Blog' },
 ];
+
+function NavDropdown({ link, linkStyle }) {
+  const [hover, setHover] = useState(false);
+  const timeout = useRef(null);
+
+  const show = () => { clearTimeout(timeout.current); setHover(true); };
+  const hide = () => { timeout.current = setTimeout(() => setHover(false), 180); };
+
+  return (
+    <span
+      className="nav-dd-wrap"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      style={{ position: 'relative' }}
+    >
+      <a href={link.href} style={linkStyle}>{link.label}</a>
+      {hover && (
+        <div className="nav-dd">
+          {link.dropdown.map(d => (
+            <a key={d.href} href={d.href} className={d.icon ? 'nav-dd-item' : 'nav-dd-all'}>
+              {d.icon && <span className="nav-dd-icon">{d.icon}</span>}
+              {d.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </span>
+  );
+}
 
 export default function Nav({ onCta }) {
   const [scrolled, setScrolled] = useState(false);
@@ -53,7 +89,9 @@ export default function Nav({ onCta }) {
 
         <div className="flex gap-8" style={{ alignItems: 'center' }}>
           <div className="flex gap-6 nav-links" style={{ alignItems: 'center' }}>
-            {LINKS.map(l => (
+            {LINKS.map(l => l.dropdown ? (
+              <NavDropdown key={l.href} link={l} linkStyle={linkStyle} />
+            ) : (
               <a key={l.href} href={l.href} style={linkStyle}>{l.label}</a>
             ))}
           </div>
@@ -88,14 +126,24 @@ export default function Nav({ onCta }) {
       >
         <div className="nav-drawer-inner">
           {LINKS.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="nav-drawer-link"
-            >
-              {l.label}
-            </a>
+            <div key={l.href}>
+              <a
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="nav-drawer-link"
+              >
+                {l.label}
+              </a>
+              {l.dropdown && (
+                <div className="nav-drawer-sub">
+                  {l.dropdown.filter(d => d.icon).map(d => (
+                    <a key={d.href} href={d.href} onClick={() => setOpen(false)} className="nav-drawer-sub-link">
+                      <span>{d.icon}</span> {d.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <button
             className="btn btn-primary"
@@ -148,6 +196,73 @@ export default function Nav({ onCta }) {
         }
         .nav-drawer-link:last-of-type { border-bottom: 0; }
 
+        .nav-dd {
+          position: absolute;
+          top: calc(100% + 12px);
+          left: 50%;
+          transform: translateX(-50%);
+          background: color-mix(in oklab, var(--bg) 94%, white 6%);
+          border: 1px solid var(--line);
+          border-radius: 14px;
+          padding: 8px;
+          min-width: 200px;
+          box-shadow: 0 16px 48px oklch(0 0 0 / 0.5);
+          backdrop-filter: blur(20px) saturate(140%);
+          z-index: 100;
+          animation: ddFadeIn 0.15s ease;
+        }
+        @keyframes ddFadeIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+          to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .nav-dd::before {
+          content: '';
+          position: absolute;
+          top: -8px; left: 0; right: 0;
+          height: 8px;
+        }
+        .nav-dd-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 14px;
+          border-radius: 8px;
+          color: var(--fg-2);
+          font-size: 14px;
+          transition: background 0.15s, color 0.15s;
+          text-decoration: none;
+        }
+        .nav-dd-item:hover {
+          background: var(--bg-2);
+          color: var(--fg);
+        }
+        .nav-dd-icon { font-size: 16px; }
+        .nav-dd-all {
+          display: block;
+          padding: 10px 14px;
+          margin-top: 4px;
+          border-top: 1px solid var(--line-soft);
+          color: var(--accent);
+          font-size: 13px;
+          font-family: var(--font-mono);
+          text-decoration: none;
+          transition: color 0.15s;
+        }
+        .nav-dd-all:hover { color: var(--fg); }
+        .nav-drawer-sub {
+          display: flex;
+          flex-direction: column;
+          padding: 4px 0 8px 16px;
+          gap: 0;
+        }
+        .nav-drawer-sub-link {
+          font-size: 16px;
+          color: var(--fg-2);
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
         @media (max-width: 880px) {
           .nav-links { display: none !important; }
           .nav-cta { display: none !important; }
