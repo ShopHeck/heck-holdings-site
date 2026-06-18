@@ -1220,6 +1220,59 @@ code {
 .blog-footer a { color: var(--fg-3); transition: color 0.2s; }
 .blog-footer a:hover { color: var(--accent); }
 
+/* ── MOBILE HAMBURGER + DRAWER ── */
+.mobile-hamburger {
+  display: none;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-1);
+  align-items: center; justify-content: center;
+  color: var(--fg);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.mobile-drawer {
+  position: fixed; left: 0; right: 0; top: 57px;
+  background: color-mix(in oklab, var(--bg) 95%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--line-soft);
+  opacity: 0; pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 49;
+  max-height: calc(100vh - 57px);
+  overflow-y: auto;
+}
+.mobile-drawer[data-open="1"] {
+  opacity: 1; pointer-events: auto; transform: none;
+}
+.mobile-drawer-inner {
+  display: flex; flex-direction: column;
+  padding: 24px var(--pad-x) 32px;
+  gap: 4px;
+  max-width: var(--maxw); margin: 0 auto;
+}
+.mobile-drawer-link {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+  text-decoration: none;
+}
+.mobile-drawer-link:last-of-type { border-bottom: 0; }
+.mobile-drawer-cta {
+  margin-top: 16px;
+  justify-content: center;
+  text-align: center;
+  display: block;
+  padding: 14px 22px;
+  font-size: 15px;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .blog-grid {
@@ -1227,8 +1280,10 @@ code {
     gap: 24px;
   }
   .blog-card-img { height: 180px; }
-  .blog-nav-links .hide-mobile { display: none; }
+  .blog-nav-links { display: none !important; }
+  .mobile-hamburger { display: inline-flex; }
   .blog-footer { flex-direction: column; gap: 12px; text-align: center; }
+  .blog-footer div { flex-wrap: wrap; justify-content: center; gap: 14px !important; }
   .article-hero {
     width: calc(100% + 48px);
     margin-left: -24px;

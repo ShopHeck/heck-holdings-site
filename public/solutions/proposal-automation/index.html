@@ -249,5 +249,7 @@
 <script>
 document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');});});
 </script>
+
+<script src="/shared/mobile-nav.js" defer></script>
 </body>
 </html>
