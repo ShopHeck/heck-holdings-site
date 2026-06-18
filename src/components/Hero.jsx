@@ -38,14 +38,14 @@ export default function Hero({ headline, onCta }) {
             </p>
 
             <div className="flex gap-3" style={{ marginTop: 32, flexWrap: 'wrap' }}>
-              <button className="btn btn-primary" onClick={onCta}>
-                Book a 1-week audit
+              <a href="https://heck-agent-planner.viktor.space" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                Quick Start
                 <Icon name="arrow-right" size={16} />
-              </button>
-              <a href="#work" className="btn btn-ghost">
-                See what agents do
-                <Icon name="arrow-up-right" size={14} />
               </a>
+              <button className="btn btn-ghost" onClick={onCta}>
+                Book a 1-week audit
+                <Icon name="arrow-up-right" size={14} />
+              </button>
             </div>
           </div>
 
