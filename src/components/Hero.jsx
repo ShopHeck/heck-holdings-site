@@ -38,7 +38,7 @@ export default function Hero({ headline, onCta }) {
             </p>
 
             <div className="flex gap-3" style={{ marginTop: 32, flexWrap: 'wrap' }}>
-              <a href="https://heck-agent-planner.viktor.space" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+              <a href="https://heck-agent-planner-2598e402.viktor.space" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                 Quick Start
                 <Icon name="arrow-right" size={16} />
               </a>
