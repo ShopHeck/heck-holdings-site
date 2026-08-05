@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Icon from './Icon.jsx';
-import { SERVICES, FAQS } from '../data.js';
+import { SERVICES, ALSO_AVAILABLE, FAQS } from '../data.js';
 
 export default function About() {
   return (
@@ -20,7 +20,7 @@ export default function About() {
               We don't sell software. We don't sell hours. We sell <em>agents that own a specific outcome</em>, then we stay on to make sure they keep owning it. We measure our work the way you measure yours — in hours reclaimed, dollars saved, and revenue moved.
             </p>
             <p style={{ marginTop: 20, fontSize: 16, lineHeight: 1.65, color: 'var(--fg-2)' }}>
-              We start every engagement with a one-week audit so you know exactly what you're buying. And we invoice <em>after</em> the agent works — never before.
+              We start every engagement with a free 20-minute teardown, so you know exactly what you're buying before you spend a dollar. And half the fee is only due once the agent is live — never before.
             </p>
 
             <div className="about-facts">
@@ -190,7 +190,7 @@ function Services() {
     <div className="services-block">
       <div className="services-head">
         <span className="eyebrow"><span className="dot"></span>How we engage</span>
-        <h3>Three ways in — all priced before the work starts.</h3>
+        <h3>Three steps. One door — and the first one is free.</h3>
       </div>
       <div className="svc-grid">
         {SERVICES.map((s) => (
@@ -215,7 +215,30 @@ function Services() {
         ))}
       </div>
 
+      <div className="svc-also">
+        <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+          Also available on request
+        </span>
+        <div className="svc-also-list">
+          {ALSO_AVAILABLE.map((a, i) => (
+            <span key={i} className="svc-also-item">{a}</span>
+          ))}
+        </div>
+      </div>
+
       <style>{`
+        .svc-also {
+          margin-top: 26px; padding-top: 22px;
+          border-top: 1px solid var(--line-soft);
+        }
+        .svc-also-list {
+          margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px;
+        }
+        .svc-also-item {
+          font-size: 13px; color: var(--fg-2);
+          padding: 6px 12px; border: 1px solid var(--line-soft);
+          border-radius: 20px;
+        }
         .services-block { margin-top: 32px; }
         .services-head {
           padding-bottom: 32px; margin-bottom: 24px;
@@ -250,8 +273,8 @@ function Services() {
 function Process() {
   const steps = [
     { d: '01', t: 'Discovery call', sub: '30 min · free', body: 'We learn your stack, your bottlenecks, and what your team complains about every Monday.', icon: 'phone' },
-    { d: '02', t: 'One-week audit', sub: '5 days · fixed fee', body: 'We embed, map workflows, and deliver a ranked list of automations with ROI math you can take to your board.', icon: 'eye' },
-    { d: '03', t: 'Build sprint', sub: '2–6 weeks per agent', body: 'We ship one production agent at a time on your stack. You watch us work live in Linear and Slack.', icon: 'workflow' },
+    { d: '02', t: 'Scope locked', sub: 'Days 1–2 · fixed fee', body: 'We pick the single most expensive repetitive workflow, map every trigger and edge case, and write the scope down for you to sign off.', icon: 'eye' },
+    { d: '03', t: 'First Agent Sprint', sub: '10 business days · $1,950', body: 'We ship one production agent on your stack, live by day ten — or you do not pay. You watch progress in a shared board.', icon: 'workflow' },
     { d: '04', t: 'Operate', sub: 'monthly', body: 'We monitor, evaluate, and improve. Monthly briefs. On-call Slack. New agents added as you grow.', icon: 'shield' },
   ];
   return (

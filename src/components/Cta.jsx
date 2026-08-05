@@ -42,7 +42,7 @@ export default function Cta() {
                 <span style={{ color: 'var(--accent)' }}>Get an agent designed for you</span> in 60 seconds.
               </h2>
               <p style={{ marginTop: 24, color: 'var(--fg-2)', fontSize: 'clamp(15px, 1.25vw, 18px)', lineHeight: 1.55, maxWidth: 640 }}>
-                Two questions. One agent spec. Real numbers. If it sounds wrong, hit refine. If it sounds right, that's your audit brief — book the call with it.
+                Two questions. One agent spec. Real numbers. If it sounds wrong, hit refine. If it sounds right, that's your teardown brief — book the free 20 minutes with it.
               </p>
             </div>
 
@@ -99,7 +99,7 @@ function AgentBuilder({ onBook }) {
       agent_name: 'CustomAgent',
       one_line: wf ? `Automates the ${wf.toLowerCase()} workflow end-to-end for your team.` : 'Automates the workflow end-to-end for your team.',
       weekly_hours_saved: 14,
-      ship_days: 21,
+      ship_days: 10,
       monthly_revenue_impact: '+$8,200',
       first_action: 'Indexes the last 90 days of activity and proposes the three best automations.',
     };
@@ -120,7 +120,7 @@ function AgentBuilder({ onBook }) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const parsed = await res.json();
       parsed.weekly_hours_saved = clamp(Number(parsed.weekly_hours_saved) || fallback.weekly_hours_saved, 6, 30);
-      parsed.ship_days = clamp(Number(parsed.ship_days) || fallback.ship_days, 12, 35);
+      parsed.ship_days = clamp(Number(parsed.ship_days) || fallback.ship_days, 8, 10);
       const finalSpec = { ...fallback, ...parsed };
       setSpec(finalSpec);
       setStep('ready');
@@ -450,7 +450,7 @@ function SpecCard({ spec, onBook, onReset, errMsg, business, workflow }) {
 
       <div className="spec-cta">
         <button className="btn btn-primary" onClick={() => onBook && onBook({ business, workflow, spec })}>
-          Book the audit with this brief
+          Book my free teardown with this brief
           <Icon name="arrow-right" size={16} />
         </button>
         <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11.5, letterSpacing: '0.04em' }}>

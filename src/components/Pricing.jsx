@@ -2,57 +2,62 @@ import Icon from './Icon.jsx';
 
 const DELIVERABLES = [
   {
-    icon: 'workflow',
-    title: 'Complete workflow map',
-    desc: "Every process your team touches — diagrammed, timed, and costed. You'll see exactly where the hours go.",
-  },
-  {
-    icon: 'chart',
-    title: 'Agent opportunity scorecard',
-    desc: 'Each candidate automation ranked by impact, feasibility, and payback period. No guesswork — just math.',
-  },
-  {
     icon: 'bolt',
-    title: 'ROI projections',
-    desc: 'Dollar-and-cents estimates for every recommended agent: hours saved, error reduction, and revenue impact.',
-  },
-  {
-    icon: 'doc',
-    title: 'Implementation plan',
-    desc: 'A prioritized 90-day roadmap with recommended automated workflows tailored to your business and stack.',
+    title: 'A working agent, in production',
+    desc: 'Not a prototype, not a demo environment. Running on your real stack, on your real data, doing the job on day ten.',
   },
   {
     icon: 'shield',
-    title: 'Risk register',
-    desc: 'What could go wrong, how likely it is, and exactly what we do about it. No surprises after kickoff.',
+    title: 'Live in 10 days or it is free',
+    desc: "If it is not in production on day ten, you pay nothing and keep everything we built. We take the delivery risk, not you.",
+  },
+  {
+    icon: 'doc',
+    title: 'Scope fixed in writing',
+    desc: 'Exactly what the agent does, what it touches, and what counts as done — agreed before day one. Nothing to renegotiate later.',
+  },
+  {
+    icon: 'workflow',
+    title: 'Runbook + handoff walkthrough',
+    desc: 'A live walkthrough and written runbook so your team knows how it works, how to pause it, and what to do if it misbehaves.',
+  },
+  {
+    icon: 'chart',
+    title: 'Before-and-after numbers',
+    desc: 'We measure the workflow before we touch it and again after go-live, so the ROI is a measurement rather than a promise.',
   },
   {
     icon: 'plug',
-    title: 'Integration architecture',
-    desc: 'How each agent connects to your existing tools — CRM, email, accounting, scheduling — with zero disruption.',
+    title: '30-day watch window',
+    desc: 'We monitor it for a month after launch and fix anything that drifts. No new invoice, no support ticket queue.',
   },
 ];
 
 const TIMELINE = [
   {
     days: '01–02',
-    title: 'Discovery & observation',
-    body: 'We embed with your team. Watch the real workflows. Interview the people doing the work. Map every tool, handoff, and bottleneck.',
+    title: 'Scope & lock',
+    body: 'We pick the one workflow, map every trigger and edge case, and write the scope down. You sign off before a line of code exists.',
   },
   {
-    days: '03',
-    title: 'Analysis & scoring',
-    body: 'We score every workflow against our automation framework — effort, impact, risk, and dependencies. The scorecard takes shape.',
+    days: '03–06',
+    title: 'Build',
+    body: 'We build the agent against your real tools. You watch progress in a shared board — no black box, no status meetings.',
   },
   {
-    days: '04',
-    title: 'Architecture & planning',
-    body: 'We design the agent architecture, map integrations, build the ROI model, and draft your 90-day implementation roadmap.',
+    days: '07–08',
+    title: 'Integrate & test',
+    body: 'Connected to your live stack and run against real cases. We break it on purpose so it does not break on you later.',
   },
   {
-    days: '05',
-    title: 'Deliverable & walkthrough',
-    body: 'You get the full audit package and a live walkthrough. Every question answered. You leave knowing exactly what to build first.',
+    days: '09',
+    title: 'Go live',
+    body: 'The agent takes over the workflow in production, with a human escalation path behind it from the first minute.',
+  },
+  {
+    days: '10',
+    title: 'Handoff & numbers',
+    body: 'Runbook, walkthrough, and the before-and-after measurement. Then a 30-day window where we watch it for you.',
   },
 ];
 
@@ -67,9 +72,9 @@ export default function Pricing() {
       <div className="wrap">
         <div className="section-head">
           <span className="eyebrow"><span className="dot"></span>06 — Start here</span>
-          <h2>One week. One fixed price.<br /><span style={{ color: 'var(--fg-3)' }}>Your complete AI roadmap.</span></h2>
+          <h2>Ten days. One agent.<br /><span style={{ color: 'var(--fg-3)' }}>Live in production, or free.</span></h2>
           <p className="lead">
-            Before we build anything, we figure out exactly what's worth building. The AI Audit is a five-day deep dive into your operations — you walk away with a ranked list of automations, hard ROI numbers, and a plan to execute.
+            Most AI projects die in the assessment phase. This one skips it. We pick the single most expensive repetitive workflow in your business and put an agent on it in ten business days — for a fixed $1,950. If it is not running in production on day ten, you do not pay.
           </p>
         </div>
 
@@ -82,21 +87,21 @@ export default function Pricing() {
               <div className="flex gap-3" style={{ alignItems: 'center', marginBottom: 20 }}>
                 <span className="chip" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>
                   <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', animation: 'pulse-dot 2s infinite' }} />
-                  AI Audit
+                  First Agent Sprint
                 </span>
-                <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11 }}>fixed scope · fixed price</span>
+                <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11 }}>fixed scope · fixed price · guaranteed</span>
               </div>
 
               <div className="pricing-price-row">
                 <div>
-                  <div className="pricing-price">$2,500</div>
+                  <div className="pricing-price">$1,950</div>
                   <div className="mono" style={{ color: 'var(--accent)', fontSize: 12, marginTop: 4 }}>
-                    one-time · invoiced after delivery
+                    50% up front · 50% on go-live
                   </div>
                 </div>
                 <div className="pricing-divider" />
                 <div>
-                  <div className="pricing-days">5</div>
+                  <div className="pricing-days">10</div>
                   <div className="mono" style={{ color: 'var(--fg-2)', fontSize: 12, marginTop: 4 }}>
                     business days
                   </div>
@@ -104,24 +109,24 @@ export default function Pricing() {
               </div>
 
               <p style={{ marginTop: 28, color: 'var(--fg-2)', fontSize: 16, lineHeight: 1.6 }}>
-                We shadow your team for a week, map every workflow that's eating your time, and hand you a plan that tells you <em style={{ color: 'var(--fg)' }}>exactly</em> which AI agents will move the needle — and how much they'll save.
+                One workflow. One agent. Running on your stack in ten business days — <em style={{ color: 'var(--fg)' }}>or you don't pay a cent</em>. We are taking three founding clients at this price to build local case studies. Two slots left.
               </p>
 
               <div className="pricing-cta-row">
                 <button className="btn btn-primary" onClick={scrollToContact}>
-                  Book your audit
+                  Start with a free teardown
                   <Icon name="arrow-right" size={16} />
                 </button>
                 <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11.5 }}>
-                  30-min call first · we'll tell you if you're not ready
+                  20-min call first · we'll tell you if it's not worth automating
                 </span>
               </div>
 
               <div className="pricing-trust">
                 {[
                   'Fixed fee — no hourly billing',
-                  'Invoiced after we deliver',
-                  'Full audit or your money back',
+                  'Live in 10 business days or you pay nothing',
+                  'Scope agreed in writing before day one',
                 ].map((t, i) => (
                   <div key={i} className="pricing-trust-item">
                     <Icon name="check" size={14} style={{ color: 'var(--accent)', flexShrink: 0 }} />
@@ -137,7 +142,7 @@ export default function Pricing() {
             <div style={{ padding: '28px 28px 8px' }}>
               <span className="eyebrow"><span className="dot"></span>Your week</span>
               <h3 style={{ marginTop: 14, fontSize: 'clamp(22px, 2.4vw, 30px)', fontWeight: 600, letterSpacing: '-0.02em' }}>
-                Five days, start to finish
+                Ten days, start to finish
               </h3>
               <p style={{ marginTop: 10, color: 'var(--fg-2)', fontSize: 14, lineHeight: 1.5 }}>
                 No meetings-about-meetings. Every day has a clear purpose and a visible output.
@@ -173,10 +178,10 @@ export default function Pricing() {
           <div className="pricing-deliv-head">
             <span className="eyebrow"><span className="dot"></span>What you walk away with</span>
             <h3 style={{ marginTop: 14, fontSize: 'clamp(28px, 3.2vw, 42px)', fontWeight: 600, letterSpacing: '-0.025em' }}>
-              Six deliverables. Zero fluff.
+              What you actually get.
             </h3>
             <p style={{ marginTop: 12, color: 'var(--fg-2)', fontSize: 15.5, lineHeight: 1.55, maxWidth: 640 }}>
-              Every deliverable is actionable on its own — you don't need us to build anything for the audit to pay for itself.
+              No slide decks, no roadmaps, no phase two. The deliverable is a thing that runs.
             </p>
           </div>
 
@@ -207,35 +212,35 @@ export default function Pricing() {
         <div className="pricing-impl">
           <div className="pricing-impl-glow" aria-hidden="true" />
           <div style={{ position: 'relative' }}>
-            <span className="eyebrow"><span className="dot"></span>The implementation plan</span>
+            <span className="eyebrow"><span className="dot"></span>After go-live</span>
             <h3 style={{ marginTop: 18, fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 600, letterSpacing: '-0.02em' }}>
-              Not just <em>what</em> to automate — <span style={{ color: 'var(--accent)' }}>how to build it.</span>
+              Shipping it is the easy part — <span style={{ color: 'var(--accent)' }}>keeping it working is the job.</span>
             </h3>
             <p style={{ marginTop: 16, color: 'var(--fg-2)', fontSize: 16, lineHeight: 1.6, maxWidth: 720 }}>
-              Your audit includes a 90-day implementation plan with specific automated workflow recommendations tailored to your business. Here's what's inside:
+              An agent nobody maintains quietly rots. Operate starts from $600/month once your first agent is live — and it is free for your first month if you start it on go-live day.
             </p>
 
             <div className="pricing-impl-grid">
               {[
                 {
                   n: '01',
-                  title: 'Workflow automation specs',
-                  body: 'For each recommended agent: what it does, which tools it connects to, what triggers it, and exactly how it saves you time.',
+                  title: 'Monitoring & evals',
+                  body: 'We watch the agent 24/7 and run evals against real cases, so drift gets caught by us rather than by your customers.',
                 },
                 {
                   n: '02',
-                  title: 'Priority & sequencing',
-                  body: 'Which automations to build first based on ROI, complexity, and dependencies. A clear order of operations — not a wish list.',
+                  title: 'One improvement a month',
+                  body: 'Every month the agent handles one more edge case, or one more step of the workflow. It gets better instead of staler.',
                 },
                 {
                   n: '03',
-                  title: 'Integration map',
-                  body: "How each automated workflow plugs into your existing stack — your CRM, email, accounting, whatever you're running today.",
+                  title: 'A monthly written brief',
+                  body: 'What it handled, what it escalated, what it saved you, and what we are changing next. Written, not dashboarded.',
                 },
                 {
                   n: '04',
-                  title: 'Timeline & milestones',
-                  body: 'A realistic 90-day build schedule with concrete milestones so you can track progress and know what "done" looks like.',
+                  title: 'The next agent, cheaper',
+                  body: 'Once the plumbing exists, agent number two costs a fraction of the first. Most clients add their second within 90 days.',
                 },
               ].map((item, i) => (
                 <div key={i} className="pricing-impl-item">
@@ -254,11 +259,11 @@ export default function Pricing() {
 
             <div className="pricing-impl-cta">
               <button className="btn btn-primary" onClick={scrollToContact}>
-                Book your AI Audit — $2,500
+                Book your free 20-min teardown
                 <Icon name="arrow-right" size={16} />
               </button>
               <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11.5 }}>
-                Most clients recoup the audit fee in the first 30 days of their first agent.
+                No cost, no commitment — you keep the written teardown either way.
               </span>
             </div>
           </div>

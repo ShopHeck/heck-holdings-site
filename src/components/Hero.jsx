@@ -33,19 +33,20 @@ export default function Hero({ headline, onCta }) {
               lineHeight: 1.55, color: 'var(--fg-2)',
             }}>
               We design, ship, and operate autonomous AI agents for small and mid-sized businesses.
-              Audits in a week. Production agents in a month. Small, selective, and hands-on —
-              you work directly with the people who build your agents.
+              One workflow, live in production in ten business days — or you don't pay. Start with a
+              free 20-minute teardown: we find the most expensive repetitive task in your week and
+              put a real number on it.
             </p>
 
             <div className="flex gap-3" style={{ marginTop: 32, flexWrap: 'wrap' }}>
-              <a href="https://heck-agent-planner-2598e402.viktor.space" className="btn btn-primary" style={{ textDecoration: 'none' }}>
-                Quick Start
+              <button className="btn btn-primary" onClick={onCta}>
+                Get your free 20-min teardown
                 <Icon name="arrow-right" size={16} />
-              </a>
-              <button className="btn btn-ghost" onClick={onCta}>
-                Book a 1-week audit
-                <Icon name="arrow-up-right" size={14} />
               </button>
+              <a href="https://heck-agent-planner-2598e402.viktor.space" className="btn btn-ghost" style={{ textDecoration: 'none' }}>
+                Design an agent yourself
+                <Icon name="arrow-up-right" size={14} />
+              </a>
             </div>
           </div>
 
@@ -79,7 +80,7 @@ function HeroBadge() {
     <div className="flex gap-3" style={{ alignItems: 'center' }}>
       <span className="chip" style={{ animation: 'pulse-dot 2s infinite' }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
-        Taking on 3 new clients
+        3 founding clients at cost — 2 slots left
       </span>
       <span className="mono" style={{ color: 'var(--fg-3)' }}>est. 2023 · St. Pete, FL</span>
     </div>
@@ -96,14 +97,14 @@ function PositioningCard() {
       }} />
 
       <div style={{ position: 'relative' }}>
-        <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 10.5, letterSpacing: '0.18em', textTransform: 'uppercase' }}>What we do</span>
+        <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 10.5, letterSpacing: '0.18em', textTransform: 'uppercase' }}>The offer</span>
         <div style={{
           fontFamily: 'var(--font-display)', fontWeight: 700,
           fontSize: 'clamp(22px, 2.2vw, 30px)',
           letterSpacing: '-0.025em', lineHeight: 1.15, marginTop: 14,
           color: 'var(--fg)',
         }}>
-          We design, build &amp; operate <span style={{ color: 'var(--accent)' }}>AI agents</span> for small businesses.
+          Live in ten business days — <span style={{ color: 'var(--accent)' }}>or you don't pay</span>.
         </div>
 
         <div style={{
@@ -111,8 +112,8 @@ function PositioningCard() {
           paddingTop: 16, borderTop: '1px solid var(--line-soft)',
         }}>
           {[
-            { v: '1 wk', l: 'to your audit' },
-            { v: '~4 wk', l: 'to first agent live' },
+            { v: 'Free', l: '20-min teardown' },
+            { v: '10 days', l: 'to first agent live' },
           ].map((s, i) => (
             <div key={i}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--accent)' }}>{s.v}</div>
@@ -218,7 +219,7 @@ function Ticker() {
     '24/7 monitored',
     'hours reclaimed, not headcount added',
     'on-call humans, not ticket queues',
-    'audits in 5 business days',
+    'live in 10 business days',
     'evals before every deploy',
     'invoiced after the agent works',
   ];
