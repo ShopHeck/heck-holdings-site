@@ -39,7 +39,7 @@ Return ONLY a JSON object — no markdown, no commentary, no code fences — wit
 - agent_name: 1-2 word product name in PascalCase, evocative of the work (examples: "Mailroom", "ProposalForge", "ScoutCrawler", "Reconcile", "FrontDesk")
 - one_line: single sentence, max 18 words, plain language describing what the agent does
 - weekly_hours_saved: integer between 6 and 30
-- ship_days: integer between 12 and 35
+- ship_days: integer between 8 and 10 (we guarantee one workflow live in 10 business days)
 - monthly_revenue_impact: string formatted "+$X,XXX" (e.g. "+$8,200")
 - first_action: single sentence describing what the agent does on its first day in production
 

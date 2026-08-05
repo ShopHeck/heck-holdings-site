@@ -99,7 +99,7 @@ function AgentBuilder({ onBook }) {
       agent_name: 'CustomAgent',
       one_line: wf ? `Automates the ${wf.toLowerCase()} workflow end-to-end for your team.` : 'Automates the workflow end-to-end for your team.',
       weekly_hours_saved: 14,
-      ship_days: 21,
+      ship_days: 10,
       monthly_revenue_impact: '+$8,200',
       first_action: 'Indexes the last 90 days of activity and proposes the three best automations.',
     };
@@ -120,7 +120,7 @@ function AgentBuilder({ onBook }) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const parsed = await res.json();
       parsed.weekly_hours_saved = clamp(Number(parsed.weekly_hours_saved) || fallback.weekly_hours_saved, 6, 30);
-      parsed.ship_days = clamp(Number(parsed.ship_days) || fallback.ship_days, 12, 35);
+      parsed.ship_days = clamp(Number(parsed.ship_days) || fallback.ship_days, 8, 10);
       const finalSpec = { ...fallback, ...parsed };
       setSpec(finalSpec);
       setStep('ready');

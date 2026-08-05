@@ -2,9 +2,8 @@ import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
 const DAYS_MAX = 90;
 const HECK_MILESTONES = [
-  { day: 1,  title: 'Audit kickoff',           delta: 'Workshop · 3 founders, 2 ops' },
-  { day: 5,  title: 'Audit delivered',          delta: '3 candidate agents, ranked' },
-  { day: 12, title: 'Mailroom v1 live',         delta: '−22 hrs / wk' },
+  { day: 1,  title: 'Free teardown',            delta: '20 min · one workflow picked, scope signed' },
+  { day: 10, title: 'Mailroom v1 live',         delta: '−22 hrs / wk · sprint complete' },
   { day: 18, title: 'Revenue lift detected',    delta: '+$3,400 / wk reclaimed' },
   { day: 28, title: 'FrontDesk voice live',     delta: '−31 hrs / wk total' },
   { day: 45, title: 'Compounding',              delta: '+$14,200 / wk · bookings +12%' },
@@ -21,7 +20,7 @@ const TRAD_MILESTONES = [
 
 function heckRevenueAt(day) {
   const steps = [
-    { from: 12, to: 28,           rate: 485 },
+    { from: 10, to: 28,           rate: 485 },
     { from: 28, to: 70,           rate: 2030 },
     { from: 70, to: DAYS_MAX + 1, rate: 3150 },
   ];
@@ -139,8 +138,8 @@ function ScrubberStage() {
 
   const dayInt = Math.round(day);
   const revenue = heckRevenueAt(day);
-  // Count only "live" milestones (i.e. agents in production). The audit
-  // delivery isn't an agent — it's the diagnostic that recommends them.
+  // Count only "live" milestones (i.e. agents in production). The teardown
+  // and scope-lock steps aren't agents — they're what happens before one ships.
   const heckShipped = HECK_MILESTONES.filter(
     m => m.day <= day && /\blive\b/i.test(m.title)
   ).length;
