@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Icon from './Icon.jsx';
-import { SERVICES, FAQS } from '../data.js';
+import { SERVICES, ALSO_AVAILABLE, FAQS } from '../data.js';
 
 export default function About() {
   return (
@@ -190,7 +190,7 @@ function Services() {
     <div className="services-block">
       <div className="services-head">
         <span className="eyebrow"><span className="dot"></span>How we engage</span>
-        <h3>Three ways in — all priced before the work starts.</h3>
+        <h3>Three steps. One door — and the first one is free.</h3>
       </div>
       <div className="svc-grid">
         {SERVICES.map((s) => (
@@ -215,7 +215,30 @@ function Services() {
         ))}
       </div>
 
+      <div className="svc-also">
+        <span className="mono" style={{ color: 'var(--fg-3)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+          Also available on request
+        </span>
+        <div className="svc-also-list">
+          {ALSO_AVAILABLE.map((a, i) => (
+            <span key={i} className="svc-also-item">{a}</span>
+          ))}
+        </div>
+      </div>
+
       <style>{`
+        .svc-also {
+          margin-top: 26px; padding-top: 22px;
+          border-top: 1px solid var(--line-soft);
+        }
+        .svc-also-list {
+          margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px;
+        }
+        .svc-also-item {
+          font-size: 13px; color: var(--fg-2);
+          padding: 6px 12px; border: 1px solid var(--line-soft);
+          border-radius: 20px;
+        }
         .services-block { margin-top: 32px; }
         .services-head {
           padding-bottom: 32px; margin-bottom: 24px;

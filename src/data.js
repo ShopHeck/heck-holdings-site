@@ -150,52 +150,39 @@ export const PROJECTS = [
 export const SERVICES = [
   {
     n: '01',
-    name: 'Audit',
-    price: '$2,500 · 5 business days',
-    desc: 'We shadow your team for five days, map every workflow, and deliver a ranked list of automations with ROI math you can take to your board.',
-    deliverables: ['Workflow map', 'Agent opportunity scorecard', 'ROI projection', 'Implementation plan', 'Risk register', 'Integration architecture'],
+    name: 'Teardown',
+    price: 'Free · 20 minutes',
+    desc: 'A 20-minute call where we find the single most expensive repetitive task in your week and put a real annual dollar figure on it. You get a written one-page teardown within 24 hours — yours to keep whether or not we ever work together.',
+    deliverables: ['One-page written teardown', 'Annual cost of the workflow', 'Plain-English agent spec', 'Honest go / no-go call'],
   },
   {
     n: '02',
-    name: 'Build',
-    price: 'Per-agent · 2–6 weeks',
-    desc: 'We design, build, and ship a production agent on your stack. You watch us work in a shared Linear board, in real time.',
-    deliverables: ['Production agent', 'Eval harness', 'Observability dashboard', 'Runbook'],
+    name: 'First Agent Sprint',
+    price: '$1,950 · 10 business days',
+    desc: 'One workflow, one agent, running in production on your real stack in ten business days — or you do not pay. Scope is fixed in writing before day one, so there is nothing to renegotiate later.',
+    deliverables: ['Production agent, live', 'Fixed scope agreed up front', 'Runbook + handoff walkthrough', '30-day watch window', 'Live in 10 days or it is free'],
   },
   {
     n: '03',
-    name: 'Deploy',
-    price: 'From $5,850 · 2–4 weeks',
-    desc: 'We install Hermes Agent on your hardware — or buy the hardware for you. A fully autonomous AI employee running 24/7 on-premise.',
-    deliverables: ['GPU workstation (optional)', 'Hermes Agent configured', 'Custom automations', 'Training & runbook'],
-  },
-  {
-    n: '04',
-    name: 'Integrate',
-    price: 'From $2,500 · 1–3 weeks',
-    desc: 'We connect ChatGPT, Claude, and Gemini to your CRM, email, calendar, and business tools — AI does real work inside your existing workflows.',
-    deliverables: ['Multi-model AI setup', 'Up to 10 tool connections', 'Custom workflows', 'Error handling & monitoring'],
-  },
-  {
-    n: '05',
-    name: 'Automate Content',
-    price: 'From $1,500 · 1–2 weeks',
-    desc: 'AI finds trends in your niche, creates draft content in your voice, and queues it for approval. One tap to publish or schedule.',
-    deliverables: ['Trend monitoring', '30–50 drafts/mo', 'One-tap approve', 'Auto-publish to all platforms'],
-  },
-  {
-    n: '06',
     name: 'Operate',
-    price: 'Monthly retainer',
-    desc: 'We own uptime, evals, and continuous improvement. You get a monthly brief and a Slack channel that’s actually answered.',
-    deliverables: ['24/7 monitoring', 'Monthly improvements', 'Weekly briefs', 'On-call support'],
+    price: 'From $600 / month',
+    desc: 'We own uptime, evals, and continuous improvement — one improvement shipped every month. You get a monthly brief and a Slack channel that is actually answered.',
+    deliverables: ['24/7 monitoring', 'One improvement per month', 'Monthly written brief', 'On-call support'],
   },
+];
+
+// Kept available on request, deliberately not part of the main ladder.
+export const ALSO_AVAILABLE = [
+  'On-premise deployment on your own hardware',
+  'Multi-model integration across your existing tools',
+  'Content automation pipelines',
+  'Full operations audit ($2,500 · 5 days)',
 ];
 
 export const FAQS = [
   {
     q: 'How long until we see results?',
-    a: 'First production agent in 3–6 weeks. Most clients hit ROI break-even inside the first 60 days — usually because the agent eliminates a job we didn’t even bill them to identify.',
+    a: 'Ten business days from kickoff to a working agent in production. That is the whole point of the sprint — if it is not live on day ten, you do not pay.',
   },
   {
     q: 'Will agents replace my team?',
@@ -206,11 +193,15 @@ export const FAQS = [
     a: 'Every agent ships with an eval harness, full observability, and a graceful-degradation path back to a human queue. We’re on Slack — and on the hook.',
   },
   {
+    q: 'Who have you built this for already?',
+    a: 'We are taking three founding clients at cost specifically to build local case studies with real numbers — which is exactly why the price is $1,950 with a money-back guarantee instead of five figures. You get our full attention at a price that will not exist once those case studies do.',
+  },
+  {
     q: 'Do you work with our stack?',
     a: 'If it has an API, a database, or even a half-decent web UI, yes. We’ve shipped against Salesforce, HubSpot, Shopify, Xero, Clio, Linear, Notion, and a 30-year-old AS/400.',
   },
   {
     q: 'How are you priced?',
-    a: 'Audits are a fixed fee. Builds are scoped per agent before work starts. Operate is a flat monthly retainer. No hourly billing, no surprise invoices, ever.',
+    a: 'The teardown is free. The First Agent Sprint is a fixed $1,950 — half up front, half on go-live, and nothing at all if it is not live in ten business days. Operate is a flat monthly retainer from $600. No hourly billing, no surprise invoices, ever.',
   },
 ];

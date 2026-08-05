@@ -42,7 +42,7 @@ export default function Cta() {
                 <span style={{ color: 'var(--accent)' }}>Get an agent designed for you</span> in 60 seconds.
               </h2>
               <p style={{ marginTop: 24, color: 'var(--fg-2)', fontSize: 'clamp(15px, 1.25vw, 18px)', lineHeight: 1.55, maxWidth: 640 }}>
-                Two questions. One agent spec. Real numbers. If it sounds wrong, hit refine. If it sounds right, that's your audit brief — book the call with it.
+                Two questions. One agent spec. Real numbers. If it sounds wrong, hit refine. If it sounds right, that's your teardown brief — book the free 20 minutes with it.
               </p>
             </div>
 
@@ -450,7 +450,7 @@ function SpecCard({ spec, onBook, onReset, errMsg, business, workflow }) {
 
       <div className="spec-cta">
         <button className="btn btn-primary" onClick={() => onBook && onBook({ business, workflow, spec })}>
-          Book the audit with this brief
+          Book my free teardown with this brief
           <Icon name="arrow-right" size={16} />
         </button>
         <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11.5, letterSpacing: '0.04em' }}>

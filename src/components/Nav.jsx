@@ -100,7 +100,7 @@ export default function Nav({ onCta }) {
             onClick={onCta}
             style={{ padding: '10px 18px', fontSize: 14 }}
           >
-            Book audit
+            Free teardown
             <Icon name="arrow-right" size={14} />
           </button>
           <button
@@ -150,7 +150,7 @@ export default function Nav({ onCta }) {
             onClick={() => { setOpen(false); onCta && onCta(); }}
             style={{ marginTop: 16, justifyContent: 'center' }}
           >
-            Book audit
+            Free teardown
             <Icon name="arrow-right" size={14} />
           </button>
         </div>
