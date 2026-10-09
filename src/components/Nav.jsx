@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Icon from './Icon.jsx';
 
 const LINKS = [
+  { href: '#products', label: 'Products' },
   { href: '#gap', label: 'The Gap' },
   { href: '#capabilities', label: 'Capabilities' },
   { href: '#calculator', label: 'ROI' },

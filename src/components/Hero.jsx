@@ -82,7 +82,7 @@ function HeroBadge() {
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
         3 founding clients at cost — 2 slots left
       </span>
-      <span className="mono" style={{ color: 'var(--fg-3)' }}>est. 2023 · St. Pete, FL</span>
+      <span className="mono" style={{ color: 'var(--fg-3)' }}>est. 2019 · Pinellas Park, FL</span>
     </div>
   );
 }

@@ -44,8 +44,8 @@ export default class ErrorBoundary extends Component {
         </h1>
         <p style={{ color: 'var(--fg-2)', maxWidth: 520, fontSize: 17, lineHeight: 1.5 }}>
           That's on us. Reload the page, or email{' '}
-          <a href="mailto:hello@heckholdings.com" style={{ color: 'var(--accent)' }}>
-            hello@heckholdings.com
+          <a href="mailto:michaelheckert@heckholdings.com" style={{ color: 'var(--accent)' }}>
+            michaelheckert@heckholdings.com
           </a>{' '}
           and we'll get back to you within the hour.
         </p>
