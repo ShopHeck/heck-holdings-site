@@ -2,7 +2,7 @@ const PRODUCTS = [
   {
     tag: 'iOS app', color: 'var(--accent)', name: 'Fight Camp Training',
     meta: 'Live on the App Store · launched July 2026',
-    body: 'A training-camp app for combat-sports athletes and coaches. Plan camps, log sessions, and track progress to fight night. Plans: Fighter Pro and Coach Pro.',
+    body: 'Builds a periodized week-by-week plan around your fight date, with a pro round timer, weight-cut tracking, and live heart-rate zones. Free to start; Fighter Pro and Coach Pro add AI insights, game plans, and a coach dashboard.',
     href: 'https://apps.apple.com/us/app/fight-camp-training/id6767876080', cta: 'View on the App Store',
   },
   {
