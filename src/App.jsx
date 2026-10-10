@@ -6,6 +6,7 @@ import Capabilities from './components/Capabilities.jsx';
 import Calculator from './components/Calculator.jsx';
 import Pricing from './components/Pricing.jsx';
 import Projects from './components/Projects.jsx';
+import Products from './components/Products.jsx';
 import About from './components/About.jsx';
 import Cta from './components/Cta.jsx';
 import { GlobalEffects } from './components/effects.jsx';
@@ -24,6 +25,7 @@ export default function App() {
     <>
       <Nav onCta={scrollToContact} />
       <Hero headline={HEADLINE} onCta={scrollToContact} />
+      <Products />
       <Gap animations={true} />
       <Days />
       <Capabilities />

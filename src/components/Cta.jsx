@@ -575,7 +575,7 @@ function ContactForm() {
         <span className="eyebrow"><span className="dot"></span>Prefer to talk to a human?</span>
         <h3>Skip the builder. Tell us what you need.</h3>
         <p>
-          Two-engineer shop — you'll be talking to the people who actually build the agents.
+          Founder-led — you'll be talking to the person who actually builds the agents.
           Fill this in and we'll open our calendar with your details already attached.
         </p>
       </div>
@@ -617,7 +617,7 @@ function ContactForm() {
           </button>
           <span className="mono cf-note">
             Opens Cal.com with your details attached · or email{' '}
-            <a href="mailto:hello@heckholdings.com">hello@heckholdings.com</a>
+            <a href="mailto:michaelheckert@heckholdings.com">michaelheckert@heckholdings.com</a>
           </span>
         </div>
       </form>
@@ -701,7 +701,7 @@ function Footer() {
       <div className="wrap flex between" style={{ alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
         <Logo />
         <div className="mono" style={{ color: 'var(--fg-3)', fontSize: 11.5 }}>
-          © 2026 Heck Holdings, LLC · St. Pete, FL · <a href="mailto:hello@heckholdings.com">hello@heckholdings.com</a>
+          © 2026 Heck Holdings LLC · Products operated by Shop Heck LLC · <a href="mailto:michaelheckert@heckholdings.com">michaelheckert@heckholdings.com</a>
         </div>
         <div className="flex gap-4 mono" style={{ color: 'var(--fg-3)', fontSize: 11.5 }}>
           <a

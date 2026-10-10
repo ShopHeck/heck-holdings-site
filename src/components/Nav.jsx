@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Icon from './Icon.jsx';
 
 const LINKS = [
+  { href: '#products', label: 'Products' },
   { href: '#gap', label: 'The Gap' },
   { href: '#capabilities', label: 'Capabilities' },
   { href: '#calculator', label: 'ROI' },
@@ -263,7 +264,7 @@ export default function Nav({ onCta }) {
           align-items: center;
           gap: 8px;
         }
-        @media (max-width: 880px) {
+        @media (max-width: 1280px) {
           .nav-links { display: none !important; }
           .nav-cta { display: none !important; }
           .nav-hamburger { display: inline-flex; }

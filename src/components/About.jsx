@@ -8,26 +8,26 @@ export default function About() {
       <div className="wrap">
         <div className="section-head">
           <span className="eyebrow"><span className="dot"></span>08 — Heck Holdings</span>
-          <h2>An AI consulting firm<br/><span style={{ color: 'var(--fg-3)' }}>that ships agents, not slide decks.</span></h2>
+          <h2>A product company<br/><span style={{ color: 'var(--fg-3)' }}>that ships software, not slide decks.</span></h2>
         </div>
 
         <div className="about-grid">
           <div className="about-intro">
             <p className="about-lead">
-              <span className="drop-cap">H</span>eck Holdings is a small, senior team with one focus: autonomous AI agents for small and mid-sized businesses. We design them, build them, and operate them — under one roof, by the same people.
+              <span className="drop-cap">H</span>eck Holdings is a founder-led software company. We build and run our own products — Fight Camp Training, the Athlete Sponsorship Portal, and Coordinate Studio — and we build autonomous AI agents for small and mid-sized businesses.
             </p>
             <p style={{ marginTop: 24, fontSize: 16, lineHeight: 1.65, color: 'var(--fg-2)' }}>
-              We don't sell software. We don't sell hours. We sell <em>agents that own a specific outcome</em>, then we stay on to make sure they keep owning it. We measure our work the way you measure yours — in hours reclaimed, dollars saved, and revenue moved.
+              Heck Holdings LLC (Delaware) is the holding company; our products are built and operated by Shop Heck LLC, based in Pinellas Park, FL. Founder Michael Heckert builds every product himself. Our agents follow the same rule as our products: <em>each one owns a specific outcome</em>, and we stay on to make sure it keeps owning it. We measure our work the way you measure yours — in hours reclaimed, dollars saved, and revenue moved.
             </p>
             <p style={{ marginTop: 20, fontSize: 16, lineHeight: 1.65, color: 'var(--fg-2)' }}>
               We start every engagement with a free 20-minute teardown, so you know exactly what you're buying before you spend a dollar. And half the fee is only due once the agent is live — never before.
             </p>
 
             <div className="about-facts">
-              <Fact label="Based" value="St. Pete, FL" />
-              <Fact label="Founded" value="2023" />
-              <Fact label="Team" value="2 engineers + ops" />
-              <Fact label="Availability" value="3 new clients" />
+              <Fact label="Based" value="Pinellas Park, FL" />
+              <Fact label="Operating since" value="2019" />
+              <Fact label="Team" value="Solo founder" />
+              <Fact label="Products" value="3 live + AI agents" />
             </div>
           </div>
 
