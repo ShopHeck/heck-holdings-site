@@ -11,6 +11,9 @@ const GROK_TEMPLATES = [
   { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Explainer Video Bot', meta: 'Free · import in one tap',
     body: 'Makes upload-ready, data-driven explainer videos with verified numbers, AI voice-over, motion graphics and real footage.',
     href: 'https://x.ai/bot/zxq6r61p79vJz0o1jZ8rE', cta: 'Get Explainer Video Bot' },
+  { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Startup Grant Scout', meta: 'Free · import in one tap',
+    body: 'Finds open, non-dilutive grants your startup can actually win, scores each on fit, and drafts applications for your approval.',
+    href: 'https://x.ai/bot/BAI6spVv_6v3ZVMFM3i6Q', cta: 'Get Startup Grant Scout' },
   // Distill — placeholder until a public template link exists.
   // { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Distill', meta: 'Free · import in one tap',
   //   body: 'One source in, ten ready-to-post drafts out in your voice for X, LinkedIn and your newsletter. Nothing posts without your OK.',
