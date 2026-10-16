@@ -106,6 +106,7 @@ function SectionRail() {
   const sections = [
     { id: 'top',          label: 'Top' },
     { id: 'products',     label: 'Products' },
+    { id: 'grok-templates', label: 'Templates' },
     { id: 'gap',          label: 'The Gap' },
     { id: 'days',         label: 'Days' },
     { id: 'capabilities', label: 'Capabilities' },
