@@ -14,6 +14,10 @@ const GROK_TEMPLATES = [
   { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Startup Grant Scout', meta: 'Free · import in one tap',
     body: 'Finds open, non-dilutive grants your startup can actually win, scores each on fit, and drafts applications for your approval.',
     href: 'https://x.ai/bot/BAI6spVv_6v3ZVMFM3i6Q', cta: 'Get Startup Grant Scout' },
+  { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Scorecard', icon: '🥊', meta: 'Free · import in one tap',
+    credit: 'Michael',
+    body: 'Every Monday, scores your last week on X like a fight against your 4-week baseline, with up to 3 fixes.',
+    href: 'https://x.ai/bot/tEsWijg6kaDbi-3aY6who', cta: 'Copy template' },
   { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Highlight Reel', meta: 'Free · import in one tap',
     body: 'Sports & fitness short-form content on autopilot. Turns your raw training footage into looping, beat-synced 9:16 hype reels with licensed music. Nothing posts without your OK.',
     href: 'https://x.ai/bot/Aq0hS2Z-fEtENFItAZeRI', cta: 'Get Highlight Reel' },
@@ -41,8 +45,14 @@ export default function GrokTemplates() {
                 <span style={{ width: 5, height: 5, borderRadius: '50%', background: p.color }} />
                 {p.tag}
               </span>
-              <h3 style={{ fontSize: 22, fontWeight: 600, marginTop: 16 }}>{p.name}</h3>
+              {p.icon ? (
+                <span aria-hidden="true" style={{ fontSize: 28, lineHeight: 1, marginTop: 16 }}>{p.icon}</span>
+              ) : null}
+              <h3 style={{ fontSize: 22, fontWeight: 600, marginTop: p.icon ? 10 : 16 }}>{p.name}</h3>
               <p className="mono" style={{ color: 'var(--fg-3)', marginTop: 4, fontSize: 11 }}>{p.meta}</p>
+              {p.credit ? (
+                <p className="mono" style={{ color: 'var(--fg-3)', marginTop: 4, fontSize: 11 }}>by {p.credit}</p>
+              ) : null}
               <p style={{ color: 'var(--fg-2)', marginTop: 14, fontSize: 14, lineHeight: 1.5, flex: 1 }}>{p.body}</p>
               <span className="mono" style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid var(--line-soft)', fontSize: 12, color: 'var(--fg)' }}>{p.cta} →</span>
             </a>
