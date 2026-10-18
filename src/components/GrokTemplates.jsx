@@ -21,10 +21,9 @@ const GROK_TEMPLATES = [
   { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Highlight Reel', meta: 'Free · import in one tap',
     body: 'Sports & fitness short-form content on autopilot. Turns your raw training footage into looping, beat-synced 9:16 hype reels with licensed music. Nothing posts without your OK.',
     href: 'https://x.ai/bot/Aq0hS2Z-fEtENFItAZeRI', cta: 'Get Highlight Reel' },
-  // Distill — placeholder until a public template link exists.
-  // { tag: 'Grok Bot template', color: '#c4b5fd', name: 'Distill', meta: 'Free · import in one tap',
-  //   body: 'One source in, ten ready-to-post drafts out in your voice for X, LinkedIn and your newsletter. Nothing posts without your OK.',
-  //   href: 'https://x.ai/bot/<DISTILL_ID>', cta: 'Get Distill' },
+  { tag: 'Grok Bot template', color: '#99f6e4', name: 'Distill', meta: 'Free · import in one tap',
+    body: 'One source in, ten ranked ready-to-post drafts out, in your voice. Nothing posts without your OK.',
+    href: 'https://x.ai/bot/dPj7ysFWJ-nTtWPwiZlih', cta: 'Get Distill' },
 ];
 
 export default function GrokTemplates() {
