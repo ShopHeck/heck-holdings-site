@@ -24,6 +24,12 @@ const GROK_TEMPLATES = [
   { tag: 'Grok Bot template', color: '#99f6e4', name: 'Distill', meta: 'Free · import in one tap',
     body: 'One source in, ten ranked ready-to-post drafts out, in your voice. Nothing posts without your OK.',
     href: 'https://x.ai/bot/dPj7ysFWJ-nTtWPwiZlih', cta: 'Get Distill' },
+  { tag: 'Grok Bot template', color: '#fcd34d', name: 'Undercut', meta: 'Free · import in one tap',
+    body: 'Drop in a bill. See what new customers pay near you, plus the exact script to get your price down. You make the call.',
+    href: 'https://x.ai/bot/mzY8PRsWQZCuKuTEFQteB', cta: 'Get Undercut' },
+  { tag: 'Grok Bot template', color: '#f9a8d4', name: 'Sponsor Scout', meta: 'Free · import in one tap',
+    body: 'Finds brands already sponsoring people like you, finds the real way in, and drafts the pitch. You hit send.',
+    href: 'https://x.ai/bot/HK7rbeEuMNDD3_RbYyvx6', cta: 'Get Sponsor Scout' },
 ];
 
 export default function GrokTemplates() {
