@@ -30,6 +30,9 @@ const GROK_TEMPLATES = [
   { tag: 'Grok Bot template', color: '#f9a8d4', name: 'Sponsor Scout', meta: 'Free · import in one tap',
     body: 'Finds brands already sponsoring people like you, finds the real way in, and drafts the pitch. You hit send.',
     href: 'https://x.ai/bot/HK7rbeEuMNDD3_RbYyvx6', cta: 'Get Sponsor Scout' },
+  { tag: 'Grok Bot template', color: '#86efac', name: 'Covered', meta: 'Free · import in one tap',
+    body: "Finds the free repairs, replacements, and warranty claims you're already owed on the stuff you own, and drafts the claim. You file it.",
+    href: 'https://x.ai/bot/JE8skJITEDqsPpFOZUsBh', cta: 'Get Covered' },
 ];
 
 export default function GrokTemplates() {
